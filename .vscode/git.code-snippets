@@ -1,0 +1,13 @@
+{
+    "Commit template": {
+        "scope": "git-commit",
+        "prefix": "co",
+        "body": [
+            "${1|build,ci,chore,docs,feat,fix,perf,refactor,revert,style,test|}(${2|chktex,indent,macros|}): $3",
+            "",
+            "$0",
+            ""
+        ],
+        "description": "Conventional Commits (local)"
+    }
+}
