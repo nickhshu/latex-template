@@ -1,0 +1,75 @@
+{
+    "Init LaTeX": {
+        "prefix": "init",
+        "body": [
+            "\\documentclass{article}",
+            "",
+            "\\input{macros}",
+            "",
+            "\\title{$1}",
+            "",
+            "\\author{Nick Shu}",
+            "\\date{\\today}",
+            "",
+            "\\begin{document}",
+            "",
+            "\\maketitle",
+            "",
+            "$0",
+            "",
+            "\\end{document}"
+        ]
+    },
+    "Init LaTeX (APA) ": {
+        "prefix": "init_apa",
+        "body": [
+            "\\documentclass{article}",
+            "",
+            "\\input{macros}",
+            "",
+            "\\title{$1}",
+            "",
+            "\\usepackage[backend=biber, style=${2:apa}]{biblatex}",
+            "\\addbibresource{$3.bib}",
+            "",
+            "\\author{Nick Shu}",
+            "\\date{\\today}",
+            "",
+            "\\begin{document}",
+            "",
+            "\\maketitle",
+            "",
+            "$0",
+            "",
+            "\\printbibliography{}",
+            "",
+            "\\end{document}"
+        ]
+    },
+    "Init LaTeX (Chicago)": {
+        "prefix": "init_chi",
+        "body": [
+            "\\documentclass{article}",
+            "",
+            "\\input{macros}",
+            "",
+            "\\title{$1}",
+            "",
+            "\\usepackage[authordate, backend=biber]{biblatex-chicago}",
+            "\\addbibresource{$3.bib}",
+            "",
+            "\\author{Nick Shu}",
+            "\\date{\\today}",
+            "",
+            "\\begin{document}",
+            "",
+            "\\maketitle",
+            "",
+            "$0",
+            "",
+            "\\printbibliography{}",
+            "",
+            "\\end{document}"
+        ]
+    }
+}
