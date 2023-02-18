@@ -18,7 +18,8 @@
             "$0",
             "",
             "\\end{document}"
-        ]
+        ],
+        "scope": "latex"
     },
     "Init LaTeX (APA) ": {
         "prefix": "init_apa",
@@ -44,7 +45,8 @@
             "\\printbibliography{}",
             "",
             "\\end{document}"
-        ]
+        ],
+        "scope": "latex"
     },
     "Init LaTeX (Chicago)": {
         "prefix": "init_chi",
@@ -70,6 +72,7 @@
             "\\printbibliography{}",
             "",
             "\\end{document}"
-        ]
+        ],
+        "scope": "latex"
     }
 }
