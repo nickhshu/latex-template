@@ -3,7 +3,7 @@
         "scope": "git-commit",
         "prefix": "co",
         "body": [
-            "${1|build,ci,chore,docs,feat,fix,perf,refactor,revert,style,test|}(${2|chktex,indent,macros|}): $3",
+            "${1|build,ci,chore,docs,feat,fix,perf,refactor,revert,style,test|}(${2|chktex,indent,macros,vscode|}): $3",
             "",
             "$0",
             ""
