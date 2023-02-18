@@ -4,6 +4,16 @@
 \usepackage{amsmath}
 \usepackage{amsthm}
 
+\usepackage[]{hyperref}
+\hypersetup{
+    allcolors = violet,
+    breaklinks = true,
+    colorlinks = true
+}
+
+% put this after hyperref and amsmath but before theorem environments
+\usepackage[capitalize,noabbrev]{cleveref}
+
 % The default (plain) style sets theorems in italics, while the definition
 % style will set them in Roman. Check the amsthm documentation for
 % more detail.
@@ -98,18 +108,6 @@
 % see also https://nick-shm.gitlab.io/notes-snippets/latex/graph/tables/
 \usepackage{tabularx}
 \usepackage{multirow}
-
-
-% -----------------------------------------------------------------------------
-% Links
-
-\usepackage[]{hyperref}
-\usepackage[capitalize,noabbrev]{cleveref} % load after hyperref
-\hypersetup{
-    allcolors = violet,
-    breaklinks = true,
-    colorlinks = true
-}
 
 % -----------------------------------------------------------------------------
 % Miscellaneous
