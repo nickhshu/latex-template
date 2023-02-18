@@ -1,0 +1,41 @@
+{
+    "latex-workshop.latex.tools": [
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                // "-xelatex",
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ],
+            "env": {}
+        }
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "latexmk",
+            "tools": ["latexmk"]
+        }
+    ],
+    "latex-workshop.latexindent.args": [
+        "-c",
+        "%DIR%/",
+        "%TMPFILE%",
+        "-l=%DIR%/.latexindent.yaml"
+    ],
+    "latex-workshop.linting.chktex.enabled": true,
+    "latex-workshop.linting.chktex.exec.args": [
+        "-l",
+        "%DIR%/.chktexrc",
+        "-wall",
+        "-q",
+        "-n22", // allow comments
+        "-n30", // allow mutiple spaces
+        "-e16" // mathmode still on at end of file
+    ],
+    "cSpell.words": ["amsthm", "chktex", "hyph", "pseudocode"]
+}

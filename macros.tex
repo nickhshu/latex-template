@@ -1,0 +1,124 @@
+% -----------------------------------------------------------------------------
+% Theorem environments
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+
+% The default (plain) style sets theorems in italics, while the definition
+% style will set them in Roman. Check the amsthm documentation for
+% more detail.
+\theoremstyle{definition}
+
+\newtheorem{theorem}{Theorem}
+% or use this to reset theorem counter for each section
+% \newtheorem{theorem}{Theorem}[section]
+
+% The starred versions produce unnumbered theorems, etc. Many of them
+% are commented to avoid confusion, as they are not frequently used.
+\newtheorem*{theorem*}{Theorem}
+
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+% \newtheorem*{corollary*}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem*{claim}{Claim}
+\newtheorem{definition}[theorem]{Definition}
+% \newtheorem{definition*}{Definition}
+\newtheorem{example}[theorem]{Example}
+% \newtheorem*{example*}{Example}
+\newtheorem{exercise}{Exercise}[section]
+% \newtheorem*{exercise*}{Exercise}
+
+\theoremstyle{remark}
+\newtheorem*{note}{Note}
+\newtheorem*{remark}{Remark}
+
+\usepackage{enumerate}
+\newenvironment{axioms}{\begin{enumerate}[\bf {Axiom} 1.]}{\end{enumerate}}
+\newenvironment{hypotheses}{
+    \begin{enumerate}[\bf {Hypothesis} 1.]}{\end{enumerate}}
+
+% -----------------------------------------------------------------------------
+% Math macros
+
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{physics}
+
+% to define commands with stars
+% \usepackage{suffix}
+
+\newcommand{\opn}[1]{\operatorname{#1}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\ii}{\mathrm{i}}
+
+\newcommand{\mm}[1]{\vb*{#1}}
+\newcommand{\vv}[1]{\vb*{#1}}
+
+% intervals
+% writing literal brackets might cause chktex false positives
+\usepackage{interval}
+\intervalconfig{soft open fences}
+
+% non-standard integral signs
+% \usepackage{esint}
+
+% -----------------------------------------------------------------------------
+% Other math related
+
+% reset the equation counter for each section
+% \numberwithin{equation}{section}
+
+% to label systems of equations
+% \usepackage{empheq}
+
+% -----------------------------------------------------------------------------
+% Figures, tables, code listings, etc.
+
+\usepackage[dvipsnames]{xcolor}
+
+% figures
+% \usepackage{tikz}
+% \usepackage{pgfplots}
+% \pgfplotsset{compat=1.18}
+% \usepgfplotslibrary{fillbetween}
+
+% pseudocode
+% \usepackage[noend]{algpseudocode}
+% \usepackage{algorithm}
+
+% tables
+% see also https://nick-shm.gitlab.io/notes-snippets/latex/graph/tables/
+\usepackage{tabularx}
+\usepackage{multirow}
+
+
+% -----------------------------------------------------------------------------
+% Links
+
+\usepackage[]{hyperref}
+\usepackage{cleveref}
+\hypersetup{
+    allcolors = violet,
+    breaklinks = true,
+    colorlinks = true
+}
+
+% -----------------------------------------------------------------------------
+% Miscellaneous
+
+% make all sections unnumbered
+% \setcounter{secnumdepth}{0}
+
+% to control spacing
+\usepackage{setspace}
+
+% smart quotation marks
+\usepackage[maxlevel=4]{csquotes}
