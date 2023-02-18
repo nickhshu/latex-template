@@ -1,4 +1,5 @@
 {
+    "explorer.sortOrder": "default",
     "latex-workshop.latex.tools": [
         {
             "name": "latexmk",
