@@ -38,5 +38,5 @@
         "-n30", // allow mutiple spaces
         "-e16" // mathmode still on at end of file
     ],
-    "cSpell.words": ["amsthm", "chktex", "hyph", "pseudocode"]
+    "cSpell.words": ["amsthm", "chktex", "hyph", "pseudocode", "subfigures"]
 }
