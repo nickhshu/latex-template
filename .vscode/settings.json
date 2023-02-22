@@ -26,12 +26,15 @@
         "-c",
         "%DIR%/",
         "%TMPFILE%",
-        "-l=%DIR%/.latexindent.yaml"
+        "-l=%WORKSPACE_FOLDER%/.latexindent.yaml"
     ],
     "latex-workshop.linting.chktex.enabled": true,
     "latex-workshop.linting.chktex.exec.args": [
-        "-l",
-        "%DIR%/.chktexrc",
+        // "-l",
+        // "%WS1%/.chktexrc",
+        // LaTeX Workshop will look for .chktexrc in the project root.
+        // However, there seems to be a issue that the plugin does not expand
+        // manually specified paths correctly.
         "-wall",
         "-q",
         "-n22", // allow comments
