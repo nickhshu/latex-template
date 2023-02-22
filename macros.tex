@@ -1,18 +1,17 @@
 % -----------------------------------------------------------------------------
 % Fonts
 
-% Libertine
-\usepackage[ttscale=.75]{libertine}
-\usepackage{libertinust1math}
-% LibertinusT1Math defines \vv, so it needs to be redefined after loading the
-% package
-\usepackage[T1]{fontenc}
+% Palatino
+\usepackage{newpxtext}
+\usepackage{amsmath}
+\usepackage{amsthm} % load before newpxmath
+\usepackage{newpxmath}
+
+% \usepackage{amsfonts}
+% \usepackage{amssymb}
 
 % -----------------------------------------------------------------------------
 % Theorem environments
-
-\usepackage{amsmath}
-\usepackage{amsthm}
 
 \usepackage[]{hyperref}
 \hypersetup{
@@ -63,8 +62,6 @@
 % -----------------------------------------------------------------------------
 % Math macros
 
-\usepackage{amsfonts}
-\usepackage{amssymb}
 \usepackage{mathtools}
 \usepackage{physics}
 
@@ -81,7 +78,7 @@
 
 \newcommand{\mm}[1]{\vb*{#1}}
 \renewcommand{\vv}[1]{\vb*{#1}}
-% overwrites \vv in LibertinusT1Math, which is also for vectors
+% overwrites \vv defined in newpxmath
 
 % intervals
 % writing literal brackets might cause chktex false positives

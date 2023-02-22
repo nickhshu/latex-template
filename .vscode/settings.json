@@ -46,7 +46,8 @@
         "amsthm",
         "chktex",
         "hyph",
-        "Libertinus",
+        "newpxmath",
+        "Palatino",
         "pseudocode",
         "subfigures"
     ]
