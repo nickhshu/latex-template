@@ -1,4 +1,14 @@
 % -----------------------------------------------------------------------------
+% Fonts
+
+% Libertine
+\usepackage{libertine}
+\usepackage{libertinust1math}
+% LibertinusT1Math defines \vv, so it needs to be redefined after loading the
+% package
+\usepackage[T1]{fontenc}
+
+% -----------------------------------------------------------------------------
 % Theorem environments
 
 \usepackage{amsmath}
@@ -70,7 +80,8 @@
 \newcommand{\ii}{\mathrm{i}}
 
 \newcommand{\mm}[1]{\vb*{#1}}
-\newcommand{\vv}[1]{\vb*{#1}}
+\renewcommand{\vv}[1]{\vb*{#1}}
+% overwrites \vv in LibertinusT1Math, which is also for vectors
 
 % intervals
 % writing literal brackets might cause chktex false positives
@@ -88,12 +99,6 @@
 
 % to label systems of equations
 % \usepackage{empheq}
-
-% -----------------------------------------------------------------------------
-% Fonts
-
-% Libertine
-\usepackage{libertine}
 
 % -----------------------------------------------------------------------------
 % Figures, tables, code listings, etc.
