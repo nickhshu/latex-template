@@ -5,5 +5,3 @@ defaultIndent: "    "
 
 noAdditionalIndent:
   doublespaced: 1
-  itemize: 1
-  enumerate: 1
