@@ -11,6 +11,8 @@
                 "-interaction=nonstopmode",
                 "-file-line-error",
                 "-pdf",
+                "-auxdir=aux",
+                "-emulate-aux-dir",
                 "%DOC%"
             ],
             "env": {}

@@ -1,5 +1,7 @@
 .DS_Store
 
+aux
+
 # since *.pdf might exclude image files, explicitly ignore document PDF files
 
 # ------------------------------------------------------------------------------
