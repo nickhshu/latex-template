@@ -42,7 +42,7 @@
             "",
             "$0",
             "",
-            "\\printbibliography{}",
+            "\\printbibliography[heading=bibintoc]{}",
             "",
             "\\end{document}"
         ],
@@ -69,7 +69,7 @@
             "",
             "$0",
             "",
-            "\\printbibliography{}",
+            "\\printbibliography[heading=bibintoc]{}",
             "",
             "\\end{document}"
         ],
