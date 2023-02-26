@@ -4,4 +4,4 @@ indentRules:
 defaultIndent: "    "
 
 noAdditionalIndent:
-  doublespaced: 1
+  doublespace: 1
