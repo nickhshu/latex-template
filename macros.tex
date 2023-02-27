@@ -135,6 +135,29 @@
 \usepackage{multirow}
 
 % -----------------------------------------------------------------------------
+% Bibliography
+
+% APA
+% \usepackage[backend=biber, style=apa]{biblatex}
+
+% Chicago (author-date)
+% \usepackage[authordate, backend=biber]{biblatex-chicago}
+
+% usage
+% add to preamble:
+% \addbibresource{file.bib}
+% print bibliography:
+% \printbibliography[heading=bibintoc]{}
+
+% The following lines make \citeyear and \citeyearpar links. Usually
+% \textcite{} is used. However, this is needed to typeset `name's (year)'.
+
+% \DeclareCiteCommand{\citeyear}
+% {}{\bibhyperref{\printfield{year}}}{\multicitedelim}{}
+% \DeclareCiteCommand{\citeyearpar}
+% {}{\mkbibparens{\bibhyperref{\printfield{year}}}}{\multicitedelim}{}
+
+% -----------------------------------------------------------------------------
 % Miscellaneous
 
 % make all sections unnumbered
