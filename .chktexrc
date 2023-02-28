@@ -2,6 +2,7 @@ CmdLine
 {
     -wall
     -q
+    -n17 # allow mismatched () and [] (for the entire document)
     -n22 # allow comments
     -n30 # allow multiple spaces
     -e16 # math mode still on at end of file
