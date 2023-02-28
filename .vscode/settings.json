@@ -36,11 +36,8 @@
         // LaTeX Workshop will look for .chktexrc in the project root.
         // However, there seems to be a issue that the plugin does not expand
         // manually specified paths correctly.
-        "-wall",
-        "-q",
-        "-n22", // allow comments
-        "-n30", // allow mutiple spaces
-        "-e16" // mathmode still on at end of file
+        //
+        // All other options are specified in `.chktexrc`.
     ],
     "cSpell.words": [
         "amsthm",
