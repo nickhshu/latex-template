@@ -42,11 +42,14 @@
     "cSpell.words": [
         "amsthm",
         "chktex",
+        "chktexrc",
         "doublespace",
         "hyph",
         "newpxmath",
         "Palatino",
         "pseudocode",
-        "subfigures"
+        "subfigures",
+        "texlive",
+        "texmf"
     ]
 }

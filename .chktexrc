@@ -1,3 +1,7 @@
+# The default chktexrc locate at
+# /usr/local/texlive/year/texmf-dist/chktex (replace year with the actual
+# year).
+
 CmdLine
 {
     -wall
