@@ -4,6 +4,15 @@ aux
 
 # since *.pdf might exclude image files, explicitly ignore document PDF files
 
+# lwarp
+
+lwarp*
+*_html.tex
+*-images.txt
+*.lwarpmkconf
+sample_project.css
+*.html
+
 # ------------------------------------------------------------------------------
 
 ## Core latex/pdflatex auxiliary files:
