@@ -71,6 +71,7 @@ clean:
 clean_all: clean
 	$(latexmk_basic) -C
 	$(latexmk_with_aux) -C
+	rm -f *.synctex.gz
 	rm -f $(pngs)
 	-lwarpmk cleanall
 	rm -f lwarp.css
