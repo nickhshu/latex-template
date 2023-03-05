@@ -5,3 +5,4 @@ defaultIndent: "    "
 
 noAdditionalIndent:
   doublespace: 1
+  multicols: 1
