@@ -1,42 +1,64 @@
-# Use this Makefile only when lwarp is needed.
-# Even when in that case, it is recommended to write normally first.
+# WARNING: This Makefile is not thoroughly tested.
 
-pdf_only_target =
-html_target =
+# Use sparingly. Usually the VS Code intergration is good enough.
+# Even when this Makefile is needed, use VS Code during the first writing.
+
+# Simple targets that only relies on the `.tex` file itself and `macros.tex`
+# Do not add extension names for these
+pdf_only_targets =
+html_targets =
+png_targets =
+
+# Rules for special targets, scuh as PDFs that relies on figures, need to be
+# specified mannually. Also remember to add them to `all`.
+special_targets :=
 
 # --------------------------------------------------------------------
 
+# HTML targets should not be compiled with -auxdir
+non_html_targets = $(pdf_only_targets) $(png_targets)
+pdfs_non_html = $(addsuffix .pdf, $(non_html_targets))
+pdfs_pdf_only = $(addsuffix .pdf, $(pdf_only_targets))
+
+pdfs_html = $(addsuffix .pdf, $(html_targets))
+_html.pdfs = $(addsuffix _html.pdf, $(html_targets))
+htmls = $(addsuffix .html, $(html_targets))
+
+pngs = $(addsuffix .png, $(png_targets))
+
+latexmk_basic := latexmk -interaction=nonstopmode -synctex=1 \
+	-file-line-error -pdf
+latexmk_aux_options = -auxdir=aux -emulate-aux-dir
+latexmk_with_aux = $(latexmk_basic) $(latexmk_aux_options)
+
+macros_tex := macros.tex
+
+.DELETE_ON_ERROR:
 .PHONY: all
-all:
-	@echo 'Use target names'
+all: $(pdfs_pdf_only) $(htmls) $(pngs)
 
-latexmk_pdf_only := latexmk -silent -pdf -auxdir=aux -emulate-aux-dir
-latexmk_lwarp := latexmk -silent -pdf
+$(pdfs_non_html): %.pdf: %.tex $(macros_tex)
+	$(latexmk_with_aux) $<
 
-.PHONY: $(pdf_only_target)
-$(pdf_only_target): $(pdf_only_target).pdf
+$(pdfs_html): %.pdf: %.tex $(macros_tex)
+	$(latexmk_basic) $<
 
-$(pdf_only_target): $(pdf_only_target).tex macros.tex
-	$(latexmk_pdf_only) $(pdf_only_target).tex
+$(_html.pdfs): %_html.pdf: %_html.tex macros.tex
+	$(latexmk_basic) $<
 
-.PHONY: $(html_target)
-$(html_target): $(html_target).pdf $(html_target).html
+$(htmls): %.html: %_html.pdf
+	lwarpmk pdftohtml $<
 
-$(html_target).pdf $(html_target)_html.tex: $(html_target).tex macros.tex
-	$(latexmk_lwarp) $(html_target).tex
-
-$(html_target)_html.pdf: $(html_target)_html.tex
-	$(latexmk_lwarp) $(html_target)_html.tex
-
-$(html_target).html: $(html_target)_html.pdf
-	lwarpmk pdftohtml $(html_target)_html.pdf
+$(pngs): %.png: %.pdf
+	convert -density 300 $< -quality 90 $@
 
 .PHONY: clean
 clean:
-	latexmk -c
+	$(latexmk_basic) -c
+	$(latexmk_with_aux) -c
 	rm -rf aux
 	rm -f *.run.xml
-	lwarpmk clean
+	-lwarpmk clean
 	rm -f *_html.tex
 	rm -f lwarp_formal.css lwarp_sagebrush.css sample_project.css
 	rm -f *-images.txt
@@ -45,9 +67,10 @@ clean:
 	rm -f *.lwarpmkconf
 
 .PHONY: clean_all
-clean_all:
-	latexmk -C
-	lwarpmk cleanall
+clean_all: clean
+	$(latexmk_basic) -C
+	$(latexmk_with_aux) -C
+	rm -f $(pngs)
+	-lwarpmk cleanall
 	rm -f lwarp.css
 	rm -f lwarpmk.conf
-# removing `lwarpmk.conf` will cause `lwarpmk clean` to fail
