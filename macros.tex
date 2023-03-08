@@ -1,14 +1,42 @@
 % -----------------------------------------------------------------------------
 % Fonts
 
-% Palatino
-\usepackage{newpxtext}
+% Load math packages before fonts
 \usepackage{amsmath}
-\usepackage{amsthm} % load before newpxmath
-\usepackage{newpxmath}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{physics}
 
+% Computer Modern (default)
 % \usepackage{amsfonts}
 % \usepackage{amssymb}
+
+% Palatino (`newpx`)
+% \usepackage{newpxtext}
+% \usepackage{newpxmath}
+
+% Palatino (`unicode-math`, supports italic and upright greek letters)
+\usepackage[
+    math-style=ISO, bold-style=literal,
+    mathrm=sym, mathit=sym, mathsf=sym, mathbf=sym, mathtt=sym,
+    warnings-off={mathtools-colon,mathtools-overbracket},
+]{unicode-math}
+\setmainfont[
+    BoldFont = {texgyrepagella-bold.otf},
+    ItalicFont = {texgyrepagella-italic.otf},
+    BoldItalicFont = {texgyrepagella-bolditalic.otf}
+]{texgyrepagella-regular.otf}
+\setmathfont[
+    FakeBold = 3
+]{texgyrepagella-math.otf}
+
+\let\boldsymbol\symbfit{}
+% otherwise `physics` will not function properly
+
+% For other high-quality fonts with math support, see
+% - the list of compatible fonts to `unicode-math` (check `README.md`)
+% - https://wiki.carleton.edu/download/attachments/20155418/fontguide.pdf
+% - https://tex.stackexchange.com/questions/425098/which-opentype-math-fonts-are-available
 
 % -----------------------------------------------------------------------------
 % HTML Conversion (lwarp)
@@ -81,9 +109,6 @@
 % -----------------------------------------------------------------------------
 % Math macros
 
-\usepackage{mathtools}
-\usepackage{physics}
-
 % to define commands with stars
 % \usepackage{suffix}
 
@@ -96,8 +121,10 @@
 \newcommand{\ii}{\mathrm{i}}
 
 \newcommand{\mm}[1]{\vb*{#1}}
-\renewcommand{\vv}[1]{\vb*{#1}}
-% overwrites \vv defined in newpxmath
+\newcommand{\vv}[1]{\vb*{#1}}
+
+% \renewcommand{\vv}[1]{\vb*{#1}}
+% if `newpxmath` is used
 
 % intervals
 % writing literal brackets might cause chktex false positives

@@ -28,7 +28,7 @@ htmls = $(addsuffix .html, $(html_targets))
 pngs = $(addsuffix .png, $(png_targets))
 
 latexmk_basic := latexmk -interaction=nonstopmode -synctex=1 \
-	-file-line-error -pdf
+	-file-line-error -xelatex
 latexmk_aux_options = -auxdir=aux -emulate-aux-dir
 latexmk_with_aux = $(latexmk_basic) $(latexmk_aux_options)
 

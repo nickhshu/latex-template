@@ -5,11 +5,10 @@
             "name": "latexmk",
             "command": "latexmk",
             "args": [
-                // "-xelatex",
+                "-xelatex",
                 "-synctex=1",
                 "-interaction=nonstopmode",
                 "-file-line-error",
-                "-pdf",
                 "-auxdir=aux",
                 "-emulate-aux-dir",
                 "%DOC%"
@@ -47,6 +46,7 @@
         "hyph",
         "lwarp",
         "multicols",
+        "newpx",
         "newpxmath",
         "Palatino",
         "pseudocode",
