@@ -18,3 +18,4 @@ lookForAlignDelims:
   Bmatrix*: 1
   vmatrix*: 1
   Vmatrix*: 1
+  game: 1
