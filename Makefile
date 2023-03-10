@@ -21,7 +21,7 @@ pdfs_non_html = $(addsuffix .pdf, $(non_html_targets))
 pdfs_pdf_only = $(addsuffix .pdf, $(pdf_only_targets))
 
 pdfs_html = $(addsuffix .pdf, $(html_targets))
-_html_texs = $(addsuffix _html.tex, $(html_targets))
+_html.texs = $(addsuffix _html.tex, $(html_targets))
 _html.pdfs = $(addsuffix _html.pdf, $(html_targets))
 htmls = $(addsuffix .html, $(html_targets))
 
@@ -37,10 +37,10 @@ macros_tex := macros.tex
 .PHONY: all
 all: $(pdfs_pdf_only) $(htmls) $(pngs)
 
-$(pdfs_non_html) $(_html_texs): %.pdf: %.tex $(macros_tex)
+$(pdfs_non_html): %.pdf: %.tex $(macros_tex)
 	$(latexmk_with_aux) $<
 
-$(pdfs_html): %.pdf: %.tex $(macros_tex)
+$(_html.texs): %_html.tex: %.tex $(macros_tex)
 	$(latexmk_basic) $<
 
 $(_html.pdfs): %_html.pdf: %_html.tex macros.tex
