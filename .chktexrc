@@ -38,4 +38,10 @@ WipeArg
     \textipa:{}
 
     \texttt:{}
+    \todo:{}
+}
+
+UserWarn
+{
+    \todo
 }
