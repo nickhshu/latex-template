@@ -6,6 +6,7 @@ CmdLine
 {
     -wall
     -q
+    -n3  # allow `()^2`
     -n17 # allow mismatched () and [] (for the entire document)
     -n22 # allow comments
     -n30 # allow multiple spaces
