@@ -10,3 +10,11 @@ defaultIndent: "    "
 noAdditionalIndent:
   doublespace: 1
   multicols: 1
+
+lookForAlignDelims:
+  matrix*: 1
+  pmatrix*: 1
+  bmatrix*: 1
+  Bmatrix*: 1
+  vmatrix*: 1
+  Vmatrix*: 1
