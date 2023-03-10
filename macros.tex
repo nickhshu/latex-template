@@ -18,7 +18,7 @@
 % Palatino (TeX Gyre Pagella with `unicode-math`)
 % This combination supports italic and upright greek letters.
 \usepackage[
-    math-style=ISO, bold-style=literal,
+    math-style=ISO, bold-style=ISO,
     mathrm=sym, mathit=sym, mathsf=sym, mathbf=sym, mathtt=sym,
     warnings-off={mathtools-colon,mathtools-overbracket},
 ]{unicode-math}
@@ -118,7 +118,7 @@
 % Math macros
 
 % to define commands with stars
-% \usepackage{suffix}
+\usepackage{suffix}
 
 \newcommand{\opn}[1]{\operatorname{#1}}
 
@@ -129,11 +129,19 @@
 \newcommand{\ii}{\mathrm{i}}
 \newcommand{\ppi}{\mathrm{\pi}}
 
-\newcommand{\mm}[1]{\vb*{#1}}
+% There is, as far as I know, no straightforward way to typeset bold math.
+% The problem is that font commands in `unicode-math` do not nest. Therefore
+% we need different commands for bold upright and bold italic letters.
+\newcommand{\mm}[1]{\symbfit{#1}}
+\WithSuffix\newcommand\mm*[1]{\symbfup{#1}}
+\newcommand{\vv}[1]{\symbfit{#1}}
+\WithSuffix\newcommand\vv*[1]{\symbfup{#1}}
 
-\newcommand{\vv}[1]{\vb*{#1}}
-% or use this instead if `newpxmath` is used
-% \renewcommand{\vv}[1]{\vb*{#1}}
+% if `unicode-math` is not used
+% \newcommand{\mm}[1]{\vb*{#1}}
+% \WithSuffix\newcommand\mm*[1]{\vb{#1}}
+% \newcommand{\vv}[1]{\vb*{#1}} % use `\renewcommand` if `newpxmath` is used
+% \WithSuffix\newcommand\vv*[1]{\vb{#1}}
 
 % -----------------------------------------------------------------------------
 % Figures, tables, code listings, etc.
