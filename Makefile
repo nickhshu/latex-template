@@ -15,7 +15,7 @@ special_targets :=
 
 # --------------------------------------------------------------------
 
-# HTML targets should not be compiled with -auxdir
+# HTML targets should not be compiled with `-auxdir`
 non_html_targets = $(pdf_only_targets) $(png_targets)
 pdfs_non_html = $(addsuffix .pdf, $(non_html_targets))
 pdfs_pdf_only = $(addsuffix .pdf, $(pdf_only_targets))
