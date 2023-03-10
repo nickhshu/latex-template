@@ -15,6 +15,11 @@ sample_project.css
 
 # ------------------------------------------------------------------------------
 
+template_test.tex
+template_test.pdf
+
+# ------------------------------------------------------------------------------
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
