@@ -1,7 +1,14 @@
-# WARNING: This Makefile is not thoroughly tested.
-
+# WARNING:
+# This Makefile is premature and not thoroughly tested.
 # Use sparingly. Usually the VS Code intergration is good enough.
 # Even when this Makefile is needed, use VS Code during the first writing.
+
+# LIMITATIONS:
+# Compiling and cleaning LaTeX files within subdirectories is not yet
+# supported. Compiling can be done by specifying `-out_dir` or `cd`ing
+# into the directory. However, cleaning is harder to support.
+
+# --------------------------------------------------------------------
 
 # Simple targets that only relies on the `.tex` file itself and `macros.tex`
 # Do not add extension names for these
