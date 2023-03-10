@@ -1,21 +1,24 @@
 % -----------------------------------------------------------------------------
-% Fonts
+% Math packages that needs to be loaded before fonts
 
-% Load math packages before fonts
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{mathtools}
 \usepackage{physics}
 
+% -----------------------------------------------------------------------------
+% Fonts
+
 % Computer Modern (default)
 % \usepackage{amsfonts}
 % \usepackage{amssymb}
 
-% Palatino (`newpx`)
+% Palatino (New PX)
 % \usepackage{newpxtext}
 % \usepackage{newpxmath}
 
-% Palatino (`unicode-math`, supports italic and upright greek letters)
+% Palatino (TeX Gyre Pagella with `unicode-math`)
+% This combination supports italic and upright greek letters.
 \usepackage[
     math-style=ISO, bold-style=literal,
     mathrm=sym, mathit=sym, mathsf=sym, mathbf=sym, mathtt=sym,
@@ -27,9 +30,7 @@
     BoldItalicFont = {texgyrepagella-bolditalic.otf}
 ]{texgyrepagella-regular.otf}
 \setmathfont{texgyrepagella-math.otf}
-
-\let\boldsymbol\symbfit{}
-% otherwise `physics` will not function properly
+\let\boldsymbol\symbfit{} % otherwise `physics` will not function properly
 
 % For other high-quality fonts with math support, see
 % - the list of compatible fonts to `unicode-math` (check `README.md`)
@@ -39,17 +40,20 @@
 % -----------------------------------------------------------------------------
 % HTML Conversion (lwarp)
 
-% Put after fonts but before everything else
+% put this after fonts and before everything else
 % \usepackage[latexmk,mathjax]{lwarp}
+
+% Note that MathJax does not work properly at the moment. Math-related macros
+% needs to be defined again for MathJax. See section 8.7.6 of the manual.
 
 % -----------------------------------------------------------------------------
 % Indices
 
-% put before hyperref
+% put this before `hyperref`
 % \usepackage{imakeidx}
 % \makeindex[title=Index, intoc=true]
 
-% use the following line to print the index
+% put this at the end of the document to print the index
 % \printindex
 
 % -----------------------------------------------------------------------------
@@ -62,7 +66,7 @@
     colorlinks = true
 }
 
-% put this after hyperref and amsmath, but before theorem environments
+% put this after `hyperref` and `amsmath`, but before theorem environments
 \usepackage[capitalize,noabbrev]{cleveref}
 
 % -----------------------------------------------------------------------------
@@ -98,10 +102,10 @@
 \newtheorem*{note}{Note}
 \newtheorem*{remark}{Remark}
 
-\usepackage{enumerate}
-\newenvironment{axioms}{\begin{enumerate}[\bf {Axiom} 1.]}{\end{enumerate}}
-\newenvironment{hypotheses}{
-    \begin{enumerate}[\bf {Hypothesis} 1.]}{\end{enumerate}}
+% \usepackage{enumerate}
+% \newenvironment{axioms}{\begin{enumerate}[\bf {Axiom} 1.]}{\end{enumerate}}
+% \newenvironment{hypotheses}{
+%     \begin{enumerate}[\bf {Hypothesis} 1.]}{\end{enumerate}}
 
 % -----------------------------------------------------------------------------
 % Math macros
@@ -119,18 +123,10 @@
 \newcommand{\ppi}{\mathrm{\pi}}
 
 \newcommand{\mm}[1]{\vb*{#1}}
+
 \newcommand{\vv}[1]{\vb*{#1}}
-
+% or use this instead if `newpxmath` is used
 % \renewcommand{\vv}[1]{\vb*{#1}}
-% if `newpxmath` is used
-
-% intervals
-% writing literal brackets might cause chktex false positives
-\usepackage{interval}
-\intervalconfig{soft open fences}
-
-% non-standard integral signs
-% \usepackage{esint}
 
 % -----------------------------------------------------------------------------
 % Other math related
@@ -144,8 +140,8 @@
 \usepackage[dvipsnames]{xcolor}
 
 % subfigures
-\usepackage{caption}
-\usepackage{subcaption}
+% \usepackage{caption}
+% \usepackage{subcaption}
 
 % figures
 % It is recommended to create separate files for figures.
@@ -171,15 +167,13 @@
 % Chicago (author-date)
 % \usepackage[authordate, backend=biber]{biblatex-chicago}
 
-% usage
-% add to preamble:
+% add this to the preamble
 % \addbibresource{file.bib}
-% print bibliography:
+
+% and print bibliography with this
 % \printbibliography[heading=bibintoc]{}
 
-% The following lines make \citeyear and \citeyearpar links. Usually
-% \textcite{} is used. However, this is needed to typeset `name's (year)'.
-
+% make `\citeyear` and `\citeyearpar` links (to typeset "name's (year)")
 % \DeclareCiteCommand{\citeyear}
 % {}{\bibhyperref{\printfield{year}}}{\multicitedelim}{}
 % \DeclareCiteCommand{\citeyearpar}
