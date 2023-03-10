@@ -59,6 +59,8 @@
         "eqref",
         "hyph",
         "includeonly",
+        "latexindent",
+        "libexec",
         "listinginput",
         "lwarp",
         "multicols",
