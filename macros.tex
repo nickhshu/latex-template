@@ -66,33 +66,32 @@
 \usepackage[capitalize,noabbrev]{cleveref}
 
 % -----------------------------------------------------------------------------
-% Theorem environments
+% Theorem environments and theorem/equation counters
 
-% The default (plain) style sets theorems in italics, while the definition
-% style will set them in Roman. Check the amsthm documentation for
-% more detail.
-\theoremstyle{definition}
+% reset the equation counter for each page
+% \numberwithin{equation}{page}
 
 \newtheorem{theorem}{Theorem}
-% or use this to reset theorem counter for each section
-% \newtheorem{theorem}{Theorem}[section]
+% or use this to reset the theorem counter for each page
+% \newtheorem{theorem}{Theorem}[page]
 
-% The starred versions produce unnumbered theorems, etc. Many of them
-% are commented to avoid confusion, as they are not frequently used.
-\newtheorem*{theorem*}{Theorem}
+% Starred versions produce unnumbered environments. Many of them are commented
+% to avoid confusion, since they are rarely used.
 
+% \newtheorem*{theorem*}{Theorem}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem*{lemma*}{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
 % \newtheorem*{corollary*}{Corollary}
+\newtheorem*{claim}{Claim}
+% \newtheorem*{claim*}{Claim}
 
 \theoremstyle{definition}
-\newtheorem*{claim}{Claim}
 \newtheorem{definition}[theorem]{Definition}
 % \newtheorem{definition*}{Definition}
 \newtheorem{example}[theorem]{Example}
 % \newtheorem*{example*}{Example}
-\newtheorem{exercise}{Exercise}[section]
+\newtheorem{exercise}[theorem]{Exercise}
 % \newtheorem*{exercise*}{Exercise}
 
 \theoremstyle{remark}
@@ -135,9 +134,6 @@
 
 % -----------------------------------------------------------------------------
 % Other math related
-
-% reset the equation counter for each section
-% \numberwithin{equation}{section}
 
 % to label systems of equations
 % \usepackage{empheq}
