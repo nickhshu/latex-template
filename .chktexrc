@@ -27,4 +27,9 @@ WipeArg
 UserWarn
 {
     \todo
+    \dots \ldots
+}
+
+Silent{
+    \BracketedLips \lips
 }
