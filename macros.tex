@@ -67,14 +67,9 @@
 \usepackage[capitalize,noabbrev]{cleveref}
 
 % -----------------------------------------------------------------------------
-% Theorem environments and theorem/equation counters
+% Proclamation environments
 
-% reset the equation counter for each page
-% \numberwithin{equation}{page}
-
-\newtheorem{theorem}{Theorem}
-% or use this to reset the theorem counter for each page
-% \newtheorem{theorem}{Theorem}[page]
+\newtheorem{theorem}{Theorem}[page]
 
 % Starred versions produce unnumbered environments. Many of them are commented
 % to avoid confusion, since they are rarely used.
@@ -103,6 +98,13 @@
 % \newenvironment{axioms}{\begin{enumerate}[\bf {Axiom} 1.]}{\end{enumerate}}
 % \newenvironment{hypotheses}{
 %     \begin{enumerate}[\bf {Hypothesis} 1.]}{\end{enumerate}}
+
+% -----------------------------------------------------------------------------
+% Numbering equations, figures, tables, etc.
+
+\numberwithin{equation}{page}
+\numberwithin{figure}{page}
+\numberwithin{table}{page}
 
 % -----------------------------------------------------------------------------
 % Additional math packages
