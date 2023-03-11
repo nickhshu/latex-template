@@ -29,15 +29,6 @@
         "-l=%WORKSPACE_FOLDER%/.latexindent.yaml"
     ],
     "latex-workshop.linting.chktex.enabled": true,
-    "latex-workshop.linting.chktex.exec.args": [
-        // "-l",
-        // "%WS1%/.chktexrc",
-        // LaTeX Workshop will look for .chktexrc in the project root.
-        // However, there seems to be a issue that the plugin does not expand
-        // manually specified paths correctly.
-        //
-        // All other options are specified in `.chktexrc`.
-    ],
     "cSpell.words": [
         "amsthm",
         "beamer",
