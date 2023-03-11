@@ -33,6 +33,7 @@
         "amsthm",
         "beamer",
         "bmatrix",
+        "cbmio",
         "chktex",
         "chktexrc",
         "delims",

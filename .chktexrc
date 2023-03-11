@@ -27,7 +27,12 @@ WipeArg
 UserWarn
 {
     \todo
-    \dots \ldots
+    \ldots
+}
+
+UserWarnRegex
+{
+    \\dots[^cbmio]
 }
 
 Silent{
