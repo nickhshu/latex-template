@@ -28,6 +28,11 @@
     BoldItalicFont = {texgyrepagella-bolditalic.otf}
 ]{texgyrepagella-regular.otf}
 \setmathfont{texgyrepagella-math.otf}
+% The font does not have `\setminus`, possibly a bug.
+% See https://tex.stackexchange.com/a/140343
+\AtBeginDocument{
+    \renewcommand{\setminus}{\mathbin{\backslash}}%
+}
 
 % For other high-quality fonts with math support, see
 % - the list of compatible fonts to `unicode-math` (check `README.md`)
