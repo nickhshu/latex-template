@@ -38,6 +38,8 @@
         "chktexrc",
         "delims",
         "doublespace",
+        "egame",
+        "Envir",
         "hyph",
         "latexindent",
         "libexec",

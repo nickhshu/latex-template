@@ -38,3 +38,7 @@ UserWarnRegex
 Silent{
     \BracketedLips \lips
 }
+
+VerbEnvir{
+    egame
+}
