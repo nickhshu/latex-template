@@ -7,7 +7,7 @@
             "args": [
                 "-lualatex",
                 "-synctex=1",
-                "-interaction=nonstopmode",
+                "-halt-on-error",
                 "-file-line-error",
                 "-auxdir=aux",
                 "-emulate-aux-dir",
