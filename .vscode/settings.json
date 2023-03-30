@@ -29,6 +29,13 @@
         "-l=%WORKSPACE_FOLDER%/.latexindent.yaml"
     ],
     "latex-workshop.linting.chktex.enabled": true,
+    "latex-workshop.linting.chktex.exec.args": ["-l", "./nonexistent"],
+    // Work around an issue. ChkTeX will detect `.chktexrc` file in the current
+    // directory. However, the LaTeX Workshop extension will specify the same
+    // file again by the `-l` option. The file will thus be read twice. If the
+    // file contains any user-defined pattern, ChkTeX will warning about the
+    // same occurrence twice. The only workaround is to specify a non-existent
+    // file for the LaTeX Workshop extension.
     "cSpell.words": [
         "amsthm",
         "beamer",
