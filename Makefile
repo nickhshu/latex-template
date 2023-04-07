@@ -34,7 +34,7 @@ htmls = $(addsuffix .html, $(html_targets))
 
 pngs = $(addsuffix .png, $(png_targets))
 
-latexmk_basic = latexmk -synctex=1 -xelatex -file-line-error -halt-on-error
+latexmk_basic = latexmk -synctex=1 -xelatex -file-line-error -halt-on-error -cd
 latexmk_aux_options = -auxdir=aux -emulate-aux-dir
 latexmk_with_aux = $(latexmk_basic) $(latexmk_aux_options)
 
