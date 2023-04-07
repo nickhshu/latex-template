@@ -1,0 +1,35 @@
+\usepackage[
+    math-style=ISO, bold-style=ISO,
+    partial=upright,
+    mathrm=sym, mathit=sym, mathsf=sym, mathbf=sym, mathtt=sym,
+    warnings-off={mathtools-colon,mathtools-overbracket},
+]{unicode-math}
+
+% TeX Gyre Pagella, but use Latin Modern for mathematical symbols
+\usepackage[math=+aalt]{pagella-otf}
+\setmathfont[
+    range={\mathop,\mathbin,\mathrel}
+]{Latin Modern Math}
+% Neither Pagella nor Latin Modern has `\setminus`, weird bug.
+% See <https://tex.stackexchange.com/a/140343>.
+\AtBeginDocument{
+    \renewcommand{\setminus}{\mathbin{\backslash}}%
+}
+
+% Fira Mono for monospace
+\usepackage[scale=.9, nomap]{FiraMono}
+
+% -----------------------------------------------------------------------------
+% Other fonts
+% See also <https://nick-shm.gitlab.io/notes-snippets/choices/fonts/>.
+
+% Computer Modern
+% \usepackage{amsfonts}
+% \usepackage{amssymb}
+
+% New PX
+% \usepackage{newpxtext}
+% \usepackage{newpxmath}
+
+% Source Code Pro for monospace
+% \usepackage[scale=.9]{sourcecodepro}
