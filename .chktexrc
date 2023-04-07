@@ -33,6 +33,7 @@ UserWarn
 UserWarnRegex
 {
     \\dots[^cbmio]
+    \[\\lips\]
 }
 
 Silent{
