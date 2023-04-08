@@ -23,7 +23,14 @@
 \newcommand{\ol}[1]{\vphantom{#1}\smash{\overline{#1}}}
 % from <https://tex.stackexchange.com/a/346399>
 
-% Font commands in `unicode-math` do not nest. This is a workaround.
+% -----------------------------------------------------------------------------
+% Bold math
+
+% In my knowledge, there is no straightforward way to typeset bold math. The
+% main problem is that font commands in `unicode-math` do not nest.
+
+% This is a workaround. Use `\mm` and `\vv` for bold italic letters. Use `\mm*`
+% and `\vv*` for bold upright letters.
 \newcommand{\mm}[1]{\symbfit{#1}}
 \WithSuffix\newcommand\mm*[1]{\symbfup{#1}}
 \newcommand{\vv}[1]{\symbfit{#1}}
