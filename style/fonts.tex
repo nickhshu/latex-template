@@ -5,22 +5,24 @@
     warnings-off={mathtools-colon,mathtools-overbracket},
 ]{unicode-math}
 
-% TeX Gyre Pagella, but use Latin Modern for mathematical symbols
+% TeX Gyre Pagella for text and math
 \usepackage[math=+aalt]{pagella-otf}
+
+% ... but use Latin Modern for mathematical symbols
 \setmathfont[
     range={\mathop,\mathbin,\mathrel,\mathcal,\sqrt}
 ]{Latin Modern Math}
+
 % Neither Pagella nor Latin Modern has `\setminus`, weird bug.
 % See <https://tex.stackexchange.com/a/140343>.
 \AtBeginDocument{
     \renewcommand{\setminus}{\mathbin{\backslash}}%
 }
 
-
-% Fira Sans for sans serif
+% Fira Sans
 \usepackage{FiraSans}
 
-% Fira Mono for monospace
+% Fira Mono
 \usepackage[scale=.9, nomap]{FiraMono}
 
 % -----------------------------------------------------------------------------
