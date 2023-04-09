@@ -7,6 +7,10 @@
 # Compiling and cleaning LaTeX files within subdirectories is not yet
 # supported. Compiling can be done by specifying `-out_dir` or `cd`ing into the
 # directory. However, cleaning is harder to support.
+#
+# Adding the `-cd` flag to `latexmk` should solve most of the problem. However,
+# this has not been tested, and this does not cover HTML and PNG generation
+# anyway.
 
 # --------------------------------------------------------------------
 
