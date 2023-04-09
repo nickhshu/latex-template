@@ -28,12 +28,12 @@ UserWarn
 {
     \todo
     \ldots
+    [\lips]
 }
 
 UserWarnRegex
 {
     \\dots[^cbmio]
-    \[\\lips\]
 }
 
 Silent{
