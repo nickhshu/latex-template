@@ -1,12 +1,12 @@
 # WARNING:
-# This Makefile is premature and not thoroughly tested.
-# Use sparingly. Usually the VS Code intergration is good enough.
+# This Makefile not thoroughly tested. Use only for multifile projects with
+# complex dependencies. Otherwise, the VS Code intergration is good enough.
 # Even when this Makefile is needed, use VS Code during the first writing.
 
 # LIMITATIONS:
 # Compiling and cleaning LaTeX files within subdirectories is not yet
-# supported. Compiling can be done by specifying `-out_dir` or `cd`ing
-# into the directory. However, cleaning is harder to support.
+# supported. Compiling can be done by specifying `-out_dir` or `cd`ing into the
+# directory. However, cleaning is harder to support.
 
 # --------------------------------------------------------------------
 
