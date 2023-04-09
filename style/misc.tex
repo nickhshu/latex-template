@@ -2,10 +2,13 @@
 \usepackage{moredefs, lips}
 % See <https://nick-shm.gitlab.io/notes-snippets/latex/text/ellipses>.
 
-% TODO warning for ChkTeX
-\newcommand{\todo}[1]{\unskip} % chktex 20
-% `\unskip` removes the space after the command. It might not work under all
-% circumstances. See <https://tex.stackexchange.com/q/289718>.
+% TODOs (warned by ChkTeX)
+\makeatletter
+\newcommand{\todo}[1]{\@bsphack\@esphack}
+\makeatother
+% Taken from <https://tex.stackexchange.com/a/294303> (see the comments).
+% Another question <https://tex.stackexchange.com/a/294954> claims that this
+% implementation has a bug. However, it does not exhibit on my end.
 
 % to control spacing
 \usepackage{setspace}
