@@ -1,29 +1,25 @@
+% Use the definition style for everything.
+\theoremstyle{definition}
+
+% Starred versions produce unnumbered environments.
 \newtheorem{theorem}{Theorem}[page]
+\newtheorem*{theorem*}{Theorem}
 
-% Starred versions produce unnumbered environments. Many of them are commented
-% to avoid confusion, since they are rarely used.
-
-% \newtheorem*{theorem*}{Theorem}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem*{lemma*}{Lemma}
+
 \newtheorem{corollary}[theorem]{Corollary}
-% \newtheorem*{corollary*}{Corollary}
+\newtheorem*{corollary*}{Corollary}
+
 \newtheorem*{claim}{Claim}
-% \newtheorem*{claim*}{Claim}
+\newtheorem*{proposition}{Proposition}
 
-\theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
-% \newtheorem{definition*}{Definition}
+\newtheorem{definition*}{Definition}
 \newtheorem{example}[theorem]{Example}
-% \newtheorem*{example*}{Example}
+\newtheorem*{example*}{Example}
 \newtheorem{exercise}[theorem]{Exercise}
-% \newtheorem*{exercise*}{Exercise}
+\newtheorem*{exercise*}{Exercise}
 
-\theoremstyle{remark}
 \newtheorem*{note}{Note}
 \newtheorem*{remark}{Remark}
-
-% \usepackage{enumerate}
-% \newenvironment{axioms}{\begin{enumerate}[\bf {Axiom} 1.]}{\end{enumerate}}
-% \newenvironment{hypotheses}{
-%     \begin{enumerate}[\bf {Hypothesis} 1.]}{\end{enumerate}}
