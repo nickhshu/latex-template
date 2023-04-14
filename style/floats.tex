@@ -14,12 +14,10 @@
 % \UseTblrLibrary{booktabs}
 
 % Game theory
-%
-% \usepackage{sgamex}
-% \usepackage{egameps} % requires LuaLaTeX
-%
-% Neither package is included in TeX Live. Install from the author (Martin J.
-% Osborne).
+\makeatletter
+% \subimport{mjo-game-sty/}{sgamex.sty}
+% \subimport{mjo-game-sty/}{egameps.sty} % requires LuaLaTeX
+\makeatother
 %
 % See also <https://nick-shm.gitlab.io/notes-snippets/latex/floats/games/>.
 %
