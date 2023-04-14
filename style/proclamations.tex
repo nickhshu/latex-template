@@ -12,24 +12,22 @@
 
 \newtheorem{theorem}{Theorem}
 \newtheorem*{theorem*}{Theorem}
+\BeforeBeginEnvironment{theorem}{\goodbreak}
+\BeforeBeginEnvironment{theorem*}{\goodbreak}
+% Encourage LaTeX to break before proclamations to work around incorrect page-
+% based numbering. See <https://tex.stackexchange.com/a/88186>.
 
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem*{lemma*}{Lemma}
+\newcommand{\newthm}[2]{%
+    \newtheorem{#1}[theorem]{#2}
+    \newtheorem*{#1*}{#2}
+    \BeforeBeginEnvironment{#1}{\goodbreak}
+    \BeforeBeginEnvironment{#1*}{\goodbreak}
+}
 
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem*{corollary*}{Corollary}
-
-\newtheorem{claim}[theorem]{Claim}
-\newtheorem*{claim*}{Claim}
-
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem*{proposition*}{Proposition}
-
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{definition*}{Definition}
-
-\newtheorem{example}[theorem]{Example}
-\newtheorem*{example*}{Example}
-
-\newtheorem{remark}[theorem]{Remark}
-\newtheorem*{remark*}{Remark}
+\newthm{lemma}{Lemma}
+\newthm{corollary}{Corollary}
+\newthm{claim}{Claim}
+\newthm{proposition}{Proposition}
+\newthm{definition}{Definition}
+\newthm{example}{Example}
+\newthm{remark}{Remark}
