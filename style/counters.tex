@@ -1,6 +1,17 @@
-\numberwithin{equation}{page}
-\numberwithin{figure}{page}
-\numberwithin{table}{page}
+% Page-based counters
+\usepackage{perpage}
+
+\MakePerPage{equation}
+\renewcommand{\theequation}{\theperpage.\arabic{equation}}
+
+\MakePerPage{theorem}
+\renewcommand{\thetheorem}{\theperpage.\arabic{theorem}}
+
+\MakeSortedPerPage{figure}
+\renewcommand{\thefigure}{\theperpage.\arabic{figure}}
+
+\MakeSortedPerPage{table}
+\renewcommand{\thetable}{\theperpage.\arabic{table}}
 
 % make all sections unnumbered
 % \setcounter{secnumdepth}{0}
