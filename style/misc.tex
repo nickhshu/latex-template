@@ -2,17 +2,6 @@
 \usepackage{moredefs, lips}
 % See <https://nick-shm.gitlab.io/notes-snippets/latex/text/ellipses>.
 
-% TODO warnings
-% (deprecated, use the VS Code extension TODO Highlight v2 instead.)
-\makeatletter
-\newcommand{\todo}[1]{\@bsphack\@esphack}
-\makeatother
-% Taken from <https://tex.stackexchange.com/a/294303> (see the comments). This
-% prevents LaTeX from adding spaces before and after `\todo{}` *in most cases*.
-% However, it does not work if `\todo{}` directly follows displayed math. Ques-
-% tion <https://tex.stackexchange.com/a/294954> claims that this implementation
-% has another bug, which does not exhibit on my end.
-
 % line spacing
 \usepackage{setspace}
 \setstretch{1.1}
