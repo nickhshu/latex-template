@@ -18,3 +18,9 @@
 
 \MakeSortedPerPage{table}
 \renewcommand{\thetable}{\theperpage.\arabic{table}}
+
+% Suppress a warning from the `perpage` package. Otherwise it will complain
+% about every `subfigure` environment.
+\makeatletter
+\renewcommand{\pp@chkvlist}{}
+\makeatother
