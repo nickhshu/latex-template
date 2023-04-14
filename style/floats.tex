@@ -13,16 +13,20 @@
 % \usepackage{tabularray}
 % \UseTblrLibrary{booktabs}
 
-% Strategic games
+% Game theory
+%
 % \usepackage{sgamex}
+% \usepackage{egameps} % requires LuaLaTeX
 %
-% The package is not included in TeX Live and needs to be installed. A
-% workaround is needed to use it with `beamer`. See
-% <https://nick-shm.gitlab.io/notes-snippets/latex/floats/games/>.
-
-% Extensive games (requires LuaLaTeX)
-% \usepackage{egameps}
+% Neither package is included in TeX Live. Install from the author (Martin J.
+% Osborne).
 %
-% The version in TeX Live is not up-to-date. Install from the author.
-% Alternatively, use TikZ for extensive games. See
-% <https://nick-shm.gitlab.io/notes-snippets/latex/floats/games/>.
+% See also <https://nick-shm.gitlab.io/notes-snippets/latex/floats/games/>.
+%
+% Note that `sgamex` conflicts with `beamer`. To work around this, add this
+% right before `\begin{document}`:
+%
+% \makeatletter
+% \let\zz\reset@color
+% \def\reset@color{\kern\z@\zz}
+% \makeatother

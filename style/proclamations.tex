@@ -14,8 +14,8 @@
 \newtheorem*{theorem*}{Theorem}
 \BeforeBeginEnvironment{theorem}{\goodbreak}
 \BeforeBeginEnvironment{theorem*}{\goodbreak}
-% Encourage LaTeX to break before proclamations to work around incorrect page-
-% based numbering. See <https://tex.stackexchange.com/a/88186>.
+% The use of `\goodbreak` works around incorrect page-based numbering. See
+% <https://tex.stackexchange.com/a/88186>.
 
 \newcommand{\newthm}[2]{%
     \newtheorem{#1}[theorem]{#2}
