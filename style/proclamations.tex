@@ -1,8 +1,16 @@
-% Use the definition style for everything.
-\theoremstyle{definition}
+\newtheoremstyle{custom}% name
+{}% space above
+{}% space below
+{\mdseries}% body font
+{}% indent amount
+{\bfseries}% head font
+{.}% head punct
+{ }% after head space
+{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}% head spec
 
-% Starred versions produce unnumbered environments.
-\newtheorem{theorem}{Theorem}[page]
+\theoremstyle{custom}
+
+\newtheorem{theorem}{Theorem}
 \newtheorem*{theorem*}{Theorem}
 
 \newtheorem{lemma}[theorem]{Lemma}
@@ -11,15 +19,17 @@
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem*{corollary*}{Corollary}
 
-\newtheorem*{claim}{Claim}
-\newtheorem*{proposition}{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem*{claim*}{Claim}
+
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem*{proposition*}{Proposition}
 
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{definition*}{Definition}
+
 \newtheorem{example}[theorem]{Example}
 \newtheorem*{example*}{Example}
-\newtheorem{exercise}[theorem]{Exercise}
-\newtheorem*{exercise*}{Exercise}
 
-\newtheorem*{note}{Note}
-\newtheorem*{remark}{Remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem*{remark*}{Remark}
