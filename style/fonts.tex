@@ -14,7 +14,7 @@
     range={\mathop,\mathbin,\mathrel,\mathcal,\sqrt}
 ]{latinmodern-math.otf}
 
-% Neither Pagella nor Latin Modern has `\setminus`, weird bug.
+% Neither Pagella nor Latin Modern has `\setminus`. Weird bug.
 % See <https://tex.stackexchange.com/a/140343>.
 \AtBeginDocument{
     \renewcommand{\setminus}{\mathbin{\backslash}}%
