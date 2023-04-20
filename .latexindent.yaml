@@ -20,6 +20,3 @@ lookForAlignDelims:
   Vmatrix*: 1
   game: 1
   tblr: 0
-
-verbatimEnvironments:
-  Verbatim: 1
