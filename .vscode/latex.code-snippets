@@ -22,6 +22,33 @@
         ],
         "scope": "latex"
     },
+    "Init Beamer": {
+        "prefix": "init_beamer",
+        "body": [
+            "\\documentclass[",
+            "    xcolor={dvipsnames,table},",
+            "    notheorems,",
+            "]{beamer}",
+            "",
+            "\\usepackage{import}",
+            "\\import{style}{main.tex}",
+            "\\import{style}{beamer.tex}",
+            "",
+            "\\title{$1}",
+            "",
+            "\\author{Nick Shu}",
+            "\\date{} % TODO: use the day of presentation",
+            "",
+            "\\begin{document}",
+            "",
+            "\\frame{\\titlepage}",
+            "",
+            "$0",
+            "",
+            "\\end{document}"
+        ],
+        "scope": "latex"
+    },
     "Init LaTeX (TikZ standalone)": {
         "prefix": "init_tikz",
         "body": [
