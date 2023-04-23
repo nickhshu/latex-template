@@ -1,9 +1,16 @@
-\usepackage{hyperref}
+\usepackage[]{hyperref}
 \hypersetup{
     allcolors = violet,
     breaklinks = true,
     colorlinks = true,
 }
 
+% Package `cleveref`
+%
 % Load after `hyperref` and `amsmath` but before proclamation environments
-\usepackage[capitalize,noabbrev]{cleveref}
+% Do not load with `beamer`, which is not compatible with it.
+\makeatletter
+\@ifclassloaded{beamer}{}{
+    \usepackage[capitalize,noabbrev]{cleveref}
+}
+\makeatother
