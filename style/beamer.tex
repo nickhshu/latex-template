@@ -13,3 +13,12 @@
 \renewcommand{\footnote}[1]{\oldfootnote[frame]{#1}}
 \renewcommand{\footcite}[1]{\oldfootnote[frame]{\cite{#1}}}
 % Use `\footnote{\cites{}}` for `\footcites`.
+
+% Smaller footnotes
+%
+% This does not work. Likely a bug.
+% \setbeamerfont{footnote}{size=\tiny}
+%
+% This is a workaround. Although it does not adjust spacing accordingly.
+\let\oldfootnotesize\footnotesize
+\renewcommand*{\footnotesize}{\oldfootnotesize\tiny}
