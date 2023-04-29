@@ -1,4 +1,5 @@
 {
+    // Build (latexmk)
     "latex-workshop.latex.autoBuild.run": "never",
     "latex-workshop.latex.tools": [
         {
@@ -23,12 +24,16 @@
             "tools": ["latexmk"]
         }
     ],
+
+    // Formatter
     "latex-workshop.latexindent.args": [
         "-c",
         "%DIR%/",
         "%TMPFILE%",
         "-l=%WORKSPACE_FOLDER%/.latexindent.yaml"
     ],
+
+    // ChkTeX
     "latex-workshop.linting.chktex.enabled": true,
     "latex-workshop.linting.chktex.exec.args": ["-l", "./nonexistent"],
     // Work around an issue. ChkTeX will detect `.chktexrc` file in the current
@@ -37,6 +42,7 @@
     // file contains any user-defined pattern, ChkTeX will warning about the
     // same occurrence twice. The only workaround is to specify a non-existent
     // file for the LaTeX Workshop extension.
+
     "cSpell.words": [
         "amsthm",
         "beamer",
