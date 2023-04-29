@@ -32,6 +32,9 @@
         "%TMPFILE%",
         "-l=%WORKSPACE_FOLDER%/.latexindent.yaml"
     ],
+    "latex-workshop.bibtex-format.tab": "4 spaces",
+    "latex-workshop.bibtex-format.sort.enabled": true,
+    "latex-workshop.bibtex-format.align-equal.enabled": false,
 
     // ChkTeX
     "latex-workshop.linting.chktex.enabled": true,
