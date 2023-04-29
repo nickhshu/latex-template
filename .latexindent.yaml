@@ -19,4 +19,6 @@ lookForAlignDelims:
   vmatrix*: 1
   Vmatrix*: 1
   game: 1
-  tblr: 0
+  tblr:
+    alignDoubleBackSlash: 0 #
+    # Ideally, this should be set for all align-like environments.
