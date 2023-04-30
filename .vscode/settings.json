@@ -5,16 +5,7 @@
         {
             "name": "latexmk",
             "command": "latexmk",
-            "args": [
-                "-lualatex",
-                "-synctex=1",
-                "-halt-on-error",
-                "-file-line-error",
-                "-auxdir=aux",
-                "-emulate-aux-dir",
-                "-cd",
-                "%DOC%"
-            ],
+            "args": ["%DOC%"], // `.latexmkrc` will be read
             "env": {}
         }
     ],

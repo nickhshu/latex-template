@@ -38,9 +38,8 @@ htmls = $(addsuffix .html, $(html_targets))
 
 pngs = $(addsuffix .png, $(png_targets))
 
-latexmk_basic = latexmk -synctex=1 -xelatex -file-line-error -halt-on-error -cd
-latexmk_aux_options = -auxdir=aux -emulate-aux-dir
-latexmk_with_aux = $(latexmk_basic) $(latexmk_aux_options)
+latexmk_no_auxdir = latexmk -auxdir= -noemulate-aux-dir
+latexmk_with_auxdir = latexmk
 
 macros_tex := macros.tex
 
@@ -49,13 +48,13 @@ macros_tex := macros.tex
 all: $(pdfs_pdf_only) $(htmls) $(pngs)
 
 $(pdfs_non_html): %.pdf: %.tex $(macros_tex)
-	$(latexmk_with_aux) $<
+	$(latexmk_with_auxdir) $<
 
 $(_html.texs): %_html.tex: %.tex $(macros_tex)
-	$(latexmk_basic) $<
+	$(latexmk_no_auxdir) $<
 
 $(_html.pdfs): %_html.pdf: %_html.tex macros.tex
-	$(latexmk_basic) $<
+	$(latexmk_no_auxdir) $<
 
 $(htmls): %.html: %_html.pdf
 	lwarpmk pdftohtml $<
@@ -65,8 +64,8 @@ $(pngs): %.png: %.pdf
 
 .PHONY: clean
 clean:
-	$(latexmk_basic) -c
-	$(latexmk_with_aux) -c
+	$(latexmk_no_auxdir) -c
+	$(latexmk_with_auxdir) -c
 	rm -rf aux
 	rm -f *.run.xml
 	-lwarpmk clean
@@ -79,8 +78,8 @@ clean:
 
 .PHONY: clean_all
 clean_all: clean
-	$(latexmk_basic) -C
-	$(latexmk_with_aux) -C
+	$(latexmk_no_auxdir) -C
+	$(latexmk_with_auxdir) -C
 	rm -f *.synctex.gz
 	rm -f $(pngs)
 	-lwarpmk cleanall
