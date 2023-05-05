@@ -11,6 +11,10 @@ noAdditionalIndent:
   doublespace: 1
   multicols: 1
 
+indentAfterItems:
+  citemize: 1
+  cenumerate: 1
+
 lookForAlignDelims:
   matrix*: 1
   pmatrix*: 1
