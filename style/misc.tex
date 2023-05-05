@@ -25,3 +25,22 @@
 % Endnotes
 % \usepackage{endnotes}
 % \let\footnote=\endnote
+
+% Compact lists
+\newenvironment{citemize} {%
+    \begin{itemize}
+        \setlength{\itemsep}{0pt}
+        \setlength{\parskip}{0pt}
+        \setlength{\parsep}{0pt}
+        \setlength{\parindent}{15pt}
+        }{%
+    \end{itemize}
+}
+\newenvironment{cenumerate} {%
+    \begin{enumerate}
+        \setlength{\itemsep}{0pt}
+        \setlength{\parskip}{0pt}
+        \setlength{\parsep}{0pt}
+        }{%
+    \end{enumerate}
+}
