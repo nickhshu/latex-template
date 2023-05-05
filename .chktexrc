@@ -35,6 +35,8 @@ UserWarnRegex
 {
     \\dots[^cbmio]
     ` # use package `csquotes` for quotes
+    [^c]itemize
+    [^c]enumerate
 }
 
 Silent{
