@@ -43,6 +43,9 @@ UserWarnRegex
     # Customized list environments should be used in most cases.
     \begin{itemize}
     \begin{enumerate}
+
+    # use `proposition` for theorems
+    \begin{theorem}
 }
 
 Silent{
