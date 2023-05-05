@@ -21,12 +21,10 @@ HyphDash
 WipeArg
 {
     \texttt:{}
-    \todo:{}
 }
 
 UserWarn
 {
-    \todo
     \ldots
     [\lips]
 }
