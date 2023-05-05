@@ -25,14 +25,22 @@ WipeArg
 
 UserWarn
 {
+    # use `\lips`
     \ldots
+
+    # use `\BracketedLips`
     [\lips]
 }
 
 UserWarnRegex
 {
+    # use `\lips`
     \\dots[^cbmio]
-    ` # use package `csquotes` for quotes
+
+    # use package `csquotes` for quotes
+    `
+
+    # Customized list environments should be used in most cases.
     [^c]itemize
     [^c]enumerate
 }
