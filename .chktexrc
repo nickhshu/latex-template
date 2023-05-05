@@ -41,8 +41,8 @@ UserWarnRegex
     `
 
     # Customized list environments should be used in most cases.
-    [^c]itemize
-    [^c]enumerate
+    \begin{itemize}
+    \begin{enumerate}
 }
 
 Silent{
