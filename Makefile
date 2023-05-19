@@ -47,14 +47,17 @@ macros_tex := macros.tex
 .PHONY: all
 all: $(pdfs_pdf_only) $(htmls) $(pngs)
 
-$(pdfs_non_html): %.pdf: %.tex $(macros_tex)
-	$(latexmk_with_auxdir) $<
+.PHONY: FORCE
+FORCE:
 
-$(_html.texs): %_html.tex: %.tex $(macros_tex)
-	$(latexmk_no_auxdir) $<
+$(pdfs_non_html): %.pdf: FORCE
+	$(latexmk_with_auxdir) $*.tex
 
-$(_html.pdfs): %_html.pdf: %_html.tex macros.tex
-	$(latexmk_no_auxdir) $<
+$(_html.texs): %_html.tex: FORCE
+	$(latexmk_no_auxdir) $*.tex
+
+$(_html.pdfs): %_html.pdf: FORCE
+	$(latexmk_no_auxdir) $*_html.tex
 
 $(htmls): %.html: %_html.pdf
 	lwarpmk pdftohtml $<
