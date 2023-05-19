@@ -1,31 +1,29 @@
 # WARNING:
 # This Makefile not thoroughly tested. Use only for multifile projects with
-# complex dependencies. Otherwise, the VS Code intergration is good enough.
-# Even when this Makefile is needed, use VS Code during the first writing.
+# complex dependencies. Otherwise, a simpile invokation of `latexmk doc.tex`
+# (as well as `latexmk -C` and `latexmk -c`) should be enough.
 
 # LIMITATIONS:
-# Compiling and cleaning LaTeX files within subdirectories is not yet
-# supported. Compiling can be done by specifying `-out_dir` or `cd`ing into the
-# directory. However, cleaning is harder to support.
-#
-# Adding the `-cd` flag to `latexmk` should solve most of the problem. However,
-# this has not been tested, and this does not cover HTML and PNG generation
-# anyway.
+# Cleaning LaTeX files within subdirectories is not well supported. It should
+# work fine for simple LaTeX documents. However, for HTML and PNG generation,
+# the cleaning target cannot find auxiliary files in subdirectories. A
+# potential (yet imperfect) solution is to ask `latexmk` to clean them.
 
 # --------------------------------------------------------------------
-
-# Simple targets that only relies on the `.tex` file itself and `macros.tex`
-# Do not add extension names for these
+# Do not add extension names
 pdf_only_targets =
+
+# HTML and PNG generation are experimental. Use with caution.
 html_targets =
 png_targets_tp_bg =
 png_targets_white_bg =
 
-# Rules for special targets, scuh as PDFs that relies on figures, need to be
-# specified mannually. Also remember to add them to `all`.
+# Rules for special targets (e.g., PDFs that relies on figures) need to be
+# specified mannually.
 special_targets :=
 
 # --------------------------------------------------------------------
+# Do not modify below this line.
 
 # HTML targets should not be compiled with `-auxdir`
 non_html_targets = $(pdf_only_targets) $(png_targets_white_bg) \
