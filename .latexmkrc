@@ -15,5 +15,5 @@ $emulate_aux = 1;
 # Clean `.bbl` files
 $bibtex_use = 2;
 
-# Clean `.run.xml` files
-$clean_ext = "%R.run.xml";
+# Other auxiliary files
+$clean_ext = "%R.run.xml %R.ent %R.nav %R.snm";
