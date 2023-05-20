@@ -41,6 +41,7 @@
     "cSpell.words": [
         "amsthm",
         "beamer",
+        "biblatex",
         "bmatrix",
         "cbmio",
         "cenumerate",
@@ -54,6 +55,7 @@
         "egame",
         "Envir",
         "Fira",
+        "footmarkoff",
         "hyph",
         "ifclassloaded",
         "latexindent",
