@@ -1,3 +1,5 @@
+% -----------------------------------------------------------------------------
+% Package `unicode-math`
 \usepackage[
     math-style=ISO, bold-style=ISO,
     partial=upright,
@@ -5,10 +7,14 @@
     warnings-off={mathtools-colon,mathtools-overbracket},
 ]{unicode-math}
 
-% TeX Gyre Pagella for text and math
-\usepackage{pagella-otf}
+% -----------------------------------------------------------------------------
+% Main text font (TeX Gyre Pagella )
+\usepackage{pagella-otf} % also loads the math font
 
-% ... but use Latin Modern for mathematical symbols
+% -----------------------------------------------------------------------------
+% Math fonts
+
+% TeX Gyre Pagella (already loaded), but use Latin Modern for symbols
 \setmathfont[
     AutoFakeBold,
     range={\mathop,\mathbin,\mathrel,\mathcal,\sqrt}
@@ -20,23 +26,10 @@
     \renewcommand{\setminus}{\mathbin{\backslash}}%
 }
 
-% Fira Sans
-% \usepackage{FiraSans} % commented for performance reasons
-
-% Fira Mono
-\usepackage[scale=.8, nomap]{FiraMono}
+% -----------------------------------------------------------------------------
+% Sans-serif font (Fira Sans)
+% \usepackage{FiraSans} % commented by default to speed up compilation
 
 % -----------------------------------------------------------------------------
-% Other fonts
-% See also <https://nick-shm.gitlab.io/notes-snippets/choices/fonts/>.
-
-% Computer Modern
-% \usepackage{amsfonts}
-% \usepackage{amssymb}
-
-% New PX
-% \usepackage{newpxtext}
-% \usepackage{newpxmath}
-
-% Source Code Pro for monospace
-% \usepackage[scale=.9]{sourcecodepro}
+% Monospace font (Fira Mono)
+\usepackage[scale=.8, nomap]{FiraMono}
