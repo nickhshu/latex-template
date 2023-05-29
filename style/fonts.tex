@@ -8,13 +8,48 @@
 ]{unicode-math}
 
 % -----------------------------------------------------------------------------
-% Main text font (TeX Gyre Pagella )
-\usepackage{pagella-otf} % also loads the math font
+% Main text font (Palatine Parliamentary)
+
+% Palatine Parliamentary is a recreation of Book Antiqua Parliamentary made by
+% Elijah Granet. Both are mainly Palatino, except that they use Times Roman
+% for single and double quotation marks.
+%
+% The font is not included in TeX Live. OTF files are included. Install them to
+% the system so that XeTeX or LuaTeX can find them.
+
+% The following selection code borrows from package `pagella-otf`
+\setmainfont{PalatineP}[
+    UprightFont = *-Regular,
+    ItalicFont = *-Italic,
+    ItalicFeatures = { SmallCapsFont = *-Italic },
+    SlantedFont = *-Regular,
+    SlantedFeatures = { FakeSlant = 0.2 },
+    BoldFont = *-Bold,
+    BoldFeatures = { SmallCapsFont = *-Bold },
+    BoldItalicFont = *-Bolditalic,
+    BoldItalicFeatures = { SmallCapsFont = *-BoldItalic },
+    BoldSlantedFont = *-Bold,
+    BoldSlantedFeatures = {
+            FakeSlant = 0.2,
+            SmallCapsFont = *-Bold
+        },
+    SmallCapsFont = *-Regular,
+    SmallCapsFeatures ={ Letters = SmallCaps },
+    Extension = .otf
+]
+
+% Alternatively, simply use TeX Gyre Pagella (this also sets the math font)
+% \usepackage{pagella-otf}
 
 % -----------------------------------------------------------------------------
 % Math fonts
 
-% TeX Gyre Pagella (already loaded), but use Latin Modern for symbols
+% TeX Gyre Pagella, but ...
+\setmathfont[
+    AutoFakeBold
+]{texgyrepagella-math.otf}
+
+% ... use Latin Modern for symbols
 \setmathfont[
     AutoFakeBold,
     range={\mathop,\mathbin,\mathrel,\mathcal,\sqrt}
