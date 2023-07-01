@@ -41,14 +41,14 @@ UserWarnRegex
     `
 
     # Customized list environments should be used in most cases.
-    \begin{itemize}
-    \begin{enumerate}
+    \\begin{itemize}
+    \\begin{enumerate}
 
     # use `proposition` for theorems
-    \begin{theorem}
+    \\begin{theorem}
 
     # use `\varepsilon` or `\varphi`
-    \epsilon \phi
+    \\epsilon \\phi
 }
 
 Silent{
