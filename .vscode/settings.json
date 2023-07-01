@@ -82,6 +82,8 @@
         "texmf",
         "texttt",
         "tion",
+        "varepsilon",
+        "varphi",
         "vmatrix"
     ]
 }
