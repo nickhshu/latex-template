@@ -22,6 +22,13 @@
 \WarningFilter{microtype}{Unable to apply patch `footnote'}
 \WarningFilter{perpage}{\stepcounter probably at start of vertical list:}
 
+% Work around a bug when using `hyperref` and `silence` together. The compiler
+%  will enter into an infinite loop if there is a blackboard bold math
+% character in section titles. See <https://tex.stackexchange.com/a/451569>.
+\makeatletter
+\pdfstringdefDisableCommands{\let\@latex@error\@gobbletwo}
+\makeatother
+
 % Endnotes
 % \usepackage{endnotes}
 % \let\footnote=\endnote
