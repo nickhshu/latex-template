@@ -40,7 +40,6 @@
 
     "cSpell.words": [
         "amsthm",
-        "Antiqua",
         "beamer",
         "biblatex",
         "bmatrix",
@@ -57,7 +56,6 @@
         "Envir",
         "Fira",
         "footmarkoff",
-        "Granet",
         "hyph",
         "ifclassloaded",
         "latexindent",
@@ -67,10 +65,7 @@
         "multicols",
         "newpx",
         "newpxmath",
-        "otfinfo",
         "Pagella",
-        "pageref",
-        "Palatino",
         "perpage",
         "pmatrix",
         "pseudocode",
