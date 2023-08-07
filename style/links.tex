@@ -1,3 +1,5 @@
+% Theoretically `hyperref` should be loaded last (except for `cleveref`).
+% However the current setup works, and I do not intend to change it.
 \usepackage[]{hyperref}
 \hypersetup{
     allcolors = violet,
@@ -6,12 +8,10 @@
     hypertexnames = false, % Otherwise `perpage` will lead to duplicate anchors
 }
 
-% Package `cleveref`
-%
-% Load after `hyperref` and `amsmath` but before proclamation environments
-% Do not load with `beamer`, which is not compatible with it.
+% Load after `hyperref` and `amsmath` but before definitions of proclamation
+% environments. Do not load with `beamer`. They are not compatible.
 \makeatletter
 \@ifclassloaded{beamer}{}{
-    \usepackage[capitalize,noabbrev]{cleveref}
+    \usepackage[capitalize, noabbrev]{cleveref}
 }
 \makeatother

@@ -2,24 +2,21 @@
 \usefonttheme{serif}
 \usecolortheme{dove} % a black and white theme
 
-% Remove document icons in bibliographies
+% Remove document icons in the bibliography
 \setbeamertemplate{bibliography item}[text]
 
-% Colored cite links distract readers.
+% Colored cite links will distract readers. Use black instead.
 \hypersetup{citecolor=black}
 
 % Beamer will not display footnotes unless `[frame]` is specified.
 \let\oldfootnote\footnote
 \renewcommand{\footnote}[1]{\oldfootnote[frame]{#1}}
 \renewcommand{\footcite}[1]{\oldfootnote[frame]{\cite{#1}}}
-% Use `\footnote{\cites{}}` for `\footcites`.
 
 % Smaller footnotes
 \let\oldfootnotesize\footnotesize
 \renewcommand*{\footnotesize}{\oldfootnotesize\tiny}
-%
-% Usually, one can use:
-% \setbeamerfont{footnote}{size=\tiny}
-% However, package `biblatex-chicago` patches the footnote command, so this
-% does work here. Another workaround is to pass option `footmarkoff` to
+% One is supposed to use `\setbeamerfont{footnote}{size=\tiny}`. However,
+% package `biblatex-chicago` patches the footnote command, so this does
+% not work here. Another workaround is to pass option `footmarkoff` to
 % `biblatex-chicago`.
