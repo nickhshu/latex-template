@@ -5,7 +5,9 @@
         {
             "name": "latexmk",
             "command": "latexmk",
-            "args": ["%DOC%"], // `.latexmkrc` will be read
+            "args": ["%DOC%", "-r", "%WORKSPACE_FOLDER%/.latexmkrc"],
+            // The path to `.latexmkrc` must be specified. Otherwise `latexmk`
+            // will not find it when compiling files in subdirectories.
             "env": {}
         }
     ],
