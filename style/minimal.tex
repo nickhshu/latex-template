@@ -1,0 +1,72 @@
+\usepackage[dvipsnames, table]{xcolor}
+
+\usepackage{setspace}
+\onehalfspacing
+
+\usepackage{csquotes}
+
+% ----------------------------------------------------------------------------
+% Math
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{physics}
+
+\newcommand{\opn}[1]{\operatorname{#1}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\ppi}{\mathrm{\pi}}
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\newcommand{\mm}[1]{\symbfit{#1}}
+\newcommand{\vv}[1]{\symbfit{#1}}
+
+% ----------------------------------------------------------------------------
+% Bibliography
+\usepackage[authordate, backend=biber]{biblatex-chicago}
+
+% ----------------------------------------------------------------------------
+% Fonts
+\usepackage[
+    math-style=ISO, bold-style=ISO,
+    partial=upright,
+    mathrm=sym, mathit=sym, mathsf=sym, mathbf=sym, mathtt=sym,
+    warnings-off={mathtools-colon,mathtools-overbracket},
+]{unicode-math}
+
+\usepackage{pagella-otf}
+\usepackage[scale=.8, nomap]{FiraMono}
+
+\setmathfont[
+    AutoFakeBold
+]{texgyrepagella-math.otf}
+
+\setmathfont[
+    AutoFakeBold,
+    range={\mathop,\mathbin,\mathrel,\mathcal,\sqrt}
+]{latinmodern-math.otf}
+
+\AtBeginDocument{
+    \renewcommand{\setminus}{\mathbin{\backslash}}%
+}
+
+% ----------------------------------------------------------------------------
+% Links
+\usepackage[]{hyperref}
+\hypersetup{
+    allcolors = violet,
+    breaklinks = true,
+    colorlinks = true,
+    hypertexnames = false, % Otherwise `perpage` will lead to duplicate anchors
+}
+\makeatletter
+\@ifclassloaded{beamer}{}{
+    \usepackage[capitalize, noabbrev]{cleveref}
+}
+\makeatother
