@@ -12,8 +12,12 @@ noAdditionalIndent:
   multicols: 1
 
 indentAfterItems:
-  citemize: 1
-  cenumerate: 1
+  itemize: 0
+  itemize*: 0
+  enumerate: 0
+  enumerate*: 0
+  citemize: 0
+  cenumerate: 0
 
 lookForAlignDelims:
   matrix*: 1
