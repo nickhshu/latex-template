@@ -1,4 +1,4 @@
-\newtheoremstyle{custom}% name
+\newtheoremstyle{rmnl}% name
 {}% space above
 {}% space below
 {\mdseries}% body font
@@ -8,7 +8,27 @@
 {\newline}% after head space
 {\thmname{#1}\thmnumber{ #2}\thmnote{: #3}}% head spec
 
-\theoremstyle{custom}
+\newtheoremstyle{rm}% name
+{}% space above
+{}% space below
+{\itshape}% body font
+{}% indent
+{\bfseries}% head font
+{}% head punctuation
+{0.5em}% after head space
+{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}% head spec
+
+\newtheoremstyle{it}% name
+{}% space above
+{}% space below
+{\itshape}% body font
+{}% indent
+{\bfseries}% head font
+{}% head punctuation
+{0.5em}% after head space
+{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}% head spec
+
+\theoremstyle{rmnl}
 
 \newtheorem{theorem}{Theorem}
 \newtheorem*{theorem*}{Theorem}
@@ -28,6 +48,9 @@
 \newthm{corollary}{Corollary}
 \newthm{claim}{Claim}
 \newthm{proposition}{Proposition}
+
+\theoremstyle{rmnl}
+
 \newthm{definition}{Definition}
 \newthm{example}{Example}
 \newthm{procedure}{Procedure}
