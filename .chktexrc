@@ -31,6 +31,9 @@ UserWarn
 
     # use `\BracketedLips`
     [\lips]
+
+    # use `\ol`
+    \bar \overline
 }
 
 UserWarnRegex
