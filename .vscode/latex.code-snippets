@@ -87,9 +87,9 @@
         "scope": "latex"
     },
     "Figure": {
-        "prefix": "figure",
+        "prefix": "fig",
         "body": [
-            "\\begin{figure}[t]",
+            "\\begin{figure}[tp]",
             "    \\centering",
             "    \\includegraphics[scale=.5]{img/$1}",
             "    \\caption{$2}\\label{fig:$3}",
