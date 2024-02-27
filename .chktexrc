@@ -8,6 +8,7 @@ CmdLine
     -q
     -n3  # allow `()^2`
     -n17 # allow mismatched () and [] (for the entire document)
+    -n21 # see <https://tex.stackexchange.com/a/474629>
     -n22 # allow comments
     -n30 # allow multiple spaces
     -n36 # allow no space before `(` (especially for `\texttt`)
