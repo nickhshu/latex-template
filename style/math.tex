@@ -20,10 +20,12 @@
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
 
-\newcommand{\ol}[1]{\overline{#1}}
-% Note that using `\overline{x} \overline{y}` will result in the two lines
-% connecting with each other. Still `\overline` is favored over `\bar` since
-% the latter looks ugly with `\underline`
+\newcommand{\ol}[1]{{\mspace{1mu}\overline{\mspace{-1mu} #1 \mspace{-1mu}}\mspace{1mu}}}
+\newcommand{\ul}[1]{{\mspace{1mu}\underline{\mspace{-1mu} #1 \mspace{-1mu}}\mspace{1mu}}}
+% Makes `\overline` and `\underline` shorter so that lines for consecutive
+% letters do not connect. Inspired from
+% <https://tex.stackexchange.com/questions/281391/how-to-make-underline-shorter>
+% (see comments of the question).
 
 % -----------------------------------------------------------------------------
 % Bold math
