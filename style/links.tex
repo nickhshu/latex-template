@@ -1,20 +1,20 @@
-% Theoretically `hyperref` should be loaded last (except for `cleveref`).
-% However the current setup works, and I do not intend to change it.
+% In theory `hyperref` should be loaded last (but before `cleveref`), but the
+% current setup works, and I do not want to change it.
 \usepackage[]{hyperref}
 \hypersetup{
     allcolors = violet,
     breaklinks = true,
     colorlinks = true,
-    hypertexnames = false, % Otherwise `perpage` will lead to duplicate anchors
+    hypertexnames = false, % or `perpage` will lead to duplicate PDF anchors
 }
 
-% Load after `hyperref` and `amsmath` but before definitions of proclamation
-% environments. Do not load with `beamer`. They are not compatible.
+% Load after `hyperref` and `amsmath` but before definitions of theorem-like
+% environments. Not compatible with `beamer`.
 \makeatletter
 \@ifclassloaded{beamer}{}{
     \usepackage[capitalize, noabbrev]{cleveref}
 }
 \makeatother
 
-% Use roman for links
+% Set links in roman
 \urlstyle{rm}

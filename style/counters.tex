@@ -1,8 +1,3 @@
-% Make all sections unnumbered
-\setcounter{secnumdepth}{0}
-
-% -----------------------------------------------------------------------------
-% Page-based counters
 \usepackage{perpage}
 
 \MakePerPage{equation}
@@ -10,8 +5,7 @@
 
 \MakePerPage{theorem}
 \renewcommand{\thetheorem}{\theperpage.\arabic{theorem}}
-% Special treatment is needed for proclamation environments. See
-% `proclamations.tex`.
+% Special treatment is needed for theorem-like environments. See `theorem.tex`.
 
 \MakeSortedPerPage{figure}
 \renewcommand{\thefigure}{\theperpage.\arabic{figure}}

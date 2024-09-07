@@ -8,24 +8,22 @@
 % -----------------------------------------------------------------------------
 % Text fonts
 
-% TeX Gyre Pagella as the main font
+% TeX Gyre Pagella
 \usepackage{pagella-otf} % also sets the math font
 
-% Fira Sans as the sans-serif font
-% \usepackage{FiraSans} % commented to speed up compilation
+% Sans-serif: Fira Sans
+% \usepackage{FiraSans}
 
-% Fira Mono as the monospace font
+% Monospace: Fira Mono
 \usepackage[scale=.9, nomap]{FiraMono}
 
 % -----------------------------------------------------------------------------
 % Math fonts
 
-% TeX Gyre Pagella, but ...
+% TeX Gyre Pagella, but use Latin Modern for symbols
 \setmathfont[
     AutoFakeBold
 ]{texgyrepagella-math.otf}
-
-% ... use Latin Modern for symbols
 \setmathfont[
     AutoFakeBold,
     range={\mathop,\mathbin,\mathrel,\mathcal,\sqrt}

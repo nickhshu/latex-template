@@ -20,11 +20,11 @@
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
 
+% Makes `\overline` and `\underline` shorter so that lines for consecutive
+% letters do not connect
 \newcommand{\ol}[1]{{\mspace{1mu}\overline{\mspace{-1mu} #1 \mspace{-1mu}}\mspace{1mu}}}
 \newcommand{\ul}[1]{{\mspace{1mu}\underline{\mspace{-1mu} #1 \mspace{-1mu}}\mspace{1mu}}}
-% Makes `\overline` and `\underline` shorter so that lines for consecutive
-% letters do not connect. Inspired from
-% <https://tex.stackexchange.com/questions/281391/how-to-make-underline-shorter>
+% Inspired from <https://tex.stackexchange.com/questions/281391/how-to-make-underline-shorter>
 % (see comments of the question).
 
 % -----------------------------------------------------------------------------
@@ -33,14 +33,14 @@
 % To my knowledge, there is no straightforward way to typeset bold math. The
 % main problem is that font commands in `unicode-math` do not nest.
 
-% This is a workaround. Use `\mm` and `\vv` for bold italic letters. Use `\mm*`
+% The following is a workaround. Use `\mm` and `\vv` for bold italic letters. Use `\mm*`
 % and `\vv*` for bold upright letters.
 \newcommand{\mm}[1]{\symbfit{#1}}
 \WithSuffix\newcommand\mm*[1]{\symbfup{#1}}
 \newcommand{\vv}[1]{\symbfit{#1}}
 \WithSuffix\newcommand\vv*[1]{\symbfup{#1}}
 
-% Use the following if `unicode-math` is not used.
+% Use the following if `unicode-math` is not loaded.
 % \newcommand{\mm}[1]{\vb*{#1}}
 % \WithSuffix\newcommand\mm*[1]{\vb{#1}}
 % \newcommand{\vv}[1]{\vb*{#1}} % use `\renewcommand` if `newpxmath` is used

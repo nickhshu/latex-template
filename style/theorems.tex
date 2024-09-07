@@ -1,23 +1,4 @@
-\newtheoremstyle{rmnl}% name
-{}% space above
-{}% space below
-{\mdseries}% body font
-{}% indent
-{\bfseries}% head font
-{}% head punctuation
-{\newline}% after head space
-{\thmname{#1}\thmnumber{ #2}\thmnote{: #3}}% head spec
-
-\newtheoremstyle{rm}% name
-{}% space above
-{}% space below
-{\itshape}% body font
-{}% indent
-{\bfseries}% head font
-{}% head punctuation
-{0.5em}% after head space
-{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}.}% head spec
-
+% Style `it` is the default style that sets the body in italics.
 \newtheoremstyle{it}% name
 {}% space above
 {}% space below
@@ -28,7 +9,19 @@
 {0.5em}% after head space
 {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}.}% head spec
 
-\theoremstyle{rmnl}
+% Style `rmnl` sets the body in roman and breaks line after the header.
+\newtheoremstyle{rmnl}% name
+{}% space above
+{}% space below
+{\mdseries}% body font
+{}% indent
+{\bfseries}% head font
+{}% head punctuation
+{\newline}% after head space
+{\thmname{#1}\thmnumber{ #2}\thmnote{: #3}}% head spec
+
+% -----------------------------------------------------------------------------
+\theoremstyle{it}
 
 \newtheorem{theorem}{Theorem}
 \newtheorem*{theorem*}{Theorem}
@@ -48,8 +41,6 @@
 \newthm{corollary}{Corollary}
 \newthm{claim}{Claim}
 \newthm{proposition}{Proposition}
-
-\theoremstyle{rmnl}
 
 \newthm{definition}{Definition}
 \newthm{example}{Example}

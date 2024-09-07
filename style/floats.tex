@@ -1,6 +1,10 @@
 % TikZ
 % \usepackage{tikz}
 
+% Tables
+% \usepackage{tabularray}
+% \UseTblrLibrary{booktabs}
+
 % Subfigures
 % \usepackage{caption}
 % \usepackage{subcaption}
@@ -9,19 +13,15 @@
 % \usepackage[noend]{algpseudocode}
 % \usepackage{algorithm}
 
-% Tables
-% \usepackage{tabularray}
-% \UseTblrLibrary{booktabs}
-
-% Game theory
+% Extensive and strategic games
 \makeatletter
-% \subimport{mjo-game-sty/}{sgamex.sty}
-% \subimport{mjo-game-sty/}{egameps.sty} % requires LuaLaTeX
+% \subimport{mjo/}{sgamex.sty}
+% \subimport{mjo/}{egameps.sty} % requires LuaLaTeX
 \makeatother
-% See also <https://nick-shm.gitlab.io/notes-snippets/latex/floats/games/>.
-
-% Note that `sgamex` conflicts with `beamer`. To work around this, add this
-% right before `\begin{document}`:
+% See also <https://nickshu.gitlab.io/notes-snippets/latex/floats/games/>.
+%
+% If used with `beamer`, add the following right before `\begin{document}`
+% to work around a conflict:
 %
 % \makeatletter
 % \let\zz\reset@color
