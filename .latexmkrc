@@ -8,7 +8,6 @@ set_tex_cmds("-synctex=1 -halt-on-error -file-line-error %O %S");
 $do_cd = 1;
 
 # Put auxiliary files into directory `aux`
-# This might can be overwritten by `no-aux.latexmkrc`
 $aux_dir = "aux";
 $emulate_aux = 1;
 

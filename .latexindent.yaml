@@ -1,6 +1,6 @@
-# The default setting can be find at
+# The default settings can be found at:
 # `/usr/local/Cellar/latexindent/<ver>/libexec/bin`
-# (replace `<ver>` with the actual version)
+# (replace `<ver>` with the actual version).
 
 indentRules:
   item: "    "

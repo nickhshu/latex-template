@@ -1,16 +1,12 @@
-# Since image files might also be PDFs, explicitly ignore PDF outputs
+# PDF outputs
 
 # -----------------------------------------------------------------------------
 .DS_Store
-
-# All auxiliary files will be generated in the `aux` directory
 aux
-
-# For testing in the template repository
 template-test*
 
 # -----------------------------------------------------------------------------
-# The following is from GitHub's collection of `.gitignore` files
+# From <https://github.com/github/gitignore>.
 
 ## Core latex/pdflatex auxiliary files:
 *.aux

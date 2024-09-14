@@ -1,6 +1,6 @@
-# The default chktexrc locates at
+# The default settings can be found at:
 # `/usr/local/texlive/<year>/texmf-dist/chktex`
-# (replace `<year>` with the actual version)
+# (replace `<year>` with the actual version).
 
 CmdLine
 {
