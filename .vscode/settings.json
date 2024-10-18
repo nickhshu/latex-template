@@ -57,6 +57,7 @@
         "footmarkoff",
         "hyph",
         "ifclassloaded",
+        "ifpackageloaded",
         "latexindent",
         "libexec",
         "multicols",

@@ -11,7 +11,11 @@
 % Beamer will not display footnotes unless `[frame]` is specified.
 \let\oldfootnote\footnote
 \renewcommand{\footnote}[1]{\oldfootnote[frame]{#1}}
-\renewcommand{\footcite}[1]{\oldfootnote[frame]{\cite{#1}}}
+\makeatletter
+\@ifpackageloaded{biblatex-chicago}{
+    \renewcommand{\footcite}[1]{\oldfootnote[frame]{\cite{#1}}}
+}{}
+\makeatother
 
 % Smaller footnotes
 \let\oldfootnotesize\footnotesize
