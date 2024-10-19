@@ -23,7 +23,7 @@
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
 
-% Makes `\overline` and `\underline` shorter so that lines for consecutive
+% Make `\overline` and `\underline` shorter so that lines for consecutive
 % letters do not connect
 \newcommand{\ol}[1]{{\mspace{1mu}\overline{\mspace{-1mu} #1 \mspace{-1mu}}\mspace{1mu}}}
 \newcommand{\ul}[1]{{\mspace{1mu}\underline{\mspace{-1mu} #1 \mspace{-1mu}}\mspace{1mu}}}
@@ -33,10 +33,10 @@
 % -----------------------------------------------------------------------------
 % Bold math
 
-% To my knowledge, there is no straightforward way to typeset bold math. The
-% main problem is that font commands in `unicode-math` do not nest. The
-% following is a workaround. Use `\mm` and `\vv` for bold italic letters, and
-% `\mm*` and `\vv*` for bold upright letters.
+% There is, to my knowledge, no straightforward way to typeset bold math. The
+% main issue is that font commands in `unicode-math` don't nest. This is a
+% workaround. Use `\mm` and `\vv` for bold italic letters. Use `\mm*` and
+% `\vv*` for bold upright letters.
 
 \ifpdftex
     % If `unicode-math` is not loaded, which presumably only happens when
