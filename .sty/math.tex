@@ -43,7 +43,8 @@
     % compiling with PDFTeX:
     \newcommand{\mm}[1]{\vb*{#1}}
     \WithSuffix\newcommand\mm*[1]{\vb{#1}}
-    \newcommand{\vv}[1]{\vb*{#1}} % use `\renewcommand` if `newpxmath` is used
+    \providecommand{\vv}{} % might already be defined by `newpxmath`
+    \renewcommand{\vv}[1]{\vb*{#1}}
     \WithSuffix\newcommand\vv*[1]{\vb{#1}}
 \else
     % If `unicode-math` is loaded:
@@ -52,4 +53,3 @@
     \newcommand{\vv}[1]{\symbfit{#1}}
     \WithSuffix\newcommand\vv*[1]{\symbfup{#1}}
 \fi
-
