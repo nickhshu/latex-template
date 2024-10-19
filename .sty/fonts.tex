@@ -1,28 +1,29 @@
-% -----------------------------------------------------------------------------
-% Text fonts
+% For compatibility and convenience, load fonts with dedicated packages
+% whenever possible. (XeTeX on macOS cannot find fonts in the TEXMF tree by
+% font family name, and loading fonts by file name requires specifying variants
+% explicitly.)
 
-% TeX Gyre Pagella
+% TeX Gyre Pagella (serif, main font)
 \usepackage{pagella-otf} % also sets the math font
 
-% Sans-serif: Fira Sans
-% \usepackage{FiraSans}
+% Fira Sans (sans-serif)
+% \usepackage{FiraSans} % commented for faster compilation
 
-% Monospace: Fira Mono
+% Fira Mono (monospace)
 \usepackage[scale=.9, nomap]{FiraMono}
 
-% -----------------------------------------------------------------------------
-% Math fonts
-
-% TeX Gyre Pagella, but use Latin Modern for symbols
+% TeX Gyre Pagella Math (math)
 \setmathfont[
     AutoFakeBold
 ]{texgyrepagella-math.otf}
+
+% Latin Modern Math for symbols (math)
 \setmathfont[
 AutoFakeBold,
 range={\mathop,\mathbin,\mathrel,\sqrt,cal/{Latin}}
 ]{latinmodern-math.otf}
 
-% Neither Pagella nor Latin Modern has `\setminus`. Weird bug. See
+% Neither Pagella nor Latin Modern has `\setminus`. See
 % <https://tex.stackexchange.com/a/140343>.
 \AtBeginDocument{
     \renewcommand{\setminus}{\mathbin{\backslash}}%
