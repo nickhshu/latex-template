@@ -1,6 +1,9 @@
 % Additional math packages
-\usepackage{lualatex-math}
 \usepackage{physics}
+
+\ifluatex
+    \usepackage{lualatex-math}
+\fi
 
 % -----------------------------------------------------------------------------
 % Math macros
