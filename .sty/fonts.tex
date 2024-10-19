@@ -1,30 +1,38 @@
-% For compatibility and convenience, load fonts with dedicated packages
-% whenever possible. (XeTeX on macOS cannot find fonts in the TEXMF tree by
-% font family name, and loading fonts by file name requires specifying variants
-% explicitly.)
+% For compatibility and convenience, load OpenType fonts with dedicated
+% packages whenever possible. (XeTeX on macOS cannot find fonts in the TEXMF
+% tree by font family name, and loading fonts by file name requires specifying
+% variants explicitly.)
 
-% TeX Gyre Pagella (serif, main font)
-\usepackage{pagella-otf} % also sets the math font
+\ifpdftex
+    % New PX (serif, main font)
+    \usepackage{newpxtext}
 
-% Fira Sans (sans-serif)
-% \usepackage{FiraSans} % commented for faster compilation
+    % New PX (math)
+    \usepackage{newpxmath}
+\else
+    % TeX Gyre Pagella (serif, main font)
+    \usepackage{pagella-otf} % also sets the math font
 
-% Fira Mono (monospace)
-\usepackage[scale=.9, nomap]{FiraMono}
+    % Fira Sans (sans-serif)
+    % \usepackage{FiraSans} % commented for faster compilation
 
-% TeX Gyre Pagella Math (math)
-\setmathfont[
-    AutoFakeBold
-]{texgyrepagella-math.otf}
+    % Fira Mono (monospace)
+    \usepackage[scale=.9, nomap]{FiraMono}
 
-% Latin Modern Math for symbols (math)
-\setmathfont[
-AutoFakeBold,
-range={\mathop,\mathbin,\mathrel,\sqrt,cal/{Latin}}
-]{latinmodern-math.otf}
+    % TeX Gyre Pagella Math (math)
+    \setmathfont[
+        AutoFakeBold
+    ]{texgyrepagella-math.otf}
 
-% Neither Pagella nor Latin Modern has `\setminus`. See
-% <https://tex.stackexchange.com/a/140343>.
-\AtBeginDocument{
-    \renewcommand{\setminus}{\mathbin{\backslash}}%
-}
+    % Latin Modern Math for symbols (math)
+    \setmathfont[
+    AutoFakeBold,
+    range={\mathop,\mathbin,\mathrel,\sqrt,cal/{Latin}}
+    ]{latinmodern-math.otf}
+
+    % Neither Pagella nor Latin Modern has `\setminus`. See
+    % <https://tex.stackexchange.com/a/140343>.
+    \AtBeginDocument{
+        \renewcommand{\setminus}{\mathbin{\backslash}}%
+    }
+\fi
