@@ -1,6 +1,3 @@
-% Additional math packages
-\usepackage{physics}
-
 \ifluatex
     \usepackage{lualatex-math}
 \fi
@@ -53,3 +50,20 @@
     \newcommand{\vv}[1]{\symbfit{#1}}
     \WithSuffix\newcommand\vv*[1]{\symbfup{#1}}
 \fi
+
+% -----------------------------------------------------------------------------
+% Package `physics` will be dropped in the future.
+
+\usepackage{physics}
+
+% \providecommand{\qq}{}
+% \renewcommand{\qq}[1]{\quad{#1}\quad}
+
+% \providecommand{\abs}{}
+% \renewcommand{\abs}[1]{\left\lvert{#1}\right\rvert}
+
+% \WithSuffix\providecommand{\abs*}{}
+% \WithSuffix\renewcommand{\abs*}[1]{\lvert{#1}\rvert}
+
+% TODO: implement `\dv` and `\pdv`
+% TODO: update MathJax
