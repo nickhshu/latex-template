@@ -8,6 +8,11 @@
 % Colored cite links will distract readers. Use black instead.
 \hypersetup{citecolor=black}
 
+% Cite with "&" instead of "and"
+\renewcommand*{\finalnamedelim}{%
+    \ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}%
+    \addspace\&\space}
+
 % Beamer will not display footnotes unless `[frame]` is specified.
 \let\oldfootnote\footnote
 \renewcommand{\footnote}[1]{\oldfootnote[frame]{#1}}
