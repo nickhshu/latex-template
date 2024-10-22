@@ -39,3 +39,15 @@
 \usepackage{enumitem}
 \setlist[1]{noitemsep}
 \setlist[2,3,4,5]{nosep}
+
+% Lists with default spacing (see p. 264 of _Companion_, 2nd ed.)
+\newenvironment{denumerate}{%
+    \begin{enumerate}[
+            itemsep = 4pt plus 2pt minus 1pt,
+            parsep = 4pt plus 2pt minus 1pt
+        ]}{\end{enumerate}}
+\newenvironment{ditemize}{%
+    \begin{itemize}[
+            itemsep = 4pt plus 2pt minus 1pt,
+            parsep = 4pt plus 2pt minus 1pt
+        ]}{\end{itemize}}
