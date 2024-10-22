@@ -59,6 +59,7 @@
         "ifclassloaded",
         "ifpackageloaded",
         "latexindent",
+        "latexmk",
         "libexec",
         "multicols",
         "newpxmath",
