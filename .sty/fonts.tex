@@ -2,6 +2,9 @@
 % packages whenever possible. (XeTeX on macOS cannot find fonts in the TEXMF
 % tree by font family name, and loading fonts by file name requires specifying
 % variants explicitly.)
+%
+% To find the file name of a font, look in
+% `/usr/local/texlive/<version>/texmf-dist/fonts/opentype/public`'
 
 \ifpdftex
     % New PX (serif, main font)
@@ -28,7 +31,7 @@
     \setmathfont[
     AutoFakeBold,
     range={\mathop,\mathbin,\mathrel,\sqrt,cal/{Latin}}
-    ]{latinmodern-math.otf}
+    ]{NewCMMath-Regular.otf}
 
     % Neither Pagella nor Latin Modern has `\setminus`. See
     % <https://tex.stackexchange.com/a/140343>.
