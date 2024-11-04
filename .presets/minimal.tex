@@ -49,17 +49,17 @@
 \usepackage[scale=.8, nomap]{FiraMono}
 
 \setmathfont[
-    AutoFakeBold
+    AutoFakeBold,
 ]{texgyrepagella-math.otf}
 
 \setmathfont[
-AutoFakeBold,
-range={\mathop,\mathbin,\mathrel,\sqrt,cal/{Latin}}
-]{latinmodern-math.otf}
+range=it/{latin,Latin},
+]{Asana-Math.otf}
 
-\AtBeginDocument{
-    \renewcommand{\setminus}{\mathbin{\backslash}}%
-}
+\setmathfont[
+    CharacterVariant=1,
+    range={\mathop,\mathbin,\mathrel,\sqrt,\mathcal,\varnothing},
+]{NewCMMath-Book.otf}
 
 % ----------------------------------------------------------------------------
 % Links
