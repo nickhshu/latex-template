@@ -14,7 +14,7 @@
     \usepackage{newpxmath}
 \else
     % TeX Gyre Pagella (serif, main font)
-    \usepackage{pagella-otf} % also sets the math font
+    \usepackage{pagella-otf}
 
     % Fira Sans (sans-serif)
     % \usepackage{FiraSans} % commented for faster compilation
@@ -22,20 +22,21 @@
     % Fira Mono (monospace)
     \usepackage[scale=.9, nomap]{FiraMono}
 
-    % TeX Gyre Pagella Math (math)
+    % TeX Gyre Pagella (math)
     \setmathfont[
         AutoFakeBold
     ]{texgyrepagella-math.otf}
+    % Technically this is already loaded by package `pagella-otf`.
 
-    % Latin Modern Math for symbols (math)
+    % New Computer Modern for select symbols (math)
     \setmathfont[
-    AutoFakeBold,
-    range={\mathop,\mathbin,\mathrel,\sqrt,cal/{Latin}}
-    ]{NewCMMath-Regular.otf}
-
-    % Neither Pagella nor Latin Modern has `\setminus`. See
-    % <https://tex.stackexchange.com/a/140343>.
-    \AtBeginDocument{
-        \renewcommand{\setminus}{\mathbin{\backslash}}%
-    }
+        CharacterVariant=1, % variant empty set symbol
+        range={\mathop,\mathbin,\mathrel,\sqrt,\mathcal,\varnothing},
+    ]{NewCMMath-Book.otf} % book weight
+    % \setmathfont[
+    %     version=bold,
+    %     CharacterVariant=1,
+    %     range={\mathop,\mathbin,\mathrel,\sqrt,\mathcal,\varnothing},
+    % ]{NewCMMath-Bold.otf}
+    % TODO: It appears that the bold version is yet to added to TeX Live.
 \fi
