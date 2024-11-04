@@ -1,19 +1,18 @@
-% For compatibility and convenience, load OpenType fonts with dedicated
-% packages whenever possible. (XeTeX on macOS cannot find fonts in the TEXMF
-% tree by font family name, and loading fonts by file name requires specifying
-% variants explicitly.)
+% Load OpenType fonts with dedicated packages whenever possibler(XeTeX on macOS
+% cannot find fonts in the TEXMF tree by font family name, and loading fonts by
+% file name requires specifying variants and features explicitly.)
 %
 % To find the file name of a font, look in
 % `/usr/local/texlive/<version>/texmf-dist/fonts/opentype/public`'
 
 \ifpdftex
-    % New PX (serif, main font)
+    % New PX (serif)
     \usepackage{newpxtext}
 
     % New PX (math)
     \usepackage{newpxmath}
 \else
-    % TeX Gyre Pagella (serif, main font)
+    % TeX Gyre Pagella (serif)
     \usepackage{pagella-otf}
 
     % Fira Sans (sans-serif)
@@ -24,7 +23,7 @@
 
     % TeX Gyre Pagella (math)
     \setmathfont[
-        AutoFakeBold
+        AutoFakeBold,
     ]{texgyrepagella-math.otf}
     % Technically this is already loaded by package `pagella-otf`.
 
