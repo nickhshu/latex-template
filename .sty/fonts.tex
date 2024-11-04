@@ -28,7 +28,14 @@
     ]{texgyrepagella-math.otf}
     % Technically this is already loaded by package `pagella-otf`.
 
-    % New Computer Modern for select symbols (math)
+    % Asana Math (math, select symbols)
+    \setmathfont[
+    range=it/{latin,Latin},
+    ]{Asana-Math.otf}
+    % Asana has better kerning around letter `f`. Not sure how to import the
+    % font for only one letter.
+
+    % New Computer Modern (math, select symbols)
     \setmathfont[
         CharacterVariant=1, % variant empty set symbol
         range={\mathop,\mathbin,\mathrel,\sqrt,\mathcal,\varnothing},
