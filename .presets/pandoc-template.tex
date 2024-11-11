@@ -1,0 +1,46 @@
+% A minimal Pandoc template for R Markdown output.
+
+% The default template can be found at
+% <https://github.com/jgm/pandoc/blob/master/data/templates/default.latex>.
+
+\documentclass{article}
+
+\usepackage{import}
+
+% TODO: usually need to replaced with absolute path
+\import{.presets/}{normal-counter.tex}
+
+% No page numbers (useful if the output will be attached to another document)
+% \pagenumbering{gobble}
+
+% Smaller font for code
+\setmonofont[Scale=0.7]{Fira Mono}
+
+% Add space between paragraphs and remove indentation.
+\usepackage[parfill]{parskip}
+
+% The rest are lifted from the default template.
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\title{$title$}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+$body$
+
+\end{document}
