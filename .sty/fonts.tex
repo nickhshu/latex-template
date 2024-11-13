@@ -29,11 +29,15 @@
 
     % Asana Math (math, select symbols)
     \setmathfont[
-    AutoFakeBold,
-    range=it/{latin,Latin},
+        AutoFakeBold,
+        range=\mitf,
     ]{Asana-Math.otf}
-    % Asana has better kerning around letter `f`. Not sure how to import the
-    % font for only one letter.
+    % Asana has better kerning around letter `f`.
+
+    % Map letter `f` to `\mitf` in math mode
+    \begingroup\lccode`~=`f \lowercase{\endgroup\def~}{\mitf}
+    \mathcode`f="8000
+    % From <https://tex.stackexchange.com/a/530981>
 
     % New Computer Modern (math, select symbols)
     \setmathfont[
