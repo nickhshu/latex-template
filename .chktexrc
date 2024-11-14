@@ -49,8 +49,8 @@ UserWarnRegex
     # use `proposition` for theorems
     \\begin{theorem}
 
-    # use `\varepsilon` or `\varphi`
-    \\epsilon \\phi
+    # use `\varepsilon`
+    \\epsilon
 }
 
 Silent{
