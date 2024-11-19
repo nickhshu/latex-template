@@ -21,25 +21,29 @@
     % Fira Mono (monospace)
     \usepackage[scale=.8, nomap]{FiraMono}
 
-    % TeX Gyre Pagella (math)
+    % -------------------------------------------------------------------------
+    % Math
+
+    % Load New Computer Modern as a backup for symbols not defined in Pagella
+    \setmathfont{NewCMMath-Book.otf}
+
+    % Load TeX Gyre Pagella as the main font
     \setmathfont{texgyrepagella-math.otf}[
         AutoFakeBold,
     ]
-    % Technically this is already loaded by package `pagella-otf`.
 
-    % Asana Math (math, select symbols)
+    % Load Asana Math for letter `f` only (it has better kerning)
     \setmathfont{Asana-Math.otf}[
         AutoFakeBold,
         range=\mitf,
     ]
-    % Asana has better kerning around letter `f`.
 
     % Map letter `f` to `\mitf` in math mode
     \begingroup\lccode`~=`f \lowercase{\endgroup\def~}{\mitf}
     \mathcode`f="8000
     % From <https://tex.stackexchange.com/a/530981>
 
-    % New Computer Modern (math, select symbols)
+    % Load New Computer Modern for select symbols
     \setmathfont{NewCMMath-Book.otf}[ % use book weight
         AutoFakeBold,
         CharacterVariant=1, % variant empty set symbol
