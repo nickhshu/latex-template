@@ -28,21 +28,12 @@ WipeArg
 
 UserWarn
 {
-    # use `\lips`
-    \ldots
-
-    # use `\BracketedLips`
-    [\lips]
-
     # use `\ol` or `\ul`
     \bar \overline \underline
 }
 
 UserWarnRegex
 {
-    # use `\lips`
-    \\dots[^cbmio]
-
     # use package `csquotes` for quotes
     `
 
@@ -51,10 +42,6 @@ UserWarnRegex
 
     # use `\varepsilon`
     \\epsilon
-}
-
-Silent{
-    \BracketedLips \lips
 }
 
 VerbEnvir{
