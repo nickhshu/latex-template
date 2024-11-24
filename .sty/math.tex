@@ -2,12 +2,8 @@
     \usepackage{lualatex-math}
 \fi
 
-% Define commands with stars
+\usepackage{xparse}
 \usepackage{suffix}
-
-% `physics` with redefined `\flatfrac`
-\usepackage{physics}
-\DeclareDocumentCommand\flatfrac{ m m }{#1\slash#2}
 
 % -----------------------------------------------------------------------------
 % Math macros
@@ -34,6 +30,71 @@
 \newcommand{\ul}[1]{{\mspace{1mu}\underline{\mspace{-1mu} #1 \mspace{-1mu}}\mspace{1mu}}}
 % Inspired by <https://tex.stackexchange.com/questions/281391/how-to-make-underline-shorter>
 % (see comments of the question).
+
+% -----------------------------------------------------------------------------
+% Commands from `physics`
+
+% The `physics` package breaks things. Some of the useful commands are
+% adapted here, with the help of package `fixdif`.
+
+\DeclareDocumentCommand{\abs}{ s m }{
+    \IfBooleanTF{#1}{
+        \left\lvert #2 \right\rvert
+    }{
+        \lvert #2 \rvert
+    }
+}
+\DeclareDocumentCommand{\norm}{ s m }{
+    \IfBooleanTF{#1}{
+        \left\lVert #2 \right\rVert
+    }{
+        \lVert #2 \rVert
+    }
+}
+
+\DeclareDocumentCommand{\qq}{ s m }{
+    \IfBooleanTF{#1}{\quad}{} \text{#2} \quad
+}
+
+\usepackage{fixdif}
+\letdif{\grad}{nabla}
+
+\DeclareDocumentCommand\flatfrac{ m m }{ #1 / #2 }
+\DeclareDocumentCommand\dd{}{\d}
+
+\DeclareDocumentCommand\dv{ s o m g }{
+    \IfBooleanTF{#1}{ \let\fractype\flatfrac }{ \let\fractype\frac }
+    \IfNoValueTF{#4}{
+        \fractype{
+            \d \IfNoValueTF{#2}{}{^{#2}}
+        }{
+            \d #3\IfNoValueTF{#2}{}{^{#2}}
+        }
+    }{
+        \fractype{
+            \d \IfNoValueTF{#2}{}{^{#2}} #3
+        }{
+            \d #4\IfNoValueTF{#2}{}{^{#2}}
+        }
+    }
+}
+
+\DeclareDocumentCommand\pdv{ s o m g }{
+    \IfBooleanTF{#1}{ \let\fractype\flatfrac }{ \let\fractype\frac }
+    \IfNoValueTF{#4}{
+        \fractype{
+            \partial \IfNoValueTF{#2}{}{^{#2}}
+        }{
+            \partial #3\IfNoValueTF{#2}{}{^{#2}}
+        }
+    }{
+        \fractype{
+            \partial \IfNoValueTF{#2}{}{^{#2}} #3
+        }{
+            \partial #4\IfNoValueTF{#2}{}{^{#2}}
+        }
+    }
+}
 
 % -----------------------------------------------------------------------------
 % Bold math
