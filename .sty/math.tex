@@ -3,7 +3,6 @@
 \fi
 
 \usepackage{xparse}
-\usepackage{suffix}
 
 % -----------------------------------------------------------------------------
 % Math macros
@@ -26,8 +25,12 @@
 
 % Make `\overline` and `\underline` shorter so that lines for consecutive
 % letters do not connect
-\newcommand{\ol}[1]{{\mspace{1mu}\overline{\mspace{-1mu} #1 \mspace{-1mu}}\mspace{1mu}}}
-\newcommand{\ul}[1]{{\mspace{1mu}\underline{\mspace{-1mu} #1 \mspace{-1mu}}\mspace{1mu}}}
+\DeclareDocumentCommand{\ol}{ m }{
+    {\mspace{1mu}\overline{\mspace{-1mu} #1 \mspace{-1mu}}\mspace{1mu}}
+}
+\DeclareDocumentCommand{\ul}{ m }{
+    {\mspace{1mu}\underline{\mspace{-1mu} #1 \mspace{-1mu}}\mspace{1mu}}
+}
 % Inspired by <https://tex.stackexchange.com/questions/281391/how-to-make-underline-shorter>
 % (see comments of the question).
 
@@ -107,15 +110,16 @@
 \ifpdftex
     % If `unicode-math` is not loaded, which presumably only happens when
     % compiling with PDFTeX:
-    \newcommand{\mm}[1]{\vb*{#1}}
-    \WithSuffix\newcommand\mm*[1]{\vb{#1}}
-    \providecommand{\vv}{} % might already be defined by `newpxmath`
-    \renewcommand{\vv}[1]{\vb*{#1}}
-    \WithSuffix\newcommand\vv*[1]{\vb{#1}}
+    \usepackage{bm}
+    \DeclareDocumentCommand{\bb}{ s m }{
+        \IfBooleanTF{#1}{ \bm{\mathrm{#2}} }{ \bm{#2} }
+    }
 \else
     % If `unicode-math` is loaded:
-    \newcommand{\mm}[1]{\symbfit{#1}}
-    \WithSuffix\newcommand\mm*[1]{\symbfup{#1}}
-    \newcommand{\vv}[1]{\symbfit{#1}}
-    \WithSuffix\newcommand\vv*[1]{\symbfup{#1}}
+    \DeclareDocumentCommand{\bb}{ s m }{
+        \IfBooleanTF{#1}{ \symbfup{#2} }{ \symbfit{#2} }
+    }
 \fi
+
+\DeclareDocumentCommand{\mm}{}{\bb}
+\DeclareDocumentCommand{\vv}{}{\bb}
