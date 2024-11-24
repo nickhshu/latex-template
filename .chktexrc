@@ -30,6 +30,9 @@ UserWarn
 {
     # use `\ol` or `\ul`
     \bar \overline \underline
+
+    # use `\d`
+    \dd
 }
 
 UserWarnRegex
