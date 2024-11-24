@@ -21,10 +21,11 @@
 \newcommand{\ii}{\mathrm{i}}
 \newcommand{\ppi}{\mathrm{\pi}}
 
-\newcommand{\E}{\opn{\mathbb{E}}}
-
 \newcommand{\middlemid}{\mathrel{}\middle|\mathrel{}}
 
+\DeclareDocumentCommand\d{}{\dd}
+
+\DeclareMathOperator{\E}{\mathbb{E}}
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
 
@@ -50,18 +51,15 @@
 \usepackage{pagella-otf}
 \usepackage[scale=.8, nomap]{FiraMono}
 
-\setmathfont[
+\setmathfont{texgyrepagella-math.otf}[
     AutoFakeBold,
-]{texgyrepagella-math.otf}
+]
 
-\setmathfont[
-range=it/{latin,Latin},
-]{Asana-Math.otf}
-
-\setmathfont[
+\setmathfont{NewCMMath-Book.otf}[
+    AutoFakeBold,
     CharacterVariant=1,
     range={\mathop,\mathbin,\mathrel,\sqrt,\mathcal,\varnothing},
-]{NewCMMath-Book.otf}
+]
 
 % ----------------------------------------------------------------------------
 % Links
