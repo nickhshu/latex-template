@@ -42,16 +42,16 @@
 
 \DeclareDocumentCommand{\abs}{ s m }{
     \IfBooleanTF{#1}{
-        \left\lvert #2 \right\rvert
-    }{
         \lvert #2 \rvert
+    }{
+        \left\lvert #2 \right\rvert
     }
 }
 \DeclareDocumentCommand{\norm}{ s m }{
     \IfBooleanTF{#1}{
-        \left\lVert #2 \right\rVert
-    }{
         \lVert #2 \rVert
+    }{
+        \left\lVert #2 \right\rVert
     }
 }
 
