@@ -21,8 +21,9 @@
     // Formatter
     "latex-workshop.formatting.latex": "latexindent",
     "latex-workshop.formatting.latexindent.args": [
-        "-c",
-        "%DIR%/",
+        "-g",
+        "/dev/null",
+        // no `indent.log`, see <https://github.com/cmhughes/latexindent.pl/releases/tag/V3.9.3>
         "%TMPFILE%",
         "-l=%WORKSPACE_FOLDER%/.latexindent.yaml"
     ],
