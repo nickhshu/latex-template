@@ -15,4 +15,4 @@ $emulate_aux = 1;
 $bibtex_use = 2;
 
 # Other auxiliary files
-$clean_ext = "%R.run.xml %R.ent %R.nav %R.snm";
+$clean_ext = "%R.run.xml %R.ent %R.nav %R.snm %R.bbl-SAVE-ERROR"
