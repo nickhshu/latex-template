@@ -8,10 +8,12 @@
 % <https://texfaq.org/FAQ-wrongpn> and <https://tex.stackexchange.com/a/88186>.
 
 \newcommand{\newthm}[2]{%
-    \newtheorem{#1}[theorem]{#2}
-    \newtheorem*{#1*}{#2}
-    \BeforeBeginEnvironment{#1}{\goodbreak}
-    \BeforeBeginEnvironment{#1*}{\goodbreak}
+    \AddToHook{env/#1/begin}{
+        \zcsetup{countertype={theorem=#1}}}
+\newtheorem{#1}[theorem]{#2}
+\newtheorem*{#1*}{#2}
+\BeforeBeginEnvironment{#1}{\goodbreak}
+\BeforeBeginEnvironment{#1*}{\goodbreak}
 }
 
 \newthm{lemma}{Lemma}

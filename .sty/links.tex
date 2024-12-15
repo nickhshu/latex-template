@@ -1,3 +1,11 @@
+\usepackage{zref-clever}
+
+\newcommand{\cref}[1]{\zcref[nameinlink=false, cap]{#1}}
+\newcommand{\Cref}[1]{\zcref[nameinlink=false, cap]{#1}}
+
+% Package `beamer` redefines `\label`, which might cause compatibility issues.
+% Consult the manual of `zref-clever` for workarounds.
+
 % In theory `hyperref` should be loaded last (but before `cleveref`), but the
 % current setup works, and I do not want to change it.
 \usepackage[]{hyperref}
@@ -7,14 +15,6 @@
     colorlinks = true,
     hypertexnames = false, % or `perpage` will lead to duplicate PDF anchors
 }
-
-% Load after `hyperref` and `amsmath` but before definitions of theorem-like
-% environments. Not compatible with `beamer`.
-\makeatletter
-\@ifclassloaded{beamer}{}{
-    \usepackage[capitalize, noabbrev]{cleveref}
-}
-\makeatother
 
 % Set links in roman
 \urlstyle{rm}
