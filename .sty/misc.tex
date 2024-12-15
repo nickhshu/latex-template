@@ -39,3 +39,15 @@
             itemsep = 4pt plus 2pt minus 1pt,
             parsep = 4pt plus 2pt minus 1pt
         ]}{\end{itemize}}
+
+% The manual recommends that `hyperref` be loaded after all other packages.
+\usepackage[]{hyperref}
+\hypersetup{
+    allcolors = violet,
+    breaklinks = true,
+    colorlinks = true,
+    hypertexnames = false, % or `perpage` will lead to duplicate PDF anchors
+}
+
+% Set links in roman
+\urlstyle{rm}
