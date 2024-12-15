@@ -67,6 +67,7 @@
         "libexec",
         "multicols",
         "newpxmath",
+        "nonstopmode",
         "opentype",
         "Pagella",
         "Pandoc",

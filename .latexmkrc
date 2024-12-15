@@ -2,7 +2,7 @@
 $pdf_mode = 4;
 
 # Compilers options
-set_tex_cmds("-synctex=1 -halt-on-error -file-line-error %O %S");
+set_tex_cmds("-synctex=1 -halt-on-error -interaction=nonstopmode -file-line-error %O %S");
 
 # Change to the parent directory before processing the document
 $do_cd = 1;
