@@ -44,8 +44,8 @@
         "Asana",
         "beamer",
         "biblatex",
+        "bibtex",
         "bmatrix",
-        "cbmio",
         "cenumerate",
         "chktex",
         "citemize",
@@ -77,13 +77,13 @@
         "sgamex",
         "subfigure",
         "subfigures",
+        "synctex",
         "tblr",
         "texlive",
         "texmf",
         "texttt",
         "tion",
         "varepsilon",
-        "varphi",
         "vmatrix"
     ]
 }
