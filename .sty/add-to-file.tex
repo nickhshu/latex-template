@@ -1,0 +1,73 @@
+% Package imports that are better added to each document (or `project.tex`)
+% when needed.
+
+\PackageError{add-to-file.tex}{This file is not supposed to be loaded directly}{}
+
+% -----------------------------------------------------------------------------
+% Floats
+
+% TikZ
+\usepackage{tikz}
+
+% PGFPlots
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18} % use the latest version
+
+% Tables
+\usepackage{tabularray}
+\UseTblrLibrary{booktabs}
+
+% Subfigures
+\usepackage{caption}
+\usepackage{subcaption}
+
+% Pseudocode
+\usepackage[noend]{algpseudocode}
+\usepackage{algorithm}
+
+% -----------------------------------------------------------------------------
+% Extensive and strategic games
+
+\subimport{mjo/}{sgamex.sty}
+\subimport{mjo/}{egameps.sty} % requires LuaLaTeX
+
+% See also <https://nickshu.gitlab.io/notes-snippets/latex/floats/games/>.
+
+% Package `sgamex` also requires that package `xcolor` be loaded with option
+% `table`. Add the following before all other packages.
+%
+% \usepackage[dvipsnames, table]{xcolor}
+
+% If used with `beamer`, add the following right before `\begin{document}`
+% to work around a conflict:
+%
+% \makeatletter
+% \let\zz\reset@color
+% \def\reset@color{\kern\z@\zz}
+% \makeatother
+
+% -----------------------------------------------------------------------------
+% Indices
+
+% Load and initialize before `hyperref`.
+\usepackage{imakeidx}
+\makeindex[title=Index, intoc=true]
+
+% Use the following to print the index:
+
+% \printindex
+
+% -----------------------------------------------------------------------------
+% Misc
+
+% Code listings
+\usepackage{listings}
+\usepackage{lstautogobble}
+\lstset{basicstyle=\ttfamily, autogobble=true, xleftmargin=3em}
+
+% Ragged text
+\usepackage{ragged2e}
+
+% Endnotes
+\usepackage{endnotes}
+\let\footnote=\endnote
