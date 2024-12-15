@@ -1,14 +1,14 @@
-\usepackage{perpage}
+\usepackage{zref-perpage}
 
-\MakePerPage{equation}
-\renewcommand{\theequation}{\theperpage.\arabic{equation}}
+\zmakeperpage{equation}
+\renewcommand{\theequation}{\thezpage.\arabic{equation}}
 
-\MakePerPage{theorem}
-\renewcommand{\thetheorem}{\theperpage.\arabic{theorem}}
+\zmakeperpage{theorem}
+\renewcommand{\thetheorem}{\thezpage.\arabic{theorem}}
 % Special treatment is needed for theorem-like environments. See `theorem-defs.tex`.
 
-\MakeSortedPerPage{figure}
-\renewcommand{\thefigure}{\theperpage.\arabic{figure}}
+\zmakeperpage{figure}
+\renewcommand{\thefigure}{\thezpage.\arabic{figure}}
 
-\MakeSortedPerPage{table}
-\renewcommand{\thetable}{\theperpage.\arabic{table}}
+\zmakeperpage{table}
+\renewcommand{\thetable}{\thezpage.\arabic{table}}
