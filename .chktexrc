@@ -45,9 +45,6 @@ UserWarnRegex
 
     # use `\varepsilon`
     \\epsilon
-
-    # Package `cleveref` is not working
-    \\cref \\Cref
 }
 
 VerbEnvir{
