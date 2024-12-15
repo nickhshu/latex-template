@@ -1,4 +1,8 @@
 {
+    // No notifications for errors and warnings
+    "latex-workshop.message.error.show": false,
+    "latex-workshop.message.warning.show": false,
+
     // Build (latexmk)
     "latex-workshop.latex.autoBuild.run": "never",
     "latex-workshop.latex.tools": [
