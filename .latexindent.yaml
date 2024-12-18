@@ -16,8 +16,8 @@ indentAfterItems:
   itemize*: 0
   enumerate: 0
   enumerate*: 0
-  citemize: 0
-  cenumerate: 0
+  ditemize: 0
+  denumerate: 0
 
 lookForAlignDelims:
   matrix*: 1
