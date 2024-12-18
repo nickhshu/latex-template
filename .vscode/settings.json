@@ -2,6 +2,9 @@
     // Note that VS Code does not support local keybindings. See the global
     // `keybindings.json` file for LaTeX-related keybindings.
 
+    "[latex]": { "editor.rulers": [], "editor.wordWrap": "on" },
+    "[bibtex]": { "editor.rulers": [], "editor.wordWrap": "on" },
+
     // No notifications for errors and warnings
     "latex-workshop.message.error.show": false,
     "latex-workshop.message.warning.show": false,
