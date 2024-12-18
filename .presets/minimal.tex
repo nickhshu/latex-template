@@ -10,7 +10,6 @@
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{mathtools}
-\usepackage{physics}
 
 \newcommand{\opn}[1]{\operatorname{#1}}
 
@@ -23,17 +22,81 @@
 
 \newcommand{\middlemid}{\mathrel{}\middle|\mathrel{}}
 
-\DeclareDocumentCommand\d{}{\dd}
-
 \DeclareMathOperator{\E}{\mathbb{E}}
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
 
-\newcommand{\ol}[1]{{\mspace{1mu}\overline{\mspace{-1mu} #1 \mspace{-1mu}}\mspace{1mu}}}
-\newcommand{\ul}[1]{{\mspace{1mu}\underline{\mspace{-1mu} #1 \mspace{-1mu}}\mspace{1mu}}}
+\DeclareDocumentCommand{\ol}{ m }{
+    {\mspace{1mu}\overline{\mspace{-1mu} #1 \mspace{-1mu}}\mspace{1mu}}
+}
+\DeclareDocumentCommand{\ul}{ m }{
+    {\mspace{1mu}\underline{\mspace{-1mu} #1 \mspace{-1mu}}\mspace{1mu}}
+}
 
-\newcommand{\mm}[1]{\symbfit{#1}}
-\newcommand{\vv}[1]{\symbfit{#1}}
+\DeclareDocumentCommand{\abs}{ s m }{
+    \IfBooleanTF{#1}{
+        \lvert #2 \rvert
+    }{
+        \left\lvert #2 \right\rvert
+    }
+}
+\DeclareDocumentCommand{\norm}{ s m }{
+    \IfBooleanTF{#1}{
+        \lVert #2 \rVert
+    }{
+        \left\lVert #2 \right\rVert
+    }
+}
+
+\DeclareDocumentCommand{\qq}{ s m }{
+    \IfBooleanTF{#1}{}{\quad} \text{#2} \quad
+}
+
+\usepackage{fixdif}
+\letdif{\grad}{nabla}
+
+\DeclareDocumentCommand\flatfrac{ m m }{ #1 / #2 }
+\DeclareDocumentCommand\dd{}{\d}
+
+\DeclareDocumentCommand\dv{ s o m g }{
+    \IfBooleanTF{#1}{ \let\fractype\flatfrac }{ \let\fractype\frac }
+    \IfNoValueTF{#4}{
+        \fractype{
+            \d \IfNoValueTF{#2}{}{^{#2}}
+        }{
+            \d #3\IfNoValueTF{#2}{}{^{#2}}
+        }
+    }{
+        \fractype{
+            \d \IfNoValueTF{#2}{}{^{#2}} #3
+        }{
+            \d #4\IfNoValueTF{#2}{}{^{#2}}
+        }
+    }
+}
+
+\DeclareDocumentCommand\pdv{ s o m g }{
+    \IfBooleanTF{#1}{ \let\fractype\flatfrac }{ \let\fractype\frac }
+    \IfNoValueTF{#4}{
+        \fractype{
+            \partial \IfNoValueTF{#2}{}{^{#2}}
+        }{
+            \partial #3\IfNoValueTF{#2}{}{^{#2}}
+        }
+    }{
+        \fractype{
+            \partial \IfNoValueTF{#2}{}{^{#2}} #3
+        }{
+            \partial #4\IfNoValueTF{#2}{}{^{#2}}
+        }
+    }
+}
+
+\DeclareDocumentCommand{\bb}{ s m }{
+    \IfBooleanTF{#1}{ \symbfup{#2} }{ \symbfit{#2} }
+}
+\DeclareDocumentCommand{\mm}{}{\bb}
+\DeclareDocumentCommand{\vv}{}{\bb}
 
 % ----------------------------------------------------------------------------
 % Bibliography
@@ -69,8 +132,7 @@
     breaklinks = true,
     colorlinks = true,
 }
-\makeatletter
-\@ifclassloaded{beamer}{}{
-    \usepackage[capitalize, noabbrev]{cleveref}
-}
-\makeatother
+
+\usepackage{zref-clever}
+\newcommand{\cref}[1]{\zcref[nameinlink=false, cap]{#1}}
+\newcommand{\Cref}[1]{\zcref[nameinlink=false, cap]{#1}}
