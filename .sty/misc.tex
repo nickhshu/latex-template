@@ -23,11 +23,13 @@
 % blackboard bold math characters in section titles. Otherwise, the compiler
 % will enter an infinite loop. See <https://tex.stackexchange.com/q/431162>.
 
-% Compact lists
+% Lists
 \usepackage{enumitem}
+% Use bullets for all levels in `itemize`
+\setlist[itemize]{label=\textbullet}
+% Compact spacing
 \setlist[1]{noitemsep}
 \setlist[2,3,4,5]{nosep}
-
 % Lists with default spacing (see the Companion, 3rd ed., vol. 1, p. 264)
 \newenvironment{denumerate}{%
     \begin{enumerate}[
