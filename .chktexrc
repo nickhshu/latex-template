@@ -33,6 +33,9 @@ UserWarn
 
     # use `\d`
     \dd
+
+    # use `\mathrm`, `\mathit`, or `\emph`
+    \textit \textrm
 }
 
 UserWarnRegex
