@@ -8,14 +8,14 @@
 % <https://texfaq.org/FAQ-wrongpn> and <https://tex.stackexchange.com/a/88186>.
 
 \newcommand{\newthm}[2]{%
-    \AddToHook{env/#1/begin}{
-        \zcsetup{countertype={theorem=#1}}}
-\newtheorem{#1}[theorem]{#2}
-\newtheorem*{#1*}{#2}
-\BeforeBeginEnvironment{#1}{\goodbreak}
-\BeforeBeginEnvironment{#1*}{\goodbreak}
-\zcRefTypeSetup{#1}{name-sg=#1,Name-sg=#2}
-% abusing the argument `#1` as both the environment name and the lowercase name
+    % We abuse the argument `#1` as both the environment name and the lowercase
+    % version of the reference name.
+    \newtheorem{#1}[theorem]{#2}
+    \newtheorem*{#1*}{#2}
+    \BeforeBeginEnvironment{#1}{\goodbreak}
+    \BeforeBeginEnvironment{#1*}{\goodbreak}
+    \zcRefTypeSetup{#1}{name-sg=#1,Name-sg=#2}
+    \AddToHook{env/#1/begin}{\zcsetup{countertype={theorem=#1}}}
 }
 
 \newthm{proposition}{Proposition}
