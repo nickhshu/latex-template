@@ -14,6 +14,8 @@
 \newtheorem*{#1*}{#2}
 \BeforeBeginEnvironment{#1}{\goodbreak}
 \BeforeBeginEnvironment{#1*}{\goodbreak}
+\zcRefTypeSetup{#1}{name-sg=#1,Name-sg=#2}
+% abusing the argument `#1` as both the environment name and the lowercase name
 }
 
 \newthm{lemma}{Lemma}
