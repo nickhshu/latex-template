@@ -1,3 +1,8 @@
+% Report error for non-Beamer documents
+\makeatletter
+\@ifclassloaded{beamer}{ }{ \PackageError{beamer.tex}{Loaded in a non-Beamer document} }
+\makeatother
+
 % Theme, font, etc.
 \usefonttheme{serif}
 \usecolortheme{metropolis}
