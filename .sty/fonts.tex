@@ -13,7 +13,7 @@
     \usepackage{newpxmath}
 \else
     % TeX Gyre Pagella (serif)
-    \usepackage{pagella-otf}
+    \usepackage{pagella-otf} % also loads the math font
 
     % Fira Sans (sans-serif)
     % \usepackage{FiraSans} % commented for faster compilation
@@ -23,14 +23,10 @@
 
     % -------------------------------------------------------------------------
     % Math
-
-    % Load New Computer Modern as a backup for symbols not defined in Pagella
-    \setmathfont{NewCMMath-Book.otf}
-
-    % Load TeX Gyre Pagella as the main font
-    \setmathfont{texgyrepagella-math.otf}[
-        AutoFakeBold,
-    ]
+    % TeX Gyre Pagella is already loaded above
+    % \setmathfont{texgyrepagella-math.otf}[
+    % AutoFakeBold,
+    % ]
 
     % Load Asana Math for letter `f` only (it has better kerning)
     \setmathfont{Asana-Math.otf}[
