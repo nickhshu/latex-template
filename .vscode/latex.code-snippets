@@ -1,6 +1,15 @@
 {
-    // ------------------------------------------------------------------------
-    // Initialization
+    "Figure": {
+        "prefix": "fig",
+        "body": [
+            "\\begin{figure}[tp]",
+            "    \\centering",
+            "    \\includegraphics[scale=.5]{img/${1}}",
+            "    \\caption{${2}}\\label{fig:${3}}",
+            "\\end{figure}"
+        ],
+        "scope": "latex"
+    },
     "Init LaTeX": {
         "prefix": "init",
         "body": [
@@ -48,209 +57,6 @@
             "",
             "\\end{document}"
         ],
-        "scope": "latex"
-    },
-
-    // ------------------------------------------------------------------------
-    // Citation
-    "textcite": {
-        "prefix": "\\tc",
-        "body": ["\\textcite{${1}}"],
-        "scope": "latex"
-    },
-    "autocite": {
-        "prefix": "\\ac",
-        "body": ["\\autocite{${1}}"],
-        "scope": "latex"
-    },
-    "gentextcite": {
-        "prefix": "\\gtc",
-        "body": ["\\gentextcite{${1}}"],
-        "scope": "latex"
-    },
-
-    // ------------------------------------------------------------------------
-    // Math
-    "subseteq": {
-        "prefix": "\\sse",
-        "body": ["\\subseteq"],
-        "scope": "latex"
-    },
-    "emptyset": {
-        "prefix": "\\emp",
-        "body": ["\\emptyset"],
-        "scope": "latex"
-    },
-
-    // ------------------------------------------------------------------------
-    // Misc
-    "emph": {
-        "prefix": "\\em",
-        "body": ["\\emph{${1}}"],
-        "scope": "latex"
-    },
-    "figure": {
-        "prefix": "\\fig",
-        "body": [
-            "\\begin{figure}[tp]",
-            "    \\centering",
-            "    \\includegraphics[scale=.5]{img/${1}}",
-            "    \\caption{${2}}\\label{fig:${3}}",
-            "\\end{figure}"
-        ],
-        "scope": "latex"
-    },
-    "eq": {
-        "prefix": "\\eq",
-        "body": ["\\begin{equation}", "    ${1}", "\\end{equation}"],
-        "scope": "latex"
-    },
-    "align*": {
-        "prefix": "\\ali",
-        "body": ["\\begin{align*}", "    ${1}", "\\end{align*}"],
-        "scope": "latex"
-    },
-
-    // ------------------------------------------------------------------------
-    // Greek letters
-    "alpha": {
-        "prefix": "\\al",
-        "body": ["\\alpha"],
-        "scope": "latex"
-    },
-    "beta": {
-        "prefix": "\\be",
-        "body": ["\\beta"],
-        "scope": "latex"
-    },
-    "gamma": {
-        "prefix": "\\ga",
-        "body": ["\\gamma"],
-        "scope": "latex"
-    },
-    "delta": {
-        "prefix": "\\de",
-        "body": ["\\delta"],
-        "scope": "latex"
-    },
-    "varepsilon": {
-        "prefix": "\\var",
-        "body": ["\\varepsilon"],
-        "scope": "latex"
-    },
-    "zeta": {
-        "prefix": "\\ze",
-        "body": ["\\zeta"],
-        "scope": "latex"
-    },
-    "eta": {
-        "prefix": "\\et",
-        "body": ["\\eta"],
-        "scope": "latex"
-    },
-    "theta": {
-        "prefix": "\\th",
-        "body": ["\\theta"],
-        "scope": "latex"
-    },
-    "iota": {
-        "prefix": "\\io",
-        "body": ["\\iota"],
-        "scope": "latex"
-    },
-    "kappa": {
-        "prefix": "\\ka",
-        "body": ["\\kappa"],
-        "scope": "latex"
-    },
-    "lambda": {
-        "prefix": "\\la",
-        "body": ["\\lambda"],
-        "scope": "latex"
-    },
-    "rho": {
-        "prefix": "\\ro",
-        "body": ["\\rho"],
-        "scope": "latex"
-    },
-    "sigma": {
-        "prefix": "\\si",
-        "body": ["\\sigma"],
-        "scope": "latex"
-    },
-    "tau": {
-        "prefix": "\\ta",
-        "body": ["\\tau"],
-        "scope": "latex"
-    },
-    "phi": {
-        "prefix": "\\ph",
-        "body": ["\\phi"],
-        "scope": "latex"
-    },
-    "chi": {
-        "prefix": "\\ch",
-        "body": ["\\chi"],
-        "scope": "latex"
-    },
-    "psi": {
-        "prefix": "\\ps",
-        "body": ["\\psi"],
-        "scope": "latex"
-    },
-    "omega": {
-        "prefix": "\\om",
-        "body": ["\\omega"],
-        "scope": "latex"
-    },
-    "Alpha": {
-        "prefix": "\\Al",
-        "body": ["\\Alpha"],
-        "scope": "latex"
-    },
-    "Beta": {
-        "prefix": "\\Be",
-        "body": ["\\Beta"],
-        "scope": "latex"
-    },
-    "Gamma": {
-        "prefix": "\\Ga",
-        "body": ["\\Gamma"],
-        "scope": "latex"
-    },
-    "Delta": {
-        "prefix": "\\De",
-        "body": ["\\Delta"],
-        "scope": "latex"
-    },
-    "Theta": {
-        "prefix": "\\Th",
-        "body": ["\\Theta"],
-        "scope": "latex"
-    },
-    "Lambda": {
-        "prefix": "\\La",
-        "body": ["\\Lambda"],
-        "scope": "latex"
-    },
-    "Sigma": {
-        "prefix": "\\Si",
-        "body": ["\\Sigma"],
-        "scope": "latex"
-    },
-    "Phi": {
-        "prefix": "\\Ph",
-        "body": ["\\Phi"],
-        "scope": "latex"
-    },
-    "Psi": {
-        "prefix": "\\Ps",
-        "body": ["\\Psi"],
-        "scope": "latex"
-    },
-    "Omega": {
-        "prefix": "\\Om",
-        "body": ["\\Omega"],
         "scope": "latex"
     }
 }
