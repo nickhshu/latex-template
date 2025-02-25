@@ -34,7 +34,7 @@
         "scope": "latex"
     },
     "Init Beamer": {
-        "prefix": "init_beamer",
+        "prefix": "beamer",
         "body": [
             "\\documentclass[",
             "    xcolor={dvipsnames,table},",
