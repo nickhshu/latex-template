@@ -58,42 +58,5 @@
             "\\end{document}"
         ],
         "scope": "latex"
-    },
-    "Init LaTeX (TikZ standalone)": {
-        "prefix": "init_tikz",
-        "body": [
-            "\\documentclass[",
-            "    % border=10pt",
-            "]{standalone}",
-            "",
-            "\\usepackage{import}",
-            "\\import{${1}.presets}{${2:main}.tex}",
-            "\\usepackage{tikz}",
-            "",
-            "\\begin{document}",
-            "\\begin{tikzpicture}",
-            "${0}",
-            "\\end{tikzpicture}",
-            "\\end{document}"
-        ],
-        "scope": "latex"
-    },
-    "Init LaTeX (minipage standalone)": {
-        "prefix": "init_mini",
-        "body": [
-            "\\documentclass[",
-            "    % border=10pt",
-            "]{standalone}",
-            "",
-            "\\usepackage{import}",
-            "\\import{${1}.presets}{${2:main}.tex}",
-            "",
-            "\\begin{document}",
-            "\\begin{minipage}{4in}",
-            "${0}",
-            "\\end{minipage}",
-            "\\end{document}"
-        ],
-        "scope": "latex"
     }
 }
