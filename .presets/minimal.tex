@@ -1,20 +1,76 @@
-\usepackage[dvipsnames, table]{xcolor}
+% load-first.tex
 
-\usepackage{setspace}
-\onehalfspacing
-
-\usepackage{csquotes}
-
-% ----------------------------------------------------------------------------
-% Math
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{mathtools}
+\mathtoolsset{
+    showonlyrefs=true,
+    showmanualtags=true,
+}
+
+\usepackage[dvipsnames, table]{xcolor}
+
+% unicode-math.tex
+
+\usepackage[
+    math-style=ISO, bold-style=ISO,
+    partial=upright,
+    mathrm=sym, mathit=sym, mathsf=sym, mathbf=sym, mathtt=sym,
+    warnings-off={mathtools-colon,mathtools-overbracket},
+]{unicode-math}
+
+% fonts.tex
+
+\usepackage{pagella-otf}
+
+\usepackage[scale=.8, nomap]{FiraMono}
+
+\setmathfont{NewCMMath-Book.otf}[
+    AutoFakeBold,
+    CharacterVariant=1,
+    range={\mathop,\mathbin,\mathrel,\sqrt,\mathcal,\varnothing},
+]
+
+% links.tex
+
+\usepackage{zref-clever}
+\newcommand{\cref}[1]{\zcref[nameinlink=false, cap]{#1}}
+
+% theorem-defs.tex
+
+\newtheorem{theorem}{Theorem}
+\newtheorem*{theorem*}{Theorem}
+
+\newcommand{\newthm}[2]{%
+    \newtheorem{#1}[theorem]{#2}
+    \newtheorem*{#1*}{#2}
+    \zcRefTypeSetup{#1}{name-sg=#1,Name-sg=#2}
+    \AddToHook{env/#1/begin}{\zcsetup{countertype={theorem=#1}}}
+}
+
+\newthm{proposition}{Proposition}
+\newthm{lemma}{Lemma}
+\newthm{corollary}{Corollary}
+
+\newthm{assumption}{Assumption}
+\newthm{claim}{Claim}
+\newthm{definition}{Definition}
+\newthm{example}{Example}
+\newthm{remark}{Remark}
+
+% math.tex
+
+\usepackage{xparse}
+
+\usepackage{mleftright}
+\mleftright{}
 
 \newcommand{\opn}[1]{\operatorname{#1}}
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Z}{\mathbb{Z}}
+
+\newcommand{\N}{\mathcal{N}}
 
 \newcommand{\e}{\mathrm{e}}
 \newcommand{\ii}{\mathrm{i}}
@@ -23,8 +79,13 @@
 \newcommand{\middlemid}{\mathrel{}\middle|\mathrel{}}
 
 \DeclareMathOperator{\E}{\mathbb{E}}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
+
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\maximize}{maximize}
+\DeclareMathOperator*{\minimize}{minimize}
 
 \DeclareDocumentCommand{\ol}{ m }{
     {\mspace{1mu}\overline{\mspace{-1mu} #1 \mspace{-1mu}}\mspace{1mu}}
@@ -98,41 +159,33 @@
 \DeclareDocumentCommand{\mm}{}{\bb}
 \DeclareDocumentCommand{\vv}{}{\bb}
 
-% ----------------------------------------------------------------------------
-% Bibliography
+% bib.tex
+
 \usepackage[authordate, backend=biber]{biblatex-chicago}
 
-% ----------------------------------------------------------------------------
-% Fonts
-\usepackage[
-    math-style=ISO, bold-style=ISO,
-    partial=upright,
-    mathrm=sym, mathit=sym, mathsf=sym, mathbf=sym, mathtt=sym,
-    warnings-off={mathtools-colon,mathtools-overbracket},
-]{unicode-math}
+% misc.tex
 
-\usepackage{pagella-otf}
-\usepackage[scale=.8, nomap]{FiraMono}
+\makeatletter
+\@ifclassloaded{article}{
+    \usepackage[b5paper]{geometry}
+}
+\makeatother
 
-\setmathfont{texgyrepagella-math.otf}[
-    AutoFakeBold,
-]
+\usepackage[maxlevel=4]{csquotes}
 
-\setmathfont{NewCMMath-Book.otf}[
-    AutoFakeBold,
-    CharacterVariant=1,
-    range={\mathop,\mathbin,\mathrel,\sqrt,\mathcal,\varnothing},
-]
+\usepackage{microtype}
 
-% ----------------------------------------------------------------------------
-% Links
+\usepackage[xspace]{ellipsis}
+
+\usepackage{setspace}
+\onehalfspacing
+
 \usepackage[]{hyperref}
 \hypersetup{
     allcolors = violet,
     breaklinks = true,
     colorlinks = true,
 }
+\urlstyle{rm}
 
-\usepackage{zref-clever}
-\newcommand{\cref}[1]{\zcref[nameinlink=false, cap]{#1}}
-\newcommand{\Cref}[1]{\zcref[nameinlink=false, cap]{#1}}
+% project.tex
