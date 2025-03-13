@@ -78,7 +78,6 @@
 \letdif{\grad}{nabla}
 
 \DeclareDocumentCommand\flatfrac{ m m }{ #1 / #2 }
-\DeclareDocumentCommand\dd{}{\d}
 
 \DeclareDocumentCommand\dv{ s o m g }{
     \IfBooleanTF{#1}{ \let\fractype\flatfrac }{ \let\fractype\frac }

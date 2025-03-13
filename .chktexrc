@@ -31,9 +31,6 @@ UserWarn
     # use `\ol` or `\ul`
     \bar \overline \underline
 
-    # use `\d`
-    \dd
-
     # use `\mathrm`, `\mathit`, or `\emph`
     \textit \textrm
 }
