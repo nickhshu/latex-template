@@ -28,23 +28,24 @@ WipeArg
 
 UserWarn
 {
-    # use `\ol` or `\ul`
+    # Use `\ol` or `\ul`
     \bar \overline \underline
 
-    # use `\mathrm`, `\mathit`, or `\emph`
+    # Use `\mathrm`, `\mathit`, or `\emph`
     \textit \textrm
+
+    # Use package `csquotes` for quotes
+    `
+
+    # Use `proposition` for theorems
+    \begin{theorem}
+
+    # Use `\varepsilon`
+    \epsilon
 }
 
 UserWarnRegex
 {
-    # use package `csquotes` for quotes
-    `
-
-    # use `proposition` for theorems
-    \\begin{theorem}
-
-    # use `\varepsilon`
-    \\epsilon
 }
 
 VerbEnvir{
