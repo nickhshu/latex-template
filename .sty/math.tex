@@ -6,9 +6,6 @@
 
 \usepackage{xparse}
 
-\usepackage{mleftright}
-\mleftright{}
-
 % -----------------------------------------------------------------------------
 % Math macros
 
@@ -42,6 +39,19 @@
 }
 % Inspired by <https://tex.stackexchange.com/questions/281391/how-to-make-underline-shorter>
 % (see comments of the question).
+
+% -----------------------------------------------------------------------------
+% Spacing around `\left`, `\right`, `\big`, etc.
+
+\usepackage{mleftright}
+\mleftright{}
+
+\makeatletter
+\DeclareRobustCommand{\big}[1]{ \left#1 \vbox to 8.5pt{} \right. } % chktex 1
+\DeclareRobustCommand{\Big}[1]{ \left#1 \vbox to 11.5pt{} \right. } % chktex 1
+\DeclareRobustCommand{\bigg}[1]{ \left#1 \vbox to 14.5pt{} \right. } % chktex 1
+\DeclareRobustCommand{\Bigg}[1]{ \left#1 \vbox to 17.5pt{} \right. } % chktex 1
+\makeatother
 
 % -----------------------------------------------------------------------------
 % Commands from `physics`
