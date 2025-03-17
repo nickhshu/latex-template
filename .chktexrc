@@ -46,6 +46,12 @@ UserWarn
 
 UserWarnRegex
 {
+    # Use `\bigl` and `\bigr` instead.
+    \\big[^lr|]
+    \\Big[^lr|]
+    \\bigg[^lr|]
+    \\Bigg[^lr|]
+    # For example, `\big( \ln x \big)` will lead to incorrect spacing.
 }
 
 VerbEnvir{
