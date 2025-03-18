@@ -47,8 +47,8 @@ UserWarn
 UserWarnRegex
 {
     # Use `\bigl` and `\bigr` instead.
-    \\big[^clr|] # `c` to exempt `\bigcup`
-    \\Big[^lr|]
+    \\big[^cglr|] # `c` to exempt `\bigcup` and `g` to exempt `\biggl`
+    \\Big[^glr|]
     \\bigg[^lr|]
     \\Bigg[^lr|]
     # For example, `\big( \ln x \big)` will lead to incorrect spacing.
