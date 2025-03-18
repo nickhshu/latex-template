@@ -47,7 +47,7 @@ UserWarn
 UserWarnRegex
 {
     # Use `\bigl` and `\bigr` instead.
-    \\big[^lr|]
+    \\big[^clr|] # `c` to exempt `\bigcup`
     \\Big[^lr|]
     \\bigg[^lr|]
     \\Bigg[^lr|]
