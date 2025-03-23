@@ -56,7 +56,3 @@ UserWarnRegex
     \\bigg[^lr|]
     \\Bigg[^lr|]
 }
-
-VerbEnvir{
-    egame
-}
