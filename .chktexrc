@@ -34,9 +34,6 @@ UserWarn
     # Use `\ol` or `\ul`
     \bar \overline \underline
 
-    # Use `\mathrm`, `\mathit`, or `\emph`
-    \textit \textrm
-
     # Use package `csquotes` for quotes
     `
 
