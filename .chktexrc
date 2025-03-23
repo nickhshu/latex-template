@@ -24,6 +24,9 @@ HyphDash
 WipeArg
 {
     \texttt:{}
+
+    # Otherwise ChkTeX will produce warning for `\textcite[]{}`
+    \textcite:*[]{}
 }
 
 UserWarn
