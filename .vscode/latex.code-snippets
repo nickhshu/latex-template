@@ -42,7 +42,7 @@
             "]{beamer}",
             "",
             "\\usepackage{import}",
-            "\\import{${1}.style}{${2:main}.tex}",
+            "\\import{${1}.style}{${2:beamer}.tex}",
             "",
             "\\title{${3}}",
             "",
