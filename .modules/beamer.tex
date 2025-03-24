@@ -26,11 +26,3 @@
     \renewcommand{\footcite}[1]{\oldfootnote[frame]{\cite{#1}}}
 }{}
 \makeatother
-
-% Smaller footnotes
-\let\oldfootnotesize\footnotesize
-\renewcommand*{\footnotesize}{\oldfootnotesize\tiny}
-% One is supposed to use `\setbeamerfont{footnote}{size=\tiny}`. However,
-% package `biblatex-chicago` patches the footnote command, so this does
-% not work here. Another workaround is to pass option `footmarkoff` to
-% `biblatex-chicago`.
