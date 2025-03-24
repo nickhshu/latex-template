@@ -1,9 +1,11 @@
-% Report error for non-Beamer documents
 \makeatletter
-\@ifclassloaded{beamer}{ }{ \PackageError{beamer.tex}{Loaded in a non-Beamer document} }
-\makeatother
 
-% Theme, font, etc.
+% Report an error when leaded in a non-Beamer document.
+\@ifclassloaded{beamer}{}{
+    \PackageError{beamer.tex}{Loaded in a non-Beamer document}
+}
+
+% Theme and font
 \usefonttheme{serif}
 \usecolortheme{metropolis}
 
@@ -14,15 +16,16 @@
 \hypersetup{colorlinks=false}
 
 % Cite with "&" instead of "and"
-\renewcommand*{\finalnamedelim}{%
-    \ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}%
-    \addspace\&\space}
+\renewcommand*{\finalnamedelim}{
+    \ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}\addspace\&\space
+}
+% Note that this also affects the bibliography.
 
-% Beamer will not display footnotes unless `[frame]` is specified.
+% Beamer won't display footnotes unless `[frame]` is specified.
 \let\oldfootnote\footnote
 \renewcommand{\footnote}[1]{\oldfootnote[frame]{#1}}
-\makeatletter
 \@ifpackageloaded{biblatex-chicago}{
     \renewcommand{\footcite}[1]{\oldfootnote[frame]{\cite{#1}}}
 }{}
+
 \makeatother

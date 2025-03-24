@@ -1,0 +1,20 @@
+\usepackage{enumitem}
+
+% Use bullets for all levels in `itemize`
+\setlist[itemize]{label=\textbullet}
+
+% Compact spacing
+\setlist[1]{noitemsep}
+\setlist[2,3,4,5]{nosep}
+
+% Lists with default spacing (see the Companion, 3rd ed., vol. 1, p. 264)
+\newenvironment{denumerate}{%
+    \begin{enumerate}[
+            itemsep = 4pt plus 2pt minus 1pt,
+            parsep = 4pt plus 2pt minus 1pt
+        ]}{\end{enumerate}}
+\newenvironment{ditemize}{%
+    \begin{itemize}[
+            itemsep = 4pt plus 2pt minus 1pt,
+            parsep = 4pt plus 2pt minus 1pt
+        ]}{\end{itemize}}

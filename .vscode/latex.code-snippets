@@ -16,7 +16,7 @@
             "\\documentclass{article}",
             "",
             "\\usepackage{import}",
-            "\\import{${1}.style}{${2:main}.tex}",
+            "\\import{${1}.style}{${2:default}.tex}",
             "",
             "\\title{${3}}",
             "",

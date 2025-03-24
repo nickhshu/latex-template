@@ -1,9 +1,13 @@
-% Page layout
 \makeatletter
+
+% Page layout
 \@ifclassloaded{article}{
     \usepackage[b5paper]{geometry}
 }
-\makeatother
+
+% Line spacing
+\usepackage{setspace}
+\onehalfspacing
 
 % Make all sections unnumbered
 \setcounter{secnumdepth}{0}
@@ -14,39 +18,16 @@
 % Micro-typographic refinements
 \usepackage{microtype}
 
-% Ellipses
+% Fix spacing issues for ellipses
 \usepackage[xspace]{ellipsis}
-% Fixes spacing issues. See the Companion, 3rd ed., vol. 1, p. 148.
-
-% Line spacing
-\usepackage{setspace}
-\onehalfspacing
+% See the Companion, 3rd ed., vol. 1, p. 148.
 
 % Silence warnings
 \usepackage{silence}
 \WarningFilter{microtype}{Unable to apply patch `footnote'}
-% If packages `silence` and `hyperref` are used together, then do not include
+% If packages `silence` and `hyperref` are loaded together, then do not include
 % blackboard bold math characters in section titles. Otherwise, the compiler
 % will enter an infinite loop. See <https://tex.stackexchange.com/q/431162>.
-
-% Lists
-\usepackage{enumitem}
-% Use bullets for all levels in `itemize`
-\setlist[itemize]{label=\textbullet}
-% Compact spacing
-\setlist[1]{noitemsep}
-\setlist[2,3,4,5]{nosep}
-% Lists with default spacing (see the Companion, 3rd ed., vol. 1, p. 264)
-\newenvironment{denumerate}{%
-    \begin{enumerate}[
-            itemsep = 4pt plus 2pt minus 1pt,
-            parsep = 4pt plus 2pt minus 1pt
-        ]}{\end{enumerate}}
-\newenvironment{ditemize}{%
-    \begin{itemize}[
-            itemsep = 4pt plus 2pt minus 1pt,
-            parsep = 4pt plus 2pt minus 1pt
-        ]}{\end{itemize}}
 
 % The manual recommends that `hyperref` be loaded after all other packages.
 \usepackage[]{hyperref}
@@ -59,3 +40,5 @@
 
 % Set links in roman
 \urlstyle{rm}
+
+\makeatother

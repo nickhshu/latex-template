@@ -1,4 +1,4 @@
-% Assuming the theorem style is already defined (e.g., `\theoremstyle{it}`)
+% Assuming that the theorem style is already set (e.g., `\theoremstyle{it}`)
 
 \newtheorem{theorem}{Theorem}
 \newtheorem*{theorem*}{Theorem}
@@ -7,9 +7,9 @@
 % The use of `\goodbreak` works around incorrect page-based numbering. See
 % <https://texfaq.org/FAQ-wrongpn> and <https://tex.stackexchange.com/a/88186>.
 
-\newcommand{\newthm}[2]{%
-    % We abuse the argument `#1` as both the environment name and the lowercase
-    % version of the reference name.
+\newcommand{\newthm}[2]{
+    % Here we abuse the argument `#1`. Treating it both as the environment name
+    % and the lowercase reference name.
     \newtheorem{#1}[theorem]{#2}
     \newtheorem*{#1*}{#2}
     \BeforeBeginEnvironment{#1}{\goodbreak}

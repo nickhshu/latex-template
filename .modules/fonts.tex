@@ -1,9 +1,8 @@
-% Load OpenType fonts with dedicated packages whenever possibler (XeTeX on macOS
+% Load OpenType fonts with dedicated packages whenever possible. XeTeX on macOS
 % cannot find fonts in the TEXMF tree by font family name, and loading fonts by
-% file name requires specifying variants and features explicitly.)
+% file name requires specifying variants and features explicitly.
 %
-% To find the file name of a font, look in
-% `/usr/local/texlive/<version>/texmf-dist/fonts/opentype/public`'
+% To find the file name of a font, look in `/usr/local/texlive/<version>/texmf-dist/fonts/opentype/public`.
 
 \ifpdftex
     % New PX (serif)
@@ -12,18 +11,33 @@
     % New PX (math)
     \usepackage{newpxmath}
 \else
+    % Some commands are commented out for faster compilation.
+
+    % -------------------------------------------------------------------------
+    % `unicode-math`
+    \usepackage[
+        math-style=ISO, bold-style=ISO,
+        partial=upright,
+        mathrm=sym, mathit=sym, mathsf=sym, mathbf=sym, mathtt=sym,
+        warnings-off={mathtools-colon,mathtools-overbracket},
+    ]{unicode-math}
+
+    % -------------------------------------------------------------------------
+    % Text fonts
+
     % TeX Gyre Pagella (serif)
     \usepackage{pagella-otf} % also loads the math font
 
     % Fira Sans (sans-serif)
-    % \usepackage{FiraSans} % commented for faster compilation
+    % \usepackage{FiraSans}
 
     % Fira Mono (monospace)
     \usepackage[scale=.8, nomap]{FiraMono}
 
     % -------------------------------------------------------------------------
-    % Math
-    % TeX Gyre Pagella is already loaded above
+    % Math fonts
+
+    % TeX Gyre Pagella is already loaded by `pagella-otf`.
     % \setmathfont{texgyrepagella-math.otf}[
     % AutoFakeBold,
     % ]

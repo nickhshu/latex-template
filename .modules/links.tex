@@ -1,9 +1,11 @@
+% Load this file before theorem definitions.
+
 \usepackage{zref-clever}
 
 \newcommand{\cref}[1]{\zcref[nameinlink=false, cap]{#1}}
 \newcommand{\Cref}[1]{\zcref[nameinlink=false, cap]{#1}}
 
-% Package `beamer` redefines `\label`, which might cause compatibility issues.
-% Consult the manual of `zref-clever` for workarounds.
+% Package `beamer` redefines `\label` and might cause compatibility issues.
+% Consult the manual for `zref-clever` for workarounds.
 
-% The manual recommends that `hyperref` be loaded after all other packages.
+% According to its manual, `hyperref` should loaded after all other packages.
