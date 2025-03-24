@@ -2,8 +2,21 @@
 
 \usepackage{zref-clever}
 
-\newcommand{\cref}[1]{\zcref[nameinlink=false, cap]{#1}}
-\newcommand{\Cref}[1]{\zcref[nameinlink=false, cap]{#1}}
+\DeclareDocumentCommand\cref{ s m }{%
+    \IfBooleanTF{#1}{%
+        \zcref*[nameinlink=false, cap]{#2}%
+    }{%
+        \zcref[nameinlink=false, cap]{#2}%
+    }%
+}
+
+\DeclareDocumentCommand\Cref{ s m }{%
+    \IfBooleanTF{#1}{%
+        \zcref*[nameinlink=false, cap]{#2}
+    }{%
+        \zcref[nameinlink=false, cap]{#2}%
+    }%
+}
 
 % Package `beamer` redefines `\label` and might cause compatibility issues.
 % Consult the manual for `zref-clever` for workarounds.
