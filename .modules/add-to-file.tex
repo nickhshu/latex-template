@@ -19,27 +19,6 @@
 \usepackage{algorithm}
 
 % -----------------------------------------------------------------------------
-% Extensive and strategic games
-
-\subimport{mjo/}{sgamex.sty}
-\subimport{mjo/}{egameps.sty} % requires LuaLaTeX
-
-% See also <https://nickshu.gitlab.io/notes-snippets/latex/floats/games/>.
-
-% Package `sgamex` also requires that package `xcolor` be loaded with option
-% `table`. Add the following before all other packages.
-%
-% \usepackage[dvipsnames, table]{xcolor}
-
-% If used with `beamer`, add the following right before `\begin{document}`
-% to work around a conflict:
-%
-% \makeatletter
-% \let\zz\reset@color
-% \def\reset@color{\kern\z@\zz}
-% \makeatother
-
-% -----------------------------------------------------------------------------
 % Indices
 
 % Load and initialize before `hyperref`.
