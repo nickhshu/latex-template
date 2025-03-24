@@ -1,3 +1,5 @@
+\makeatletter
+
 % load-first.tex
 
 \usepackage{amsmath}
@@ -10,7 +12,7 @@
 
 \usepackage[dvipsnames, table]{xcolor}
 
-% unicode-math.tex
+% fonts.tex
 
 \usepackage[
     math-style=ISO, bold-style=ISO,
@@ -18,8 +20,6 @@
     mathrm=sym, mathit=sym, mathsf=sym, mathbf=sym, mathtt=sym,
     warnings-off={mathtools-colon,mathtools-overbracket},
 ]{unicode-math}
-
-% fonts.tex
 
 \usepackage{pagella-otf}
 
@@ -34,14 +34,22 @@
 % links.tex
 
 \usepackage{zref-clever}
-\newcommand{\cref}[1]{\zcref[nameinlink=false, cap]{#1}}
+
+\DeclareDocumentCommand\cref{ s m }{%
+    \IfBooleanTF{#1}{%
+        \zcref*[nameinlink=false, cap]{#2}%
+    }{%
+        \zcref[nameinlink=false, cap]{#2}%
+    }%
+}
+
+% theorem-styles.tex
 
 % theorem-defs.tex
 
 \newtheorem{theorem}{Theorem}
 \newtheorem*{theorem*}{Theorem}
-
-\newcommand{\newthm}[2]{%
+\newcommand{\newthm}[2]{
     \newtheorem{#1}[theorem]{#2}
     \newtheorem*{#1*}{#2}
     \zcRefTypeSetup{#1}{name-sg=#1,Name-sg=#2}
@@ -60,8 +68,6 @@
 
 % math.tex
 
-\usepackage{xparse}
-
 \usepackage{mleftright}
 \mleftright{}
 
@@ -76,7 +82,8 @@
 \newcommand{\ii}{\mathrm{i}}
 \newcommand{\ppi}{\mathrm{\pi}}
 
-\newcommand{\middlemid}{\mathrel{}\middle|\mathrel{}}
+\newcommand{\mtup}[1]{\textrm{\textmd{\textup{#1}}}}
+\newcommand{\mtit}[1]{\textrm{\textmd{\textit{#1}}}}
 
 \DeclareMathOperator{\E}{\mathbb{E}}
 \DeclareMathOperator{\Var}{Var}
@@ -117,7 +124,6 @@
 \letdif{\grad}{nabla}
 
 \DeclareDocumentCommand\flatfrac{ m m }{ #1 / #2 }
-\DeclareDocumentCommand\dd{}{\d}
 
 \DeclareDocumentCommand\dv{ s o m g }{
     \IfBooleanTF{#1}{ \let\fractype\flatfrac }{ \let\fractype\frac }
@@ -163,13 +169,25 @@
 
 \usepackage[authordate, backend=biber]{biblatex-chicago}
 
+% lists.tex
+
+\usepackage{enumitem}
+
+\setlist[itemize]{label=\textbullet}
+
+\newlist{cenumerate}{enumerate}{4}
+\newlist{citemize}{itemize}{4}
+\setlist[cenumerate,citemize,1]{noitemsep}
+\setlist[cenumerate,citemize,2,3,4]{nosep}
+
 % misc.tex
 
-\makeatletter
 \@ifclassloaded{article}{
     \usepackage[b5paper]{geometry}
 }
-\makeatother
+
+\usepackage{setspace}
+\onehalfspacing
 
 \usepackage[maxlevel=4]{csquotes}
 
@@ -177,8 +195,8 @@
 
 \usepackage[xspace]{ellipsis}
 
-\usepackage{setspace}
-\onehalfspacing
+\usepackage{silence}
+\WarningFilter{microtype}{Unable to apply patch `footnote'}
 
 \usepackage[]{hyperref}
 \hypersetup{
@@ -187,5 +205,7 @@
     colorlinks = true,
 }
 \urlstyle{rm}
+
+\makeatother
 
 % project.tex
