@@ -1,10 +1,36 @@
 \usepackage{enumitem}
 
 % Use `\textbullet` for all levels in `itemize`
-\setlist[itemize]{label=\textbullet}
+\setlist*[itemize]{label=\textbullet}
 
+% -----------------------------------------------------------------------------
 % Lists with compact spacing
+
 \newlist{cenumerate}{enumerate}{4}
 \newlist{citemize}{itemize}{4}
-\setlist[cenumerate,citemize,1]{noitemsep}
-\setlist[cenumerate,citemize,2,3,4]{nosep}
+
+\setlist*[cenumerate,citemize,1]{noitemsep}
+\setlist*[cenumerate,citemize,2,3,4]{nosep}
+
+\setlist*[citemize]{label=\textbullet}
+
+\setlist*[cenumerate,1]{label=\arabic*.}
+\setlist*[cenumerate,2]{label=\alph*)}
+\setlist*[cenumerate,3]{label=\roman*)}
+\setlist*[cenumerate,4]{label=\Alph*)}
+
+% -----------------------------------------------------------------------------
+% Lists with default spacing
+
+\newlist{denumerate}{enumerate}{4}
+\newlist{ditemize}{itemize}{4}
+
+\setlist*[ditemize]{label=\textbullet}
+
+\setlist*[denumerate,1]{label=\arabic*.}
+\setlist*[denumerate,2]{label=\alph*)}
+\setlist*[denumerate,3]{label=\roman*)}
+\setlist*[denumerate,4]{label=\Alph*)}
+
+% Note that the environments defined here do not replicate LaTeX's default
+% reference format.
