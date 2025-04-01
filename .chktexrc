@@ -42,6 +42,10 @@ UserWarn
 
     # Use `\varepsilon`
     \epsilon
+
+    # Use `citemize`, `cenumerate`, `ditemize`, or `denumerate`
+    \begin{itemize}
+    \begin{enumerate}
 }
 
 UserWarnRegex
