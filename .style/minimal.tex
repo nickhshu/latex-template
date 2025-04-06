@@ -173,12 +173,20 @@
 
 \usepackage{enumitem}
 
-\setlist[itemize]{label=\textbullet}
+\setlist*[itemize]{label=\textbullet}
 
 \newlist{cenumerate}{enumerate}{4}
 \newlist{citemize}{itemize}{4}
-\setlist[cenumerate,citemize,1]{noitemsep}
-\setlist[cenumerate,citemize,2,3,4]{nosep}
+
+\setlist*[cenumerate,citemize,1]{noitemsep}
+\setlist*[cenumerate,citemize,2,3,4]{nosep}
+
+\setlist*[citemize]{label=\textbullet}
+
+\setlist*[cenumerate,1]{label=\arabic*.}
+\setlist*[cenumerate,2]{label=\alph*)}
+\setlist*[cenumerate,3]{label=\roman*)}
+\setlist*[cenumerate,4]{label=\Alph*)}
 
 % misc.tex
 
@@ -203,6 +211,7 @@
     allcolors = violet,
     breaklinks = true,
     colorlinks = true,
+    hypertexnames = false,
 }
 \urlstyle{rm}
 
