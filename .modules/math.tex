@@ -1,5 +1,7 @@
 % See also `load-first.tex`
 
+\makeatletter
+
 \ifluatex
     \usepackage{lualatex-math}
 \fi
@@ -44,6 +46,18 @@
 }
 % Inspired by <https://tex.stackexchange.com/questions/281391/how-to-make-underline-shorter>
 % (see comments of the question).
+
+% -----------------------------------------------------------------------------
+% Spacing for `cases`, etc.
+
+% A thick space is added after the left brace
+
+% `cases`
+\def\cases{\left\{\def\arraystretch{1.2}\;\hskip-\arraycolsep \array{l@{\quad}l}}
+\def\endcases{\endarray\hskip-\arraycolsep\right.}
+
+% `dcases`
+\renewcases{dcases}{\quad}{$\m@th\displaystyle##$\hfil}{$\m@th\displaystyle##$\hfil}{\lbrace\;}{.}
 
 % -----------------------------------------------------------------------------
 % Commands from `physics`
@@ -133,3 +147,5 @@
 
 \DeclareDocumentCommand{\mm}{}{\bb}
 \DeclareDocumentCommand{\vv}{}{\bb}
+
+\makeatother
