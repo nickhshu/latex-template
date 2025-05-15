@@ -20,13 +20,32 @@ indentAfterItems:
   denumerate: 0
 
 lookForAlignDelims:
-  matrix*: 1
-  pmatrix*: 1
-  bmatrix*: 1
-  Bmatrix*: 1
-  vmatrix*: 1
-  Vmatrix*: 1
-  game: 1
+  matrix:
+    alignDoubleBackSlash: 0
+  matrix*:
+    alignDoubleBackSlash: 0
+  pmatrix:
+    alignDoubleBackSlash: 0
+  pmatrix*:
+    alignDoubleBackSlash: 0
+  bmatrix:
+    alignDoubleBackSlash: 0
+  bmatrix*:
+    alignDoubleBackSlash: 0
+  Bmatrix:
+    alignDoubleBackSlash: 0
+  Bmatrix*:
+    alignDoubleBackSlash: 0
+  vmatrix:
+    alignDoubleBackSlash: 0
+  vmatrix*:
+    alignDoubleBackSlash: 0
+  Vmatrix:
+    alignDoubleBackSlash: 0
+  Vmatrix*:
+    alignDoubleBackSlash: 0
+  game:
+    alignDoubleBackSlash: 0
   align:
     alignDoubleBackSlash: 0
   align*:
