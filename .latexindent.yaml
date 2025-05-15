@@ -27,6 +27,27 @@ lookForAlignDelims:
   vmatrix*: 1
   Vmatrix*: 1
   game: 1
+  align:
+    alignDoubleBackSlash: 0
+  align*:
+    alignDoubleBackSlash: 0
+  alignat:
+    alignDoubleBackSlash: 0
+  alignat*:
+    alignDoubleBackSlash: 0
+  aligned:
+    alignDoubleBackSlash: 0
+  aligned*:
+    alignDoubleBackSlash: 0
+  alignedat:
+    alignDoubleBackSlash: 0
+  alignedat*:
+    alignDoubleBackSlash: 0
+  cases:
+    alignDoubleBackSlash: 0
+  dcases:
+    alignDoubleBackSlash: 0
+  tabular:
+    alignDoubleBackSlash: 0
   tblr:
-    alignDoubleBackSlash: 0 #
-    # Ideally, this should be set for all align-like environments.
+    alignDoubleBackSlash: 0

@@ -58,6 +58,8 @@
     // Code for files in subdirectories.
 
     "cSpell.words": [
+        "alignat",
+        "alignedat",
         "amsthm",
         "Asana",
         "beamer",
