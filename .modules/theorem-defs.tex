@@ -14,7 +14,7 @@
     \newtheorem*{#1*}{#2}
     \BeforeBeginEnvironment{#1}{\goodbreak}
     \BeforeBeginEnvironment{#1*}{\goodbreak}
-    \zcRefTypeSetup{#1}{name-sg=#1,Name-sg=#2}
+    \zcRefTypeSetup{#1}{name-sg=#1,Name-sg=#2,name-pl=#1s,Name-pl=#2s}
     \AddToHook{env/#1/begin}{\zcsetup{countertype={theorem=#1}}}
 }
 
