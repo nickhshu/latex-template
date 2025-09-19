@@ -45,4 +45,11 @@
 % Set links in roman
 \urlstyle{rm}
 
+% Commas between consecutive footnotes
+\let\oldFootnote\footnote
+\newcommand\nextToken\relax
+\renewcommand\footnote[1]{\oldFootnote{#1}\futurelet\nextToken\isFootnote}
+\newcommand\isFootnote{\ifx\footnote\nextToken\textsuperscript{,}\fi}
+% From <https://tex.stackexchange.com/a/62091>. Put after `hyperref`.
+
 \makeatother
