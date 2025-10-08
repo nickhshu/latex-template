@@ -9,6 +9,10 @@
 \usepackage{setspace}
 \onehalfspacing
 
+% Add a dot after section numbers
+\renewcommand*{\@seccntformat}[1]{%
+    \csname the#1\endcsname.\quad
+}
 % Tables
 \usepackage{tabularray}
 \UseTblrLibrary{booktabs}
