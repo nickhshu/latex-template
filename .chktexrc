@@ -51,8 +51,8 @@ UserWarnRegex
 {
     # Use `\bigl` and `\bigr` instead. For example, `\big( \ln x \big)` will
     # lead to incorrect spacing.
-    \\big[^cglr|] # `c` to exempt `\bigcup` and `g` to exempt `\biggl`
-    \\Big[^glr|]
-    \\bigg[^lr|]
-    \\Bigg[^lr|]
+    \\big[^cgmlr|] # `c` to exempt `\bigcup` and `g` to exempt `\biggl`
+    \\Big[^gmlr|]
+    \\bigg[^mlr|]
+    \\Bigg[^mlr|]
 }
