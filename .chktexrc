@@ -45,6 +45,9 @@ UserWarn
 
     # Use `\varepsilon`
     \epsilon
+
+    # Use `\succsim` and `\precsim`
+    \succeq \preceq
 }
 
 UserWarnRegex
