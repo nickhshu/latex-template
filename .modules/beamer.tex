@@ -15,12 +15,6 @@
 % No color for links
 \hypersetup{allcolors = black}
 
-% Cite with "&" instead of "and"
-\renewcommand*{\finalnamedelim}{
-    \ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}\addspace\&\space
-}
-% Note that this also affects the bibliography.
-
 % Beamer won't display footnotes unless `[frame]` is specified.
 \let\oldfootnote\footnote
 \renewcommand{\footnote}[1]{\oldfootnote[frame]{#1}}
