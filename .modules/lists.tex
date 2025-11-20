@@ -1,3 +1,5 @@
+\makeatletter
+
 \@ifclassloaded{beamer}{ }{
     % Package `enumitem` is incompatible with `beamer`. Only load for non-
     % beamer documents.
@@ -23,3 +25,5 @@
     \setlist*[cenumerate,3]{label=\roman*)}
     \setlist*[cenumerate,4]{label=\Alph*)}
 }
+
+\makeatletter
