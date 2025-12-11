@@ -9,11 +9,7 @@
 \usepackage{setspace}
 \onehalfspacing
 
-% Add a dot after section numbers
-\renewcommand*{\@seccntformat}[1]{%
-    \csname the#1\endcsname.\quad
-}
-% See <https://texfaq.org/FAQ-seccntfmt>.
+
 
 % Tables
 \usepackage{tabularray}
@@ -48,6 +44,13 @@
 
 % Set links in roman
 \urlstyle{rm}
+
+% Add a dot after section numbers (see <https://texfaq.org/FAQ-seccntfmt>)
+\renewcommand*{\@seccntformat}[1]{%
+    \csname the#1\endcsname.\quad
+}
+% Also update `hyperref` bookmarks (from <https://tex.stackexchange.com/a/557745>)
+\renewcommand\Hy@numberline[1]{#1. }
 
 % Commas between consecutive footnotes
 \let\oldFootnote\footnote
