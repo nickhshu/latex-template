@@ -58,5 +58,10 @@
             "\\end{document}"
         ],
         "scope": "latex"
+    },
+    "Print bibliography": {
+        "prefix": "printbib",
+        "body": ["\\printbibliography[heading=bibintoc]"],
+        "scope": "latex"
     }
 }
