@@ -25,6 +25,10 @@
 \usepackage[xspace]{ellipsis}
 % See the Companion, 3rd ed., vol. 1, p. 148.
 
+% Allow line breaks after select characters in URLs
+\usepackage{url}
+\g@addto@macro{\UrlBreaks}{\UrlOrds}
+
 % Silence warnings
 \usepackage{silence}
 \WarningFilter{microtype}{Unable to apply patch `footnote'}
