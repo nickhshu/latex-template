@@ -6,9 +6,9 @@
             "    \\centering",
             "    \\includegraphics[scale=.5]{img/${1}}",
             "    \\caption{${2}}\\label{fig:${3}}",
-            "\\end{figure}"
+            "\\end{figure}",
         ],
-        "scope": "latex"
+        "scope": "latex",
     },
     "Init LaTeX": {
         "prefix": "init",
@@ -29,9 +29,9 @@
             "",
             "${0}",
             "",
-            "\\end{document}"
+            "\\end{document}",
         ],
-        "scope": "latex"
+        "scope": "latex",
     },
     "Init Beamer": {
         "prefix": "beamer",
@@ -55,13 +55,13 @@
             "",
             "${0}",
             "",
-            "\\end{document}"
+            "\\end{document}",
         ],
-        "scope": "latex"
+        "scope": "latex",
     },
     "Print bibliography": {
         "prefix": "printbib",
         "body": ["\\printbibliography[heading=bibintoc]"],
-        "scope": "latex"
-    }
+        "scope": "latex",
+    },
 }
