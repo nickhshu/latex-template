@@ -39,6 +39,7 @@
             "\\documentclass[",
             "    xcolor={dvipsnames,table},",
             "    notheorems,",
+            "    aspectratio=169,",
             "]{beamer}",
             "",
             "\\usepackage{import}",
