@@ -57,6 +57,9 @@
     \setmathfont{NewCMMath-Book.otf}[ % use book weight
         AutoFakeBold,
         CharacterVariant=1, % variant empty set symbol
-        range={\mathop,\mathbin,\mathrel,\sqrt,\mathcal,\varnothing},
+        range={
+                \mathopen,\mathclose,\mathfence,\mathop,\mathbin,\mathrel,
+                \sqrt,\mathcal,\varnothing,
+            },
     ]
 \fi
