@@ -38,9 +38,6 @@ UserWarn
     # Non-ASCII punctuations
     “ ” ‘ ’ – — …
 
-    # Use package `csquotes` for quotes
-    `
-
     # Use `proposition` for theorems
     \begin{theorem}
 
@@ -59,4 +56,7 @@ UserWarnRegex
     \\Big[^gmlr|]
     \\bigg[^mlr|]
     \\Bigg[^mlr|]
+
+    # Use package `csquotes` for quotes. Exempt "\`"
+    [^\\]`
 }
