@@ -65,4 +65,9 @@
         "body": ["\\printbibliography[heading=bibintoc]"],
         "scope": "latex",
     },
+    "No section numbers": {
+        "prefix": "setnumdepth",
+        "body": ["\\setcounter{secnumdepth}{0}"],
+        "scope": "latex",
+    },
 }
