@@ -25,6 +25,14 @@
 
 \usepackage[scale=.8, nomap]{FiraMono}
 
+\setmathfont{Asana-Math.otf}[
+    AutoFakeBold,
+    range=\mitf,
+]
+
+\begingroup\lccode`~=`f \lowercase{\endgroup\def~}{\mitf}
+\mathcode`f="8000
+
 \setmathfont{NewCMMath-Book.otf}[
     AutoFakeBold,
     CharacterVariant=1,
@@ -52,13 +60,16 @@
 \newcommand{\newthm}[2]{
     \newtheorem{#1}[theorem]{#2}
     \newtheorem*{#1*}{#2}
-    \zcRefTypeSetup{#1}{name-sg=#1,Name-sg=#2}
+    \BeforeBeginEnvironment{#1}{\goodbreak}
+    \BeforeBeginEnvironment{#1*}{\goodbreak}
+    \zcRefTypeSetup{#1}{name-sg=#1,Name-sg=#2,name-pl=#1s,Name-pl=#2s}
     \AddToHook{env/#1/begin}{\zcsetup{countertype={theorem=#1}}}
 }
 
 \newthm{proposition}{Proposition}
 \newthm{lemma}{Lemma}
 \newthm{corollary}{Corollary}
+\newthm{conjecture}{Conjecture}
 
 \newthm{assumption}{Assumption}
 \newthm{claim}{Claim}
@@ -71,6 +82,8 @@
 \usepackage{mleftright}
 \mleftright{}
 
+\usepackage{bracealign}
+
 \newcommand{\opn}[1]{\operatorname{#1}}
 
 \newcommand{\R}{\mathbb{R}}
@@ -82,8 +95,7 @@
 \newcommand{\ii}{\mathrm{i}}
 \newcommand{\ppi}{\mathrm{\pi}}
 
-\newcommand{\mtup}[1]{\textrm{\textmd{\textup{#1}}}}
-\newcommand{\mtit}[1]{\textrm{\textmd{\textit{#1}}}}
+\newcommand{\bmid}{\mathbin{\mid}}
 
 \DeclareMathOperator{\E}{\mathbb{E}}
 \DeclareMathOperator{\Var}{Var}
@@ -91,15 +103,29 @@
 
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\essinf}{ess\,inf}
+\DeclareMathOperator*{\esssup}{ess\,sup}
 \DeclareMathOperator*{\maximize}{maximize}
 \DeclareMathOperator*{\minimize}{minimize}
 
 \DeclareDocumentCommand{\ol}{ m }{
-    {\mspace{1mu}\overline{\mspace{-1mu} #1 \mspace{-1mu}}\mspace{1mu}}
+    {\mspace{0.5mu}\overline{\mspace{-0.5mu} #1 \mspace{-0.5mu}}\mspace{0.5mu}}
 }
 \DeclareDocumentCommand{\ul}{ m }{
-    {\mspace{1mu}\underline{\mspace{-1mu} #1 \mspace{-1mu}}\mspace{1mu}}
+    {\mspace{0.5mu}\underline{\mspace{-0.5mu} #1 \mspace{-0.5mu}}\mspace{0.5mu}}
 }
+
+\newenvironment{subproof}[1][\proofname]{%
+    \renewcommand{\qedsymbol}{\( \triangleleft \)}%
+    \begin{proof}[#1]%
+}{%
+    \end{proof}%
+}
+
+\def\cases{\left\{\def\arraystretch{1.2}\;\hskip-\arraycolsep \array{l@{\quad}l}}
+\def\endcases{\endarray\hskip-\arraycolsep\right.}
+
+\renewcases{dcases}{\quad}{$\m@th\displaystyle##$\hfil}{$\m@th\displaystyle##$\hfil}{\lbrace\;}{.}
 
 \DeclareDocumentCommand{\abs}{ s m }{
     \IfBooleanTF{#1}{
@@ -171,22 +197,31 @@
 
 % lists.tex
 
-\usepackage{enumitem}
+\@ifclassloaded{beamer}{ }{
+    % Package `enumitem` is incompatible with `beamer`. Only load for non-
+    % beamer documents.
 
-\setlist*[itemize]{label=\textbullet}
+    \usepackage{enumitem}
 
-\newlist{cenumerate}{enumerate}{4}
-\newlist{citemize}{itemize}{4}
+    % Use `\textbullet` for all levels in `itemize`
+    \setlist*[itemize]{label=\textbullet}
 
-\setlist*[cenumerate,citemize,1]{noitemsep}
-\setlist*[cenumerate,citemize,2,3,4]{nosep}
+    % -----------------------------------------------------------------------------
+    % Lists with compact spacing
 
-\setlist*[citemize]{label=\textbullet}
+    \newlist{cenumerate}{enumerate}{4}
+    \newlist{citemize}{itemize}{4}
 
-\setlist*[cenumerate,1]{label=\arabic*.}
-\setlist*[cenumerate,2]{label=\alph*)}
-\setlist*[cenumerate,3]{label=\roman*)}
-\setlist*[cenumerate,4]{label=\Alph*)}
+    \setlist*[cenumerate,citemize,1]{noitemsep}
+    \setlist*[cenumerate,citemize,2,3,4]{nosep}
+
+    \setlist*[citemize]{label=\textbullet}
+
+    \setlist*[cenumerate,1]{label=\arabic*.}
+    \setlist*[cenumerate,2]{label=\alph*)}
+    \setlist*[cenumerate,3]{label=\roman*)}
+    \setlist*[cenumerate,4]{label=\Alph*)}
+}
 
 % misc.tex
 
@@ -197,23 +232,40 @@
 \usepackage{setspace}
 \onehalfspacing
 
+\usepackage{tabularray}
+\UseTblrLibrary{booktabs}
+
 \usepackage[maxlevel=4]{csquotes}
 
 \usepackage{microtype}
 
 \usepackage[xspace]{ellipsis}
 
+\usepackage{url}
+\g@addto@macro{\UrlBreaks}{\UrlOrds}
+
 \usepackage{silence}
 \WarningFilter{microtype}{Unable to apply patch `footnote'}
 
 \usepackage[]{hyperref}
 \hypersetup{
-    allcolors = violet,
+    allcolors = black,
     breaklinks = true,
     colorlinks = true,
     hypertexnames = false,
+    bookmarksnumbered = true,
 }
 \urlstyle{rm}
+
+\renewcommand*{\@seccntformat}[1]{%
+    \csname the#1\endcsname.\quad
+}
+\renewcommand\Hy@numberline[1]{#1. }
+
+\let\oldFootnote\footnote
+\newcommand\nextToken\relax
+\renewcommand\footnote[1]{\oldFootnote{#1}\futurelet\nextToken\isFootnote}
+\newcommand\isFootnote{\ifx\footnote\nextToken\textsuperscript{,}\fi}
 
 \makeatother
 
