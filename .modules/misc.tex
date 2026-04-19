@@ -2,12 +2,14 @@
 
 % Page layout
 \@ifclassloaded{article}{
-    \usepackage[b5paper]{geometry}
+    \usepackage[b5paper, scale=0.725]{geometry}
+    % Slightly larger text area than default (0.7).
 }
 
 % Line spacing
 \usepackage{setspace}
-\onehalfspacing
+\setstretch{1.2}
+% Slightly smaller than one-half spacing (1.25 for 12pt).
 
 % Tables
 \usepackage{tabularray}
