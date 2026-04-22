@@ -9,7 +9,7 @@
 
 \usepackage{import}
 
-\import{.style/}{normal.tex}
+\import{.style/}{default.tex}
 % TODO: usually needs to be replaced with the absolute path
 
 \makeatletter
@@ -36,7 +36,7 @@ $endif$ % chktex 46
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 \def\fps@figure{htbp}
 
-\newsavebox\pandoc@box
+\newsavebox\pandoc@box % chktex 1
 \newcommand*\pandocbounded[1]{% scales image to fit in text height/width
   \sbox\pandoc@box{#1}%
   \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
