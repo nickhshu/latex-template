@@ -14,6 +14,7 @@ CmdLine
     -n22 # allow comments
     -n30 # allow multiple spaces
     -n36 # allow no space before `(` (especially for `\texttt`)
+    -n38 # allow punctuation before quotes
     -e16 # math mode still on at end of file
 }
 
