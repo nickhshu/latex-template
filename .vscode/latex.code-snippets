@@ -60,14 +60,14 @@
         ],
         "scope": "latex",
     },
-    "Print bibliography": {
-        "prefix": "printbib",
-        "body": ["\\printbibliography[heading=bibintoc]"],
-        "scope": "latex",
-    },
     "No section numbers": {
         "prefix": "secnumdepth",
         "body": ["\\setcounter{secnumdepth}{0}"],
+        "scope": "latex",
+    },
+    "Print bibliography": {
+        "prefix": "printbib",
+        "body": ["\\printbibliography[heading=bibintoc]"],
         "scope": "latex",
     },
 }
