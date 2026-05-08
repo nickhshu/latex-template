@@ -226,11 +226,13 @@
 % misc.tex
 
 \@ifclassloaded{article}{
-    \usepackage[b5paper]{geometry}
+    \usepackage[b5paper, scale=0.725]{geometry}
 }
 
 \usepackage{setspace}
-\onehalfspacing
+\setstretch{1.2}
+
+\usepackage{caption}
 
 \usepackage{tabularray}
 \UseTblrLibrary{booktabs}
@@ -267,6 +269,6 @@
 \renewcommand\footnote[1]{\oldFootnote{#1}\futurelet\nextToken\isFootnote}
 \newcommand\isFootnote{\ifx\footnote\nextToken\textsuperscript{,}\fi}
 
-\makeatother
-
 % project.tex
+
+\makeatother
