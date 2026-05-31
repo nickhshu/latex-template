@@ -82,6 +82,8 @@
         "delims",
         "denumerate",
         "ditemize",
+        "dotsb",
+        "dotsc",
         "doublespace",
         "enumitem",
         "Envir",
