@@ -2,7 +2,7 @@
 
 ## LaTeX
 
-Instructions in this section apply to all LaTeX files in this project.
+Whenever you are working with LaTeX files in this project, follow the instructions in this section.
 
 ### Compilation
 
