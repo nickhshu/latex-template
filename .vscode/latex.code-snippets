@@ -1,15 +1,4 @@
 {
-    "Figure": {
-        "prefix": "fig",
-        "body": [
-            "\\begin{figure}[tp]",
-            "    \\centering",
-            "    \\includegraphics[width=0.8\\textwidth]{img/${1}}",
-            "    \\caption{${2}}\\label{fig:${3}}",
-            "\\end{figure}",
-        ],
-        "scope": "latex",
-    },
     "Init LaTeX": {
         "prefix": "init",
         "body": [
@@ -57,6 +46,17 @@
             "${0}",
             "",
             "\\end{document}",
+        ],
+        "scope": "latex",
+    },
+    "Figure": {
+        "prefix": "fig",
+        "body": [
+            "\\begin{figure}[tp]",
+            "    \\centering",
+            "    \\includegraphics[width=0.8\\textwidth]{img/${1}}",
+            "    \\caption{${2}}\\label{fig:${3}}",
+            "\\end{figure}",
         ],
         "scope": "latex",
     },
