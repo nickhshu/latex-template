@@ -65,5 +65,5 @@ UserWarnRegex
     [^\\]`
 
     # Use `\dots{}` instead of `\dots`, which will eat the space after it.
-    \\dots[^{}]
+    "\\dots "
 }
