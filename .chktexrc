@@ -47,6 +47,9 @@ UserWarn
 
     # Use `\succsim` and `\precsim`
     \succeq \preceq
+
+    # Use `\dots{}`
+    \ldots \cdots
 }
 
 UserWarnRegex
@@ -60,4 +63,7 @@ UserWarnRegex
 
     # Use package `csquotes` for quotes. Exempt "\`"
     [^\\]`
+
+    # Use `\dots{}` instead of `\dots`, which will eat the space after it.
+    \\dots[^{}]
 }
