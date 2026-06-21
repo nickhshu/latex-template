@@ -6,7 +6,7 @@ Whenever you are working with LaTeX files in this project, follow the instructio
 
 ### Compilation
 
-- Compile any LaTeX file by running `latexmk path/to/file.tex` from the project root, which makes sure `latexmk` reads configurations in `.latexmkrc`.
+- Compile any LaTeX file by running `latexmk path/to/file.tex` from the project root. This makes sure `latexmk` reads configurations in `.latexmkrc`.
 
 ### Text
 
