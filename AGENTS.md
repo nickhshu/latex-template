@@ -19,8 +19,5 @@ Whenever you are working with LaTeX files in this project, follow the instructio
 
 ### Equations
 
-Follow the following rules for mathematical equations.
-
 - Use `\(`, `\)`, `\[`, and `\]` to delimit equations.
 - Use `\ne`, `\le`, and `\ge` instead of `\neq`, `\leq`, and `\geq`.
-- Use `\dotsb`, `\dotsc`, etc., instead of `\ldots` and `\cdots` in equations.
