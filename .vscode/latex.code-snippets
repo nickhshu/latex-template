@@ -32,7 +32,7 @@
             "]{beamer}",
             "",
             "\\usepackage{import}",
-            "\\import{${1|../,../../|}.style}{${2:beamer}.tex}",
+            "\\import{${1|../,../../|}.style}{${2:default}.tex}",
             "",
             "\\title{${3}}",
             "",
