@@ -1,4 +1,34 @@
-% Assuming that the theorem style is already set (e.g., `\theoremstyle{it}`)
+% -----------------------------------------------------------------------------
+% Theorem styles
+
+% The `nl` style sets the body in italics and breaks the line after the header
+\newtheoremstyle{nl}% name
+{}% space above
+{}% space below
+{\itshape}% body font
+{}% indent
+{\bfseries}% head font
+{}% head punctuation
+{\newline}% after head space
+{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}.}% head spec
+
+% The `it` style is the conventional style that sets the body in italics and in
+% the same line as the header.
+\newtheoremstyle{it}% name
+{}% space above
+{}% space below
+{\itshape}% body font
+{}% indent
+{\bfseries}% head font
+{}% head punctuation
+{0.5em}% after head space
+{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}.}% head spec
+
+% Use `it` by default.
+\theoremstyle{it}
+
+% -----------------------------------------------------------------------------
+% Theorem definitions
 
 \newtheorem{theorem}{Theorem}
 \newtheorem*{theorem*}{Theorem}
