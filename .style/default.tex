@@ -7,7 +7,11 @@
 \subimport{../.modules}{links.tex}
 \subimport{../.modules}{theorems.tex}
 \subimport{../.modules}{math.tex}
-\subimport{../.modules}{lists.tex}
+
+\@ifclassloaded{beamer}{}{
+    \subimport{../.modules}{lists.tex}
+}
+
 \subimport{../.modules}{misc.tex}
 
 \@ifclassloaded{beamer}{

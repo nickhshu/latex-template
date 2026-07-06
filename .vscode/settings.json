@@ -96,6 +96,7 @@
         "libexec",
         "mathit",
         "mathrm",
+        "mathtools",
         "multicols",
         "newpxmath",
         "noitemsep",

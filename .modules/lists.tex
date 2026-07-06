@@ -1,25 +1,21 @@
-\@ifclassloaded{beamer}{ }{
-    % Package `enumitem` is incompatible with `beamer`. Only load for non-
-    % beamer documents.
+% Package `enumitem` is incompatible with `beamer`, so abort when loaded in a
+% Beamer document.
+\@ifclassloaded{beamer}{
+    \PackageError{lists.tex}{Loaded in a Beamer document}
+}{ }
 
-    \usepackage{enumitem}
+\usepackage{enumitem}
 
-    % Use `\textbullet` for all levels in `itemize`
-    \setlist*[itemize]{label=\textbullet}
+% Use `\textbullet` for all levels in `itemize`
+\setlist*[itemize]{label=\textbullet}
 
-    % -----------------------------------------------------------------------------
-    % Lists with compact spacing
-
-    \newlist{cenumerate}{enumerate}{4}
-    \newlist{citemize}{itemize}{4}
-
-    \setlist*[cenumerate,citemize,1]{noitemsep}
-    \setlist*[cenumerate,citemize,2,3,4]{nosep}
-
-    \setlist*[citemize]{label=\textbullet}
-
-    \setlist*[cenumerate,1]{label=\arabic*.}
-    \setlist*[cenumerate,2]{label=\alph*)}
-    \setlist*[cenumerate,3]{label=\roman*)}
-    \setlist*[cenumerate,4]{label=\Alph*)}
-}
+% Lists with compact spacing
+\newlist{cenumerate}{enumerate}{4}
+\newlist{citemize}{itemize}{4}
+\setlist*[cenumerate,citemize,1]{noitemsep}
+\setlist*[cenumerate,citemize,2,3,4]{nosep}
+\setlist*[citemize]{label=\textbullet}
+\setlist*[cenumerate,1]{label=\arabic*.}
+\setlist*[cenumerate,2]{label=\alph*)}
+\setlist*[cenumerate,3]{label=\roman*)}
+\setlist*[cenumerate,4]{label=\Alph*)}

@@ -1,8 +1,7 @@
-% Load OpenType fonts with dedicated packages whenever possible. XeTeX on macOS
-% cannot find fonts in the TEXMF tree by font family name, and loading fonts by
-% file name requires specifying variants and features explicitly.
-%
-% To find the file name of a font, look in `/usr/local/texlive/<version>/texmf-dist/fonts/opentype/public`.
+% Loading fonts by the font family name is not supported by XeTeX on macOS.
+% Loading fonts by file name requires specifying variants and features
+% explicitly. Therefore load OpenType fonts with dedicated packages whenever
+% possible.
 
 \ifpdftex
     % New PX (serif)
@@ -11,19 +10,14 @@
     % New PX (math)
     \usepackage{newpxmath}
 \else
-    % Some commands are commented out for faster compilation.
+    % Some lines are commented out for faster compilation
 
-    % -------------------------------------------------------------------------
-    % `unicode-math`
     \usepackage[
         math-style=ISO, bold-style=ISO,
         partial=upright,
         mathrm=sym, mathit=sym, mathsf=sym, mathbf=sym, mathtt=sym,
         warnings-off={mathtools-colon,mathtools-overbracket},
     ]{unicode-math}
-
-    % -------------------------------------------------------------------------
-    % Text fonts
 
     % TeX Gyre Pagella (serif)
     \usepackage{pagella-otf} % also loads the math font
@@ -34,12 +28,10 @@
     % Fira Mono (monospace)
     \usepackage[scale=.8, nomap]{FiraMono}
 
-    % -------------------------------------------------------------------------
-    % Math fonts
-
-    % TeX Gyre Pagella is already loaded by `pagella-otf`.
+    % TeX Gyre Pagella (math)
+    % It should already be loaded by `pagella-otf`.
     % \setmathfont{texgyrepagella-math.otf}[
-    % AutoFakeBold,
+    %     AutoFakeBold,
     % ]
 
     % Load Asana Math for letter `f` only (it has better kerning)

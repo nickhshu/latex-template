@@ -7,8 +7,9 @@
     showmanualtags=true,
 }
 
-% Used in many package options
-\usepackage[dvipsnames, table]{xcolor}
-
-% Load packages conditional on the engine
+% Allow loading packages conditional on the engine
 \usepackage{iftex}
+
+% Package `xcolor` will be loaded by other packages. Load it here to make sure
+% the correct options are passed.
+\usepackage[dvipsnames, table]{xcolor}

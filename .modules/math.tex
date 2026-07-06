@@ -1,5 +1,7 @@
-% See also `load-first.tex`
+% Packages `amsmath`, `amsthm`, and `mathtools` are already loaded in
+% `load-first.tex`.
 
+% Patch commands to make them more compatible with LuaTeX
 \ifluatex
     \usepackage{lualatex-math}
 \fi
@@ -8,7 +10,7 @@
 \usepackage{mleftright}
 \mleftright{}
 
-% Align `\underbrace` and `\overbrace`
+% Allow aligning `\underbrace` and `\overbrace`
 \usepackage{bracealign}
 
 % -----------------------------------------------------------------------------
@@ -145,7 +147,7 @@
 
 \ifpdftex
     % If `unicode-math` is not loaded, which presumably only happens when
-    % compiling with PDFTeX:
+    % compiling with pdfTeX:
     \usepackage{bm}
     \DeclareDocumentCommand{\bb}{ s m }{
         \IfBooleanTF{#1}{ \bm{\mathrm{#2}} }{ \bm{#2} }
