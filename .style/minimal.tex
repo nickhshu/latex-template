@@ -1,5 +1,6 @@
 \makeatletter
 
+% ----------------------------------------------------------------------------
 % load-first.tex
 
 \usepackage{amsmath}
@@ -12,6 +13,7 @@
 
 \usepackage[dvipsnames, table]{xcolor}
 
+% ----------------------------------------------------------------------------
 % fonts.tex
 
 \usepackage[
@@ -39,6 +41,7 @@
     range={\mathop,\mathbin,\mathrel,\sqrt,\mathcal,\varnothing},
 ]
 
+% ----------------------------------------------------------------------------
 % links.tex
 
 \usepackage{zref-clever}
@@ -51,9 +54,8 @@
     }%
 }
 
-% theorem-styles.tex
-
-% theorem-defs.tex
+% ----------------------------------------------------------------------------
+% theorems.tex
 
 \newtheorem{theorem}{Theorem}
 \newtheorem*{theorem*}{Theorem}
@@ -77,6 +79,7 @@
 \newthm{example}{Example}
 \newthm{remark}{Remark}
 
+% ----------------------------------------------------------------------------
 % math.tex
 
 \usepackage{mleftright}
@@ -191,34 +194,26 @@
 \DeclareDocumentCommand{\mm}{}{\bb}
 \DeclareDocumentCommand{\vv}{}{\bb}
 
+% ----------------------------------------------------------------------------
 % lists.tex
 
 \@ifclassloaded{beamer}{ }{
-    % Package `enumitem` is incompatible with `beamer`. Only load for non-
-    % beamer documents.
-
     \usepackage{enumitem}
 
-    % Use `\textbullet` for all levels in `itemize`
     \setlist*[itemize]{label=\textbullet}
-
-    % -----------------------------------------------------------------------------
-    % Lists with compact spacing
 
     \newlist{cenumerate}{enumerate}{4}
     \newlist{citemize}{itemize}{4}
-
     \setlist*[cenumerate,citemize,1]{noitemsep}
     \setlist*[cenumerate,citemize,2,3,4]{nosep}
-
     \setlist*[citemize]{label=\textbullet}
-
     \setlist*[cenumerate,1]{label=\arabic*.}
     \setlist*[cenumerate,2]{label=\alph*)}
     \setlist*[cenumerate,3]{label=\roman*)}
     \setlist*[cenumerate,4]{label=\Alph*)}
 }
 
+% ----------------------------------------------------------------------------
 % misc.tex
 
 \@ifclassloaded{article}{
@@ -267,6 +262,30 @@
 \renewcommand\footnote[1]{\oldFootnote{#1}\futurelet\nextToken\isFootnote}
 \newcommand\isFootnote{\ifx\footnote\nextToken\textsuperscript{,}\fi}
 
+% ----------------------------------------------------------------------------
+% beamer.tex
+
+% Abort when loaded in a non-Beamer document.
+\@ifclassloaded{beamer}{
+    \usetheme{moloch}
+    \usefonttheme{serif}
+
+    \setbeamertemplate{page number in head/foot}[totalframenumber]
+
+    \setbeamertemplate{bibliography item}[text]
+
+    \hypersetup{allcolors = .}
+
+    \let\oldfootnote\footnote
+    \renewcommand{\footnote}[1]{\oldfootnote[frame]{#1}}
+    \@ifpackageloaded{biblatex-chicago}{
+        \renewcommand{\footcite}[1]{\oldfootnote[frame]{\cite{#1}}}
+    }{}
+
+    \ExecuteBibliographyOptions{maxcitenames=2}
+}{}
+
+% ----------------------------------------------------------------------------
 % project.tex
 
 \makeatother
