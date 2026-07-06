@@ -1,5 +1,3 @@
-\makeatletter
-
 % Page layout
 \@ifclassloaded{article}{
     \usepackage[b5paper, scale=0.725]{geometry}
@@ -70,5 +68,3 @@
 \renewcommand\footnote[1]{\oldFootnote{#1}\futurelet\nextToken\isFootnote}
 \newcommand\isFootnote{\ifx\footnote\nextToken\textsuperscript{,}\fi}
 % From <https://tex.stackexchange.com/a/62091>. Put after `hyperref`.
-
-\makeatother
