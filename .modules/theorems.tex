@@ -24,8 +24,9 @@
 {0.5em}% after head space
 {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}.}% head spec
 
-% Use `it` by default.
-\theoremstyle{it}
+% Reads `\styleOptionTheoremStyle` for the theorem style (`it` by default)
+\providecommand{\styleOptionTheoremStyle}{it}
+\theoremstyle{\styleOptionTheoremStyle}
 
 % -----------------------------------------------------------------------------
 % Theorem definitions
