@@ -42,6 +42,19 @@
 % blackboard bold math characters in section titles. Otherwise, the compiler
 % will enter an infinite loop. See <https://tex.stackexchange.com/q/431162>.
 
+% Page-based numbering, enable with `\usePerpageNumbering`
+\newcommand{\usePerpageNumbering}{
+    \usepackage{zref-perpage}
+    \zmakeperpage{equation}
+    \renewcommand{\theequation}{\thezpage.\arabic{equation}}
+    \zmakeperpage{theorem}
+    \renewcommand{\thetheorem}{\thezpage.\arabic{theorem}}
+    \zmakeperpage{figure}
+    \renewcommand{\thefigure}{\thezpage.\arabic{figure}}
+    \zmakeperpage{table}
+    \renewcommand{\thetable}{\thezpage.\arabic{table}}
+}
+
 % The manual recommends that `hyperref` be loaded after all other packages.
 \usepackage[]{hyperref}
 \hypersetup{
