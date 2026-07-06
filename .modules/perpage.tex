@@ -1,16 +1,18 @@
 % Page-based numbering
 
-\usepackage{zref-perpage}
+\newcommand{\usePerpageNumbering}{
+    \usepackage{zref-perpage}
 
-\zmakeperpage{equation}
-\renewcommand{\theequation}{\thezpage.\arabic{equation}}
+    \zmakeperpage{equation}
+    \renewcommand{\theequation}{\thezpage.\arabic{equation}}
 
-\zmakeperpage{theorem}
-\renewcommand{\thetheorem}{\thezpage.\arabic{theorem}}
-% Special treatment is needed for theorem-like environments. See `theorem-defs.tex`.
+    \zmakeperpage{theorem}
+    \renewcommand{\thetheorem}{\thezpage.\arabic{theorem}}
+    % Special treatment is needed for theorem-like environments. See `theorem-defs.tex`.
 
-\zmakeperpage{figure}
-\renewcommand{\thefigure}{\thezpage.\arabic{figure}}
+    \zmakeperpage{figure}
+    \renewcommand{\thefigure}{\thezpage.\arabic{figure}}
 
-\zmakeperpage{table}
-\renewcommand{\thetable}{\thezpage.\arabic{table}}
+    \zmakeperpage{table}
+    \renewcommand{\thetable}{\thezpage.\arabic{table}}
+}
