@@ -2,13 +2,9 @@
 % fonts by file name requires specifying variants and features explicitly.
 % Therefore, load OpenType fonts with dedicated packages whenever possible.
 
-% Font scale
-\newcommand{\FontScale}{1.15}
-\newcommand{\FiraMonoScale}{0.92}
-
 \ifpdftex
     % New PX (serif and math)
-    \usepackage[scale=\FontScale]{newpx}
+    \usepackage{newpx}
 \else
     % unicode-math
     \usepackage[
@@ -19,32 +15,21 @@
     ]{unicode-math}
 
     % TeX Gyre Pagella (serif)
-    \usepackage[
-        ScaleRM=\FontScale,
-    ]{pagella-otf}
+    \usepackage{pagella-otf}
 
     % Fira Sans (sans-serif)
-    % \usepackage[
-    %     scale=\FontScale,
-    % ]{FiraSans}
+    % \usepackage{FiraSans}
 
     % Fira Mono (monospace)
-    \usepackage[
-        scale=\FiraMonoScale,
-        nomap,
-    ]{FiraMono}
+    \usepackage[scale=.8, nomap]{FiraMono}
 
-    % TeX Gyre Pagella (math)
-    \setmathfont{texgyrepagella-math.otf}[
-        Scale=\FontScale,
-        AutoFakeBold,
-    ]
-    % Package `pagella-otf` also loads the math font, but it does not scale it
-    % according to its `ScaleRM` option. We must load it again.
+    % TeX Gyre Pagella (math), which should already be loaded by `pagella-otf`
+    % \setmathfont{texgyrepagella-math.otf}[
+    %     AutoFakeBold,
+    % ]
 
     % Load Asana Math for letter `f` only (it has better kerning)
     \setmathfont{Asana-Math.otf}[
-        Scale=\FontScale,
         AutoFakeBold,
         range=\mitf,
     ]
@@ -56,7 +41,6 @@
 
     % Load New Computer Modern for select symbols
     \setmathfont{NewCMMath-Book.otf}[ % use book weight
-        Scale=\FontScale,
         AutoFakeBold,
         range={
                 \mathfence,\mathop,\mathbin,\mathrel,
