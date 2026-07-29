@@ -68,3 +68,11 @@
 \renewcommand\footnote[1]{\oldFootnote{#1}\futurelet\nextToken\isFootnote}
 \newcommand\isFootnote{\ifx\footnote\nextToken\textsuperscript{,}\fi}
 % From <https://tex.stackexchange.com/a/62091>. Put after `hyperref`.
+
+% Section with subtitles
+\newcommand\TwoPartSection[2]{%
+    \section[#1]{#1\\\textmd{\textit{\large #2}}}%
+}
+\newcommand\TwoPartSubsection[2]{%
+    \subsection[#1]{#1\\\textmd{\textit{\large #2}}}%
+}
