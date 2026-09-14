@@ -26,6 +26,7 @@ HyphDash
 WipeArg
 {
     \texttt:{}
+    \url:{}
 
     # Otherwise ChkTeX will produce warning for `\textcite[]{}`
     \textcite:*[]{}
