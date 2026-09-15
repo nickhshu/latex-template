@@ -70,9 +70,13 @@
 % From <https://tex.stackexchange.com/a/62091>. Put after `hyperref`.
 
 % Section with subtitles
-\newcommand\TwoPartSection[2]{%
-    \section[#1]{#1\\\textmd{\textit{\large #2}}}%
+\NewDocumentCommand{\TwoPartSection}{o m m}{%
+    \IfNoValueTF{#1}
+    {\section[#2]{#2\\\textmd{\textit{\large #3}}}}%
+    {\section[#1]{#2\\\textmd{\textit{\large #3}}}}%
 }
-\newcommand\TwoPartSubsection[2]{%
-    \subsection[#1]{#1\\\textmd{\textit{\normalsize #2}}}%
+\NewDocumentCommand{\TwoPartSubsection}{o m m}{%
+    \IfNoValueTF{#1}
+    {\subsection[#2]{#2\\\textmd{\textit{\large #3}}}}%
+    {\subsection[#1]{#2\\\textmd{\textit{\large #3}}}}%
 }
