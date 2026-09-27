@@ -51,6 +51,9 @@ UserWarn
 
     # Use `\dots{}`
     \ldots \cdots
+
+    # Use 12pt font
+    \documentclass{article}
 }
 
 UserWarnRegex

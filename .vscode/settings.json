@@ -80,6 +80,7 @@
         "csquotes",
         "dcases",
         "delims",
+        "documentclass",
         "doublespace",
         "enumitem",
         "Envir",
