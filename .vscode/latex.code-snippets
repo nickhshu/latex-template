@@ -2,7 +2,7 @@
     "Init LaTeX": {
         "prefix": "init",
         "body": [
-            "\\documentclass{article}",
+            "\\documentclass[12pt]{article}",
             "",
             "\\usepackage{import}",
             "\\import{${1|../,../../|}.style}{${2:default}.tex}",
