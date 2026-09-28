@@ -70,4 +70,7 @@ UserWarnRegex
 
     # Use `\dots{}` instead of `\dots`, which will eat the space after it.
     "\\dots "
+
+    # Add trailing `/` to `\import` and `\subimport` path
+    \\(sub)?import\*?[[:space:]]*\{[^{}]*[^/{}]\}
 }

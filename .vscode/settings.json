@@ -111,6 +111,7 @@
         "preceq",
         "precsim",
         "seccntformat",
+        "subimport",
         "subproof",
         "succeq",
         "succsim",
