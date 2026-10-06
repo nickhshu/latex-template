@@ -3,9 +3,12 @@
 % Therefore, load OpenType fonts with dedicated packages whenever possible.
 
 \ifpdftex
+
     % New PX (serif and math)
     \usepackage{newpx}
+
 \else
+
     % New PX (serif), which has better small caps than TeX Gyre Pagella
     \usepackage[otfmath]{newpxtext}
 
@@ -34,11 +37,9 @@
     \mathcode`f="8000
     % From <https://tex.stackexchange.com/a/530981>
 
-    % Load New Computer Modern for select symbols
-    \setmathfont{NewCMMath-Book.otf}[ % use book weight
-        range={
-                \mathfence,\mathop,\mathbin,\mathrel,
-                \sqrt,\mathcal,\varnothing,
-            },
+    % Load New Computer Modern (book weight) for select symbols
+    \setmathfont{NewCMMath-Book.otf}[
+        range={\mathfence,\mathop,\mathbin,\mathrel,\sqrt,\mathcal,\varnothing},
     ]
+
 \fi
