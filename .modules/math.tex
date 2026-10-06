@@ -136,28 +136,3 @@
         }
     }
 }
-
-% -----------------------------------------------------------------------------
-% Bold math
-
-% There is, to my knowledge, no straightforward way to typeset bold math. The
-% main issue is that font commands in `unicode-math` don't nest. This is a
-% workaround. Use `\mm` and `\vv` for bold italic letters. Use `\mm*` and
-% `\vv*` for bold upright letters.
-
-\ifpdftex
-    % If `unicode-math` is not loaded, which presumably only happens when
-    % compiling with pdfTeX:
-    \usepackage{bm}
-    \DeclareDocumentCommand{\bb}{ s m }{
-        \IfBooleanTF{#1}{ \bm{\mathrm{#2}} }{ \bm{#2} }
-    }
-\else
-    % If `unicode-math` is loaded:
-    \DeclareDocumentCommand{\bb}{ s m }{
-        \IfBooleanTF{#1}{ \symbfup{#2} }{ \symbfit{#2} }
-    }
-\fi
-
-\DeclareDocumentCommand{\mm}{}{\bb}
-\DeclareDocumentCommand{\vv}{}{\bb}
