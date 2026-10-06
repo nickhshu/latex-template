@@ -11,32 +11,36 @@
     showmanualtags=true,
 }
 
+\usepackage{iftex}
+
 \usepackage[dvipsnames, table]{xcolor}
 
 % ----------------------------------------------------------------------------
 % fonts.tex
 
-\usepackage[otfmath]{newpxtext}
+\ifpdftex
+    \usepackage{newpx}
+\else
+    \usepackage[otfmath]{newpxtext}
+    \usepackage[scale=.8, nomap]{FiraMono}
 
-\usepackage[scale=.8, nomap]{FiraMono}
+    \usepackage[
+        math-style=ISO, bold-style=ISO,
+        partial=upright,
+        mathrm=sym, mathit=sym, mathsf=sym, mathbf=sym, mathtt=sym,
+        warnings-off={mathtools-colon,mathtools-overbracket},
+    ]{unicode-math}
 
-\usepackage[
-    math-style=ISO, bold-style=ISO,
-    partial=upright,
-    mathrm=sym, mathit=sym, mathsf=sym, mathbf=sym, mathtt=sym,
-    warnings-off={mathtools-colon,mathtools-overbracket},
-]{unicode-math}
+    \setmathfont{texgyrepagella-math.otf}
+    \setmathfont{Asana-Math.otf}[range=\mitf]
 
-\setmathfont{texgyrepagella-math.otf}
+    \begingroup\lccode`~=`f \lowercase{\endgroup\def~}{\mitf}
+    \mathcode`f="8000
 
-\setmathfont{Asana-Math.otf}[range=\mitf]
-
-\begingroup\lccode`~=`f \lowercase{\endgroup\def~}{\mitf}
-\mathcode`f="8000
-
-\setmathfont{NewCMMath-Book.otf}[
-    range={\mathfence,\mathop,\mathbin,\mathrel,\sqrt,\mathcal,\varnothing},
-]
+    \setmathfont{NewCMMath-Book.otf}[
+        range={\mathfence,\mathop,\mathbin,\mathrel,\sqrt,\mathcal,\varnothing},
+    ]
+\fi
 
 % ----------------------------------------------------------------------------
 % links.tex
