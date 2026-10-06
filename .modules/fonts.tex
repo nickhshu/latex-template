@@ -6,16 +6,8 @@
     % New PX (serif and math)
     \usepackage{newpx}
 \else
-    % unicode-math
-    \usepackage[
-        math-style=ISO, bold-style=ISO,
-        partial=upright,
-        mathrm=sym, mathit=sym, mathsf=sym, mathbf=sym, mathtt=sym,
-        warnings-off={mathtools-colon,mathtools-overbracket},
-    ]{unicode-math}
-
-    % TeX Gyre Pagella (serif)
-    \usepackage{pagella-otf}
+    % New PX (serif), which has better small caps than TeX Gyre Pagella
+    \usepackage[otfmath]{newpxtext}
 
     % Fira Sans (sans-serif)
     % \usepackage{FiraSans}
@@ -23,10 +15,18 @@
     % Fira Mono (monospace)
     \usepackage[scale=.8, nomap]{FiraMono}
 
-    % TeX Gyre Pagella (math), which should already be loaded by `pagella-otf`
-    % \setmathfont{texgyrepagella-math.otf}[
-    %     AutoFakeBold,
-    % ]
+    % `unicode-math` must be loaded after `newpxtext`
+    \usepackage[
+        math-style=ISO, bold-style=ISO,
+        partial=upright,
+        mathrm=sym, mathit=sym, mathsf=sym, mathbf=sym, mathtt=sym,
+        warnings-off={mathtools-colon,mathtools-overbracket},
+    ]{unicode-math}
+
+    % TeX Gyre Pagella (math)
+    \setmathfont{texgyrepagella-math.otf}[
+        AutoFakeBold
+    ]
 
     % Load Asana Math for letter `f` only (it has better kerning)
     \setmathfont{Asana-Math.otf}[
