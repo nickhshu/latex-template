@@ -16,6 +16,10 @@
 % ----------------------------------------------------------------------------
 % fonts.tex
 
+\usepackage[otfmath]{newpxtext}
+
+\usepackage[scale=.8, nomap]{FiraMono}
+
 \usepackage[
     math-style=ISO, bold-style=ISO,
     partial=upright,
@@ -23,21 +27,15 @@
     warnings-off={mathtools-colon,mathtools-overbracket},
 ]{unicode-math}
 
-\usepackage{pagella-otf}
+\setmathfont{texgyrepagella-math.otf}
 
-\usepackage[scale=.8, nomap]{FiraMono}
-
-\setmathfont{Asana-Math.otf}[
-    AutoFakeBold,
-    range=\mitf,
-]
+\setmathfont{Asana-Math.otf}[range=\mitf]
 
 \begingroup\lccode`~=`f \lowercase{\endgroup\def~}{\mitf}
 \mathcode`f="8000
 
 \setmathfont{NewCMMath-Book.otf}[
-    AutoFakeBold,
-    range={\mathop,\mathbin,\mathrel,\sqrt,\mathcal,\varnothing},
+    range={\mathfence,\mathop,\mathbin,\mathrel,\sqrt,\mathcal,\varnothing},
 ]
 
 % ----------------------------------------------------------------------------
@@ -109,10 +107,10 @@
 \DeclareMathOperator*{\minimize}{minimize}
 
 \DeclareDocumentCommand{\ol}{ m }{
-    {\mspace{0.5mu}\overline{\mspace{-0.5mu} #1 \mspace{-0.5mu}}\mspace{0.5mu}}
+    {\mspace{1mu}\overline{\mspace{-1mu} #1 \mspace{-1mu}}\mspace{1mu}}
 }
 \DeclareDocumentCommand{\ul}{ m }{
-    {\mspace{0.5mu}\underline{\mspace{-0.5mu} #1 \mspace{-0.5mu}}\mspace{0.5mu}}
+    {\mspace{1mu}\underline{\mspace{-1mu} #1 \mspace{-1mu}}\mspace{1mu}}
 }
 
 \newenvironment{subproof}[1][\proofname]{%
@@ -185,12 +183,6 @@
     }
 }
 
-\DeclareDocumentCommand{\bb}{ s m }{
-    \IfBooleanTF{#1}{ \symbfup{#2} }{ \symbfit{#2} }
-}
-\DeclareDocumentCommand{\mm}{}{\bb}
-\DeclareDocumentCommand{\vv}{}{\bb}
-
 % ----------------------------------------------------------------------------
 % lists.tex
 
@@ -214,7 +206,7 @@
 % misc.tex
 
 \@ifclassloaded{article}{
-    \usepackage[b5paper, vscale=0.75]{geometry}
+    \usepackage[a4paper, vscale=0.75]{geometry}
 }
 
 \usepackage{setspace}
@@ -258,6 +250,17 @@
 \newcommand\nextToken\relax
 \renewcommand\footnote[1]{\oldFootnote{#1}\futurelet\nextToken\isFootnote}
 \newcommand\isFootnote{\ifx\footnote\nextToken\textsuperscript{,}\fi}
+
+\NewDocumentCommand{\TwoPartSection}{o m m}{%
+    \IfNoValueTF{#1}
+    {\section[#2]{#2\\\textmd{\textit{\large #3}}}}%
+    {\section[#1]{#2\\\textmd{\textit{\large #3}}}}%
+}
+\NewDocumentCommand{\TwoPartSubsection}{o m m}{%
+    \IfNoValueTF{#1}
+    {\subsection[#2]{#2\\\textmd{\textit{\large #3}}}}%
+    {\subsection[#1]{#2\\\textmd{\textit{\large #3}}}}%
+}
 
 % ----------------------------------------------------------------------------
 % beamer.tex
