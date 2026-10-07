@@ -53,3 +53,14 @@
 \newthm{definition}{Definition}
 \newthm{example}{Example}
 \newthm{remark}{Remark}
+
+% -----------------------------------------------------------------------------
+% Proof environments
+
+% A `subproof` environment
+\newenvironment{subproof}[1][\proofname]{%
+    \renewcommand{\qedsymbol}{\( \triangleleft \)}%
+    \begin{proof}[#1]%
+}{%
+    \end{proof}%
+}
