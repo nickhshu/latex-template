@@ -58,26 +58,62 @@
 % ----------------------------------------------------------------------------
 % theorems.tex
 
-\newtheorem{theorem}{Theorem}
-\newtheorem*{theorem*}{Theorem}
+\newtheoremstyle{it}{}{}{\itshape}{}{\bfseries}{}{0.5em}{%
+    \thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}.}
 
-\newcommand{\newthm}[2]{
-    \newtheorem{#1}[theorem]{#2}
+\newtheoremstyle{rm}{}{}{\rmfamily}{}{\bfseries}{}{0.5em}{%
+    \thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}.}
+
+\providecommand{\theoremTheoremStyle}{it}
+\providecommand{\exampleTheoremStyle}{rm}
+
+\newcommand{\newTheoremWithOwnCounter}[2]{
+    \newtheorem{#1}{#2}
     \newtheorem*{#1*}{#2}
     \zcRefTypeSetup{#1}{name-sg=#1,Name-sg=#2,name-pl=#1s,Name-pl=#2s}
-    \AddToHook{env/#1/begin}{\zcsetup{countertype={theorem=#1}}}
+}
+\newcommand{\newTheoremWithSharedCounter}[3]{%
+    \newtheorem{#1}[#3]{#2}
+    \newtheorem*{#1*}{#2}
+    \zcRefTypeSetup{#1}{name-sg=#1,Name-sg=#2,name-pl=#1s,Name-pl=#2s}
+    \AddToHook{env/#1/begin}{\zcsetup{countertype={#3=#1}}}
 }
 
-\newthm{proposition}{Proposition}
-\newthm{lemma}{Lemma}
-\newthm{corollary}{Corollary}
-\newthm{conjecture}{Conjecture}
+\theoremstyle{\theoremTheoremStyle}
+\newTheoremWithOwnCounter{theorem}{Theorem}
+\newTheoremWithSharedCounter{proposition}{Proposition}{theorem}
+\newTheoremWithSharedCounter{lemma}{Lemma}{theorem}
+\newTheoremWithSharedCounter{corollary}{Corollary}{theorem}
+\newTheoremWithSharedCounter{conjecture}{Conjecture}{theorem}
+\newTheoremWithOwnCounter{assumption}{Assumption}
+\newTheoremWithOwnCounter{claim}{Claim}
+\newTheoremWithOwnCounter{definition}{Definition}
+\newTheoremWithOwnCounter{remark}{Remark}
 
-\newthm{assumption}{Assumption}
-\newthm{claim}{Claim}
-\newthm{definition}{Definition}
-\newthm{example}{Example}
-\newthm{remark}{Remark}
+\theoremstyle{\exampleTheoremStyle}
+\newTheoremWithOwnCounter{example}{Example}
+\newTheoremWithOwnCounter{exercise}{Exercise}
+
+\newenvironment{exampleQed}{%
+    \renewcommand{\qedsymbol}{\( \triangleleft \)}%
+    \pushQED{\qed}\example
+}{\popQED\endexample}
+
+\renewenvironment{proof}[1][\proofname]{\par
+    \pushQED{\qed}%
+    \normalfont \topsep6\p@\@plus6\p@\relax
+    \trivlist
+    \item[\hskip\labelsep\bfseries #1\@addpunct{.}]\ignorespaces
+}{%
+    \popQED\endtrivlist\@endpefalse
+}
+
+\newenvironment{subproof}[1][\proofname]{%
+    \renewcommand{\qedsymbol}{\( \triangleleft \)}%
+    \begin{proof}[\sc #1]%
+}{%
+    \end{proof}%
+}
 
 % ----------------------------------------------------------------------------
 % math.tex
@@ -116,13 +152,6 @@
 }
 \DeclareDocumentCommand{\ul}{ m }{
     {\mspace{1mu}\underline{\mspace{-1mu} #1 \mspace{-1mu}}\mspace{1mu}}
-}
-
-\newenvironment{subproof}[1][\proofname]{%
-    \renewcommand{\qedsymbol}{\( \triangleleft \)}%
-    \begin{proof}[#1]%
-}{%
-    \end{proof}%
 }
 
 \def\cases{\left\{\def\arraystretch{1.2}\;\hskip-\arraycolsep \array{l@{\quad}l}}
