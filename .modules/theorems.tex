@@ -24,35 +24,65 @@
 {0.5em}% after head space
 {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}.}% head spec
 
-% Reads `\styleOptionTheoremStyle` for the theorem style (`it` by default)
-\providecommand{\styleOptionTheoremStyle}{it}
-\theoremstyle{\styleOptionTheoremStyle}
+% The `rm` style sets the body in roman and in the same line as the header
+\newtheoremstyle{rm}% name
+{}% space above
+{}% space below
+{\rmfamily}% body font
+{}% indent
+{\bfseries}% head font
+{}% head punctuation
+{0.5em}% after head space
+{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}.}% head spec
+
+% To customize the theorem styles, set the following options before loading
+% this file:
+\providecommand{\theoremTheoremStyle}{it}
+\providecommand{\exampleTheoremStyle}{rm}
 
 % -----------------------------------------------------------------------------
 % Theorem definitions
 
-\newtheorem{theorem}{Theorem}
-\newtheorem*{theorem*}{Theorem}
-
-\newcommand{\newthm}[2]{
-    % Here we abuse the argument `#1`. Treating it both as the environment name
-    % and the lowercase reference name.
-    \newtheorem{#1}[theorem]{#2}
+% Two helper commands
+\newcommand{\newTheoremWithOwnCounter}[2]{
+    % `#1` is both the environment name and the lowercase reference name
+    % `#2` is the capitalized reference name
+    \newtheorem{#1}{#2}
     \newtheorem*{#1*}{#2}
     \zcRefTypeSetup{#1}{name-sg=#1,Name-sg=#2,name-pl=#1s,Name-pl=#2s}
-    \AddToHook{env/#1/begin}{\zcsetup{countertype={theorem=#1}}}
+}
+\newcommand{\newTheoremWithSharedCounter}[3]{%
+    % `#1` is both the environment name and the lowercase reference name
+    % `#2` is the capitalized reference name
+    % `#3` is the counter
+    \newtheorem{#1}[#3]{#2}
+    \newtheorem*{#1*}{#2}
+    \zcRefTypeSetup{#1}{name-sg=#1,Name-sg=#2,name-pl=#1s,Name-pl=#2s}
+    \AddToHook{env/#1/begin}{\zcsetup{countertype={#3=#1}}}
 }
 
-\newthm{proposition}{Proposition}
-\newthm{lemma}{Lemma}
-\newthm{corollary}{Corollary}
-\newthm{conjecture}{Conjecture}
+% The following are typeset in the `it` style
+\theoremstyle{\theoremTheoremStyle}
+\newTheoremWithOwnCounter{theorem}{Theorem}
+\newTheoremWithSharedCounter{proposition}{Proposition}{theorem}
+\newTheoremWithSharedCounter{lemma}{Lemma}{theorem}
+\newTheoremWithSharedCounter{corollary}{Corollary}{theorem}
+\newTheoremWithSharedCounter{conjecture}{Conjecture}{theorem}
+\newTheoremWithOwnCounter{assumption}{Assumption}
+\newTheoremWithOwnCounter{claim}{Claim}
+\newTheoremWithOwnCounter{definition}{Definition}
+\newTheoremWithOwnCounter{remark}{Remark}
 
-\newthm{assumption}{Assumption}
-\newthm{claim}{Claim}
-\newthm{definition}{Definition}
-\newthm{example}{Example}
-\newthm{remark}{Remark}
+% The following are typeset in the `rm` style
+\theoremstyle{\exampleTheoremStyle}
+\newTheoremWithOwnCounter{example}{Example}
+\newTheoremWithOwnCounter{exercise}{Exercise}
+
+% The `exampleQed` environment adds a triangle QED symbol to the `example`
+\newenvironment{exampleQed}{%
+    \renewcommand{\qedsymbol}{\( \triangleleft \)}%
+    \pushQED{\qed}\example
+}{\popQED\endexample}
 
 % -----------------------------------------------------------------------------
 % Proof environments
