@@ -57,6 +57,16 @@
 % -----------------------------------------------------------------------------
 % Proof environments
 
+% Set the proof header in bold
+\renewenvironment{proof}[1][\proofname]{\par
+    \pushQED{\qed}%
+    \normalfont \topsep6\p@\@plus6\p@\relax
+    \trivlist
+    \item[\hskip\labelsep\bfseries #1\@addpunct{.}]\ignorespaces
+}{%
+    \popQED\endtrivlist\@endpefalse
+}
+
 % A `subproof` environment
 \newenvironment{subproof}[1][\proofname]{%
     \renewcommand{\qedsymbol}{\( \triangleleft \)}%
