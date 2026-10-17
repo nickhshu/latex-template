@@ -19,8 +19,14 @@
     % Fira Sans (sans-serif)
     \usepackage[scale=MatchLowercase]{FiraSans}
 
-    % Fira Mono (monospace)
-    \usepackage[scale=MatchLowercase, nomap]{FiraMono}
+    % JetBrains Mono (monospace)
+    \IfFontExistsTF{JetBrains Mono}{
+        \setmonofont{JetBrains Mono}[Scale=MatchLowercase]
+    }{
+        % JetBrains Mono is not part of TeX Live. Use Fira Mono if it is not
+        % available.
+        \usepackage[scale=MatchLowercase]{FiraMono}
+    }
 
     % `unicode-math` must be loaded after `newpxtext`
     \usepackage[
