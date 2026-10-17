@@ -12,11 +12,15 @@
     % New PX (serif), which has better small caps than TeX Gyre Pagella
     \usepackage[otfmath]{newpxtext}
 
+    % Package `newpxtext` runs `\setmainfont` as an `\AtEndPreamble` hook. We
+    % load it explicitly here so that `MatchLowercase` works correctly.
+    \setmainfont{TeXGyrePagellaX-Regular.otf}
+
     % Fira Sans (sans-serif)
-    % \usepackage{FiraSans}
+    \usepackage[scale=MatchLowercase]{FiraSans}
 
     % Fira Mono (monospace)
-    \usepackage[scale=.8, nomap]{FiraMono}
+    \usepackage[scale=MatchLowercase, nomap]{FiraMono}
 
     % `unicode-math` must be loaded after `newpxtext`
     \usepackage[
