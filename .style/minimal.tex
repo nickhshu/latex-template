@@ -20,9 +20,19 @@
 
 \ifpdftex
     \usepackage{newpx}
+    \usepackage[scaled=0.89]{FiraSans}
+    \usepackage[scaled=0.89]{FiraMono}
 \else
     \usepackage[otfmath]{newpxtext}
-    \usepackage[scale=.8, nomap]{FiraMono}
+    \setmainfont{TeXGyrePagellaX-Regular.otf}
+
+    \usepackage[scale=MatchLowercase]{FiraSans}
+
+    \IfFontExistsTF{JetBrains Mono}{
+        \setmonofont{JetBrains Mono}[Scale=MatchLowercase]
+    }{
+        \usepackage[scale=MatchLowercase]{FiraMono}
+    }
 
     \usepackage[
         math-style=ISO, bold-style=ISO,
