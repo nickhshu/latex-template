@@ -2,20 +2,20 @@
 % fonts by file name requires specifying variants and features explicitly.
 % Therefore, load OpenType fonts with dedicated packages whenever possible.
 
+\newcommand{\sansFontScale}{0.93}
+\newcommand{\monoFontScale}{0.93}
+
 \ifpdftex
 
     % New PX (serif and math)
     \usepackage{newpx}
 
     % Fira Sans (sans-serif)
-    \usepackage[scaled=0.89]{FiraSans}
+    \usepackage[scaled=\sansFontScale]{FiraSans}
 
     % Fira Code (monospace)
-    \usepackage[scaled=0.89]{FiraMono}
+    \usepackage[scaled=\monoFontScale]{FiraMono}
 
-    % The 0.89 factor is calculated to imitate the `MatchLowercase` feature of
-    % `fontspec`. At 12pt, the x-heights are 5.628pt for New PX and 6.324pt
-    % for the Fira fonts.
 \else
 
     % New PX (serif), which has better small caps than TeX Gyre Pagella
@@ -26,7 +26,7 @@
     \setmainfont{TeXGyrePagellaX-Regular.otf}
 
     % Fira Sans (sans-serif)
-    \usepackage[scale=MatchLowercase]{FiraSans}
+    \usepackage[scale=\sansFontScale]{FiraSans}
 
     % JetBrains Mono (monospace)
     \IfFontExistsTF{JetBrains Mono}{
@@ -34,7 +34,7 @@
     }{
         % JetBrains Mono is not part of TeX Live. Use Fira Mono if it is not
         % available.
-        \usepackage[scale=MatchLowercase]{FiraMono}
+        \usepackage[scale=\monoFontScale]{FiraMono}
     }
 
     % `unicode-math` must be loaded after `newpxtext`
