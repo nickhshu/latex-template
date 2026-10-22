@@ -58,7 +58,13 @@
 
     % Load New Computer Modern (book weight) for select symbols
     \setmathfont{NewCMMath-Book.otf}[
-        range={\mathfence,\mathop,\mathbin,\mathrel,\sqrt,\mathcal,\varnothing},
+        range={
+                \mathopen,\mathclose,\mathfence,\mathop,\mathbin,\mathrel,
+                \sqrt,\mathcal,\varnothing
+            },
     ]
-
+    % ... but set some of them back to Pagella
+    \setmathfont{texgyrepagella-math.otf}[
+        range={\mathexclam}
+    ]
 \fi
