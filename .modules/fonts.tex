@@ -1,30 +1,9 @@
-% Loading fonts by font family name is not supported by XeTeX on macOS. Loading
-% fonts by file name requires specifying variants and features explicitly.
-% Therefore, load OpenType fonts with dedicated packages whenever possible.
-
-\newcommand{\sansFontScale}{0.93}
-\newcommand{\monoFontScale}{0.93}
+\newcommand{\firaSansScale}{0.93}
+\newcommand{\firaMonoScale}{0.93}
 
 \ifluatex
 
     \usepackage{fontspec}
-
-    % TeX Gyre Pagella (text)
-    \setmainfont{TeX Gyre Pagella}
-
-    % Fira Sans (sans-serif)
-    \usepackage[scale=\sansFontScale]{FiraSans}
-
-    % JetBrains Mono (monospace)
-    \IfFontExistsTF{JetBrains Mono}{
-        \setmonofont{JetBrains Mono}[Scale=MatchLowercase]
-    }{
-        % JetBrains Mono is not part of TeX Live. Use Fira Mono if it is not
-        % available.
-        \usepackage[scale=\monoFontScale]{FiraMono}
-    }
-
-    % `unicode-math` must be loaded after `newpxtext`
     \usepackage[
         math-style=ISO, bold-style=ISO,
         partial=upright,
@@ -32,27 +11,35 @@
         warnings-off={mathtools-colon,mathtools-overbracket},
     ]{unicode-math}
 
-    % TeX Gyre Pagella (math)
-    \setmathfont{texgyrepagella-math.otf}
+    % TeX Gyre Pagella (text)
+    \setmainfont{TeX Gyre Pagella}
 
-    % Load New Computer Modern (book weight) for most symbols
+    % Fira Sans (sans-serif)
+    \setsansfont{Fira Sans}[Scale=\firaSansScale]
+
+    % JetBrains Mono (monospace)
+    \IfFontExistsTF{JetBrains Mono}{
+        \setmonofont{JetBrains Mono}[Scale=MatchLowercase]
+    }{
+        % JetBrains Mono is not part of TeX Live. Use Fira Mono if it is not
+        % available.
+        \setmonofont{Fira Mono}[Scale=\firaMonoScale]
+    }
+
+    % The math font is a blend of Pagella and New Computer Modern (book weight)
+    \setmathfont{TeX Gyre Pagella Math}
     \setmathfont{NewCMMath-Book.otf}[
         range={
                 \mathopen,\mathclose,\mathfence,\mathop,\mathbin,\mathrel,
                 \mathcal,\varnothing
             },
     ]
-    % ... but set some of them back to Pagella
-    \setmathfont{texgyrepagella-math.otf}[
-        range={\mathexclam}
-    ]
-
+    \setmathfont{TeX Gyre Pagella Math}[range={\mathexclam}]
+    \setmathfont{NewCMMath-Book.otf}[range={}]
     % LuaTeX reads the `MathConstants` table from the last loaded math font for
     % parameters such as the thickness of fraction rules. Here we load New
     % Computer Modern with an empty range to use its parameters. See
-    % <https://tug.ctan.org/systems/doc/luatex/luatex-math.tex>. XeTeX handles
-    % this differently. I am not sure how it works.
-    \setmathfont{NewCMMath-Book.otf}[range={}]
+    % <https://tug.ctan.org/systems/doc/luatex/luatex-math.tex>.
 
 \else
 
@@ -60,8 +47,9 @@
     \usepackage{newpx}
 
     % Fira Sans (sans-serif)
-    \usepackage[scaled=\sansFontScale]{FiraSans}
+    \usepackage[scaled=\firaSansScale]{FiraSans}
 
     % Fira Code (monospace)
-    \usepackage[scaled=\monoFontScale]{FiraMono}
+    \usepackage[scaled=\firaMonoScale]{FiraMono}
+
 \fi
