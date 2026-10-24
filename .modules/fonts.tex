@@ -18,12 +18,10 @@
 
 \else
 
-    % New PX (serif), which has better small caps than TeX Gyre Pagella
-    \usepackage[otfmath]{newpxtext}
+    \usepackage{fontspec}
 
-    % Package `newpxtext` runs `\setmainfont` as an `\AtEndPreamble` hook. We
-    % load it explicitly here so that `MatchLowercase` works correctly.
-    \setmainfont{TeXGyrePagellaX-Regular.otf}
+    % TeX Gyre Pagella (text)
+    \setmainfont{TeX Gyre Pagella}
 
     % Fira Sans (sans-serif)
     \usepackage[scale=\sansFontScale]{FiraSans}
