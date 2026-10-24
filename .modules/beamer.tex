@@ -3,25 +3,43 @@
     \PackageError{.modules/beamer.tex}{Loaded in a non-Beamer document}
 }
 
-% Theme and font
+% -----------------------------------------------------------------------------
+% Theme and color
+
 \usetheme{moloch}
-\usefonttheme{serif}
+\molochcolors{theme=paper}
 
-% Add page numbers
-\setbeamertemplate{page number in head/foot}[totalframenumber]
-
-% Remove document icons in the bibliography
-\setbeamertemplate{bibliography item}[text]
+% Adjust theme colors
+\molochcolors{light/title separator=teal}
 
 % No color for links
 \hypersetup{allcolors = .}
 
-% Beamer won't display footnotes unless `[frame]` is specified.
-\let\oldfootnote\footnote
-\renewcommand{\footnote}[1]{\oldfootnote[frame]{#1}}
-\@ifpackageloaded{biblatex-chicago}{
-    \renewcommand{\footcite}[1]{\oldfootnote[frame]{\cite{#1}}}
-}{}
+% -----------------------------------------------------------------------------
+% Inner theme
+
+% More spacing between paragraphs
+\setlength{\parskip}{1em plus 0.2em minus 0.2em} % default is 0pt
+
+% Less spacing before lists
+\newcommand{\reduceSpacingIfZeroDepth}{\ifnum\@itemdepth=0 \vspace{-1em}\fi}
+\AddToHook{env/itemize/before}{\reduceSpacingIfZeroDepth}
+\AddToHook{env/enumerate/before}{\reduceSpacingIfZeroDepth}
+
+% -----------------------------------------------------------------------------
+% Outer theme
+
+% Set frame title in small caps
+\molochset{titleformat frame=smallcaps}
+
+% Add page numbers
+\setbeamertemplate{page number in head/foot}[totalframenumber]
+
+% -----------------------------------------------------------------------------
+% Bibliography related
 
 % Use "et al." for more than two authors in citations
 \ExecuteBibliographyOptions{maxcitenames=2}
+
+% Remove document icons in the bibliography
+\setbeamertemplate{bibliography item}[text]
