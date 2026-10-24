@@ -58,12 +58,6 @@
         range={\mathexclam}
     ]
 
-    % Load Asana Math for letter `f` only (it has better kerning)
-    \setmathfont{Asana-Math.otf}[range=\mitf]
-    \begingroup\lccode`~=`f \lowercase{\endgroup\def~}{\mitf}
-    \mathcode`f="8000
-    % From <https://tex.stackexchange.com/a/530981>
-
     % LuaTeX reads the `MathConstants` table from the last loaded math font for
     % parameters such as the thickness of fraction rules. Here we load New
     % Computer Modern with an empty range to use its parameters. See
