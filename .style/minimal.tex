@@ -18,22 +18,11 @@
 % ----------------------------------------------------------------------------
 % fonts.tex
 
-\ifpdftex
-    \usepackage{newpx}
-    \usepackage[scaled=0.89]{FiraSans}
-    \usepackage[scaled=0.89]{FiraMono}
-\else
-    \usepackage[otfmath]{newpxtext}
-    \setmainfont{TeXGyrePagellaX-Regular.otf}
+\newcommand{\firaSansScale}{0.93}
+\newcommand{\firaMonoScale}{0.93}
 
-    \usepackage[scale=MatchLowercase]{FiraSans}
-
-    \IfFontExistsTF{JetBrains Mono}{
-        \setmonofont{JetBrains Mono}[Scale=MatchLowercase]
-    }{
-        \usepackage[scale=MatchLowercase]{FiraMono}
-    }
-
+\ifluatex
+    \usepackage{fontspec}
     \usepackage[
         math-style=ISO, bold-style=ISO,
         partial=upright,
@@ -41,15 +30,27 @@
         warnings-off={mathtools-colon,mathtools-overbracket},
     ]{unicode-math}
 
-    \setmathfont{texgyrepagella-math.otf}
-    \setmathfont{Asana-Math.otf}[range=\mitf]
+    \setmainfont{TeX Gyre Pagella}
+    \setsansfont{Fira Sans}[Scale=\firaSansScale]
+    \IfFontExistsTF{JetBrains Mono}{
+        \setmonofont{JetBrains Mono}[Scale=MatchLowercase]
+    }{
+        \setmonofont{Fira Mono}[Scale=\firaMonoScale]
+    }
 
-    \begingroup\lccode`~=`f \lowercase{\endgroup\def~}{\mitf}
-    \mathcode`f="8000
-
+    \setmathfont{TeX Gyre Pagella Math}
     \setmathfont{NewCMMath-Book.otf}[
-        range={\mathfence,\mathop,\mathbin,\mathrel,\sqrt,\mathcal,\varnothing},
+        range={
+                \mathopen,\mathclose,\mathfence,\mathop,\mathbin,\mathrel,
+                \mathcal,\varnothing
+            },
     ]
+    \setmathfont{TeX Gyre Pagella Math}[range={\mathexclam}]
+    \setmathfont{NewCMMath-Book.otf}[range={}]
+\else
+    \usepackage{newpx}
+    \usepackage[scaled=\firaSansScale]{FiraSans}
+    \usepackage[scaled=\firaMonoScale]{FiraMono}
 \fi
 
 % ----------------------------------------------------------------------------
@@ -312,21 +313,21 @@
 % Abort when loaded in a non-Beamer document.
 \@ifclassloaded{beamer}{
     \usetheme{moloch}
-    \usefonttheme{serif}
 
-    \setbeamertemplate{page number in head/foot}[totalframenumber]
-
-    \setbeamertemplate{bibliography item}[text]
-
+    \molochcolors{theme=paper}
+    \molochcolors{light/title separator=teal}
     \hypersetup{allcolors = .}
 
-    \let\oldfootnote\footnote
-    \renewcommand{\footnote}[1]{\oldfootnote[frame]{#1}}
-    \@ifpackageloaded{biblatex-chicago}{
-        \renewcommand{\footcite}[1]{\oldfootnote[frame]{\cite{#1}}}
-    }{}
+    \setlength{\parskip}{1em plus 0.2em minus 0.2em} % default is 0pt
+    \newcommand{\reduceSpacingIfZeroDepth}{\ifnum\@itemdepth=0 \vspace{-1em}\fi}
+    \AddToHook{env/itemize/before}{\reduceSpacingIfZeroDepth}
+    \AddToHook{env/enumerate/before}{\reduceSpacingIfZeroDepth}
+
+    \molochset{titleformat frame=smallcaps}
+    \setbeamertemplate{page number in head/foot}[totalframenumber]
 
     \ExecuteBibliographyOptions{maxcitenames=2}
+    \setbeamertemplate{bibliography item}[text]
 }{}
 
 % ----------------------------------------------------------------------------
