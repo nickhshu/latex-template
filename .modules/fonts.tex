@@ -5,18 +5,7 @@
 \newcommand{\sansFontScale}{0.93}
 \newcommand{\monoFontScale}{0.93}
 
-\ifpdftex
-
-    % New PX (serif and math)
-    \usepackage{newpx}
-
-    % Fira Sans (sans-serif)
-    \usepackage[scaled=\sansFontScale]{FiraSans}
-
-    % Fira Code (monospace)
-    \usepackage[scaled=\monoFontScale]{FiraMono}
-
-\else
+\ifluatex
 
     \usepackage{fontspec}
 
@@ -65,4 +54,14 @@
     % this differently. I am not sure how it works.
     \setmathfont{NewCMMath-Book.otf}[range={}]
 
+\else
+
+    % New PX (serif and math)
+    \usepackage{newpx}
+
+    % Fira Sans (sans-serif)
+    \usepackage[scaled=\sansFontScale]{FiraSans}
+
+    % Fira Code (monospace)
+    \usepackage[scaled=\monoFontScale]{FiraMono}
 \fi
