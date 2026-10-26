@@ -310,7 +310,6 @@
 % ----------------------------------------------------------------------------
 % beamer.tex
 
-% Abort when loaded in a non-Beamer document.
 \@ifclassloaded{beamer}{
     \usetheme{moloch}
 
@@ -318,7 +317,7 @@
     \molochcolors{light/title separator=teal}
     \hypersetup{allcolors = .}
 
-    \setlength{\parskip}{1em plus 0.2em minus 0.2em} % default is 0pt
+    \setlength{\parskip}{1em plus 0.2em minus 0.2em}
     \newcommand{\reduceSpacingIfZeroDepth}{\ifnum\@itemdepth=0 \vspace{-1em}\fi}
     \AddToHook{env/itemize/before}{\reduceSpacingIfZeroDepth}
     \AddToHook{env/enumerate/before}{\reduceSpacingIfZeroDepth}
