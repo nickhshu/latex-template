@@ -27,6 +27,7 @@
         "prefix": "beamer",
         "body": [
             "\\documentclass[",
+            "    10pt,",
             "    xcolor={dvipsnames,table},",
             "    notheorems,",
             "    aspectratio=169,",
