@@ -13,7 +13,29 @@
 
 \usepackage{iftex}
 
+% ----------------------------------------------------------------------------
+% colors.tex
+
 \usepackage[dvipsnames, table]{xcolor}
+
+\definecolor{CardinalRed}{HTML}{8C1515}
+\definecolor{StanfordWhite}{HTML}{FFFFFF}
+\definecolor{StanfordBlack}{HTML}{2E2D29}
+\definecolor{CoolGrey}{HTML}{53565A}
+\definecolor{PaloAlto}{HTML}{175E54}
+\definecolor{PaloVerde}{HTML}{279989}
+\definecolor{Olive}{HTML}{8F993E}
+\definecolor{Bay}{HTML}{6FA287}
+\definecolor{Sky}{HTML}{4298B5}
+\definecolor{Lagunita}{HTML}{007C92}
+\definecolor{Poppy}{HTML}{E98300}
+\definecolor{Spirited}{HTML}{E04F39}
+\definecolor{Illuminating}{HTML}{FEDD5C}
+\definecolor{Plum}{HTML}{620059}
+\definecolor{Brick}{HTML}{651C32}
+\definecolor{Archway}{HTML}{5D4B3C}
+\definecolor{Stone}{HTML}{7F7776}
+\definecolor{Fog}{HTML}{DAD7CB}
 
 % ----------------------------------------------------------------------------
 % fonts.tex
@@ -257,6 +279,9 @@
 \usepackage{setspace}
 \setstretch{1.2}
 
+% No first-paragraph indentation for quotations and abstracts
+\appto\quotation{\noindent\ignorespaces}
+
 \usepackage{caption}
 
 \usepackage{tabularray}
@@ -314,7 +339,7 @@
     \usetheme{moloch}
 
     \molochcolors{theme=paper}
-    \molochcolors{light/title separator=teal}
+    \molochcolors{light/title separator=CardinalRed}
     \hypersetup{allcolors = .}
 
     \setlength{\parskip}{1em plus 0.2em minus 0.2em}
