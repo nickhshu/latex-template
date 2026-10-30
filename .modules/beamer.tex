@@ -46,3 +46,12 @@
 
 % Remove document icons in the bibliography
 \setbeamertemplate{bibliography item}[text]
+
+% Use "&" instead of "and" for in-text citations
+\DeclareDelimFormat{finalnamedelim}{%
+    \ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}%
+    \addspace\&\space}
+% ... but set it back for the bibliography
+\DeclareDelimFormat[bib,biblist]{finalnamedelim}{%
+    \ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}%
+    \addspace\bibstring{and}\space}
