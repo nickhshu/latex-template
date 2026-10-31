@@ -22,7 +22,20 @@
 % Inner theme
 
 % More spacing between paragraphs
-\setlength{\parskip}{1em plus 0.2em minus 0.2em} % default is 0pt
+\newlength{\BeamerParskip}
+\setlength{\BeamerParskip}{1em plus 0.2em minus 0.2em} % default is 0pt
+\setlength{\parskip}{\BeamerParskip}
+
+% Special handling is needed for `columns` environments
+\def\beamer@setcolparskip{\setlength{\parskip}{\BeamerParskip}}
+\define@key{beamer@col}{c}[true]{\def\beamer@colmode{c}\def\beamer@colalign{c}%
+    \def\beamer@colheadskip{\beamer@setcolparskip}}
+\define@key{beamer@col}{t}[true]{\def\beamer@colmode{t}\def\beamer@colalign{t}%
+    \def\beamer@colheadskip{\beamer@setcolparskip}}
+\define@key{beamer@col}{T}[true]{\def\beamer@colmode{T}\def\beamer@colalign{t}%
+    \def\beamer@colheadskip{\vskip-1ex\beamer@setcolparskip\vskip-\parskip\nointerlineskip}}
+\define@key{beamer@col}{b}[true]{\def\beamer@colmode{b}\def\beamer@colalign{b}%
+    \def\beamer@colheadskip{\beamer@setcolparskip}}
 
 % Less spacing before lists
 \newcommand{\reduceSpacingIfZeroDepth}{\ifnum\@itemdepth=0 \vspace{-1em}\fi}
