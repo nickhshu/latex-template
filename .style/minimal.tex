@@ -13,6 +13,8 @@
 
 \usepackage{iftex}
 
+\usepackage{etoolbox}
+
 % ----------------------------------------------------------------------------
 % colors.tex
 
@@ -37,11 +39,16 @@
 \definecolor{Stone}{HTML}{7F7776}
 \definecolor{Fog}{HTML}{DAD7CB}
 
+\newcommand{\textCRed}{\textcolor{CardinalRed}}
+\newcommand{\textPA}{\textcolor{PaloAlto}}
+\newcommand{\textPlum}{\textcolor{Plum}}
+\newcommand{\textPoppy}{\textcolor{Poppy}}
+
 % ----------------------------------------------------------------------------
 % fonts.tex
 
-\newcommand{\firaSansScale}{0.93}
-\newcommand{\firaMonoScale}{0.93}
+\newcommand{\firaSansScale}{0.89}
+\newcommand{\firaMonoScale}{0.89}
 
 \ifluatex
     \usepackage{fontspec}
@@ -70,9 +77,9 @@
     \setmathfont{TeX Gyre Pagella Math}[range={\mathexclam}]
     \setmathfont{NewCMMath-Book.otf}[range={}]
 \else
-    \usepackage{newpx}
-    \usepackage[scaled=\firaSansScale]{FiraSans}
-    \usepackage[scaled=\firaMonoScale]{FiraMono}
+    \usepackage{mathpazo}
+    \usepackage[scale=\firaSansScale]{FiraSans}
+    \usepackage[scale=\firaMonoScale]{FiraMono}
 \fi
 
 % ----------------------------------------------------------------------------
@@ -90,6 +97,9 @@
 
 % ----------------------------------------------------------------------------
 % theorems.tex
+
+\newtheoremstyle{nl}{}{}{\itshape}{}{\bfseries}{}{\newline}{%
+    \thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}.}
 
 \newtheoremstyle{it}{}{}{\itshape}{}{\bfseries}{}{0.5em}{%
     \thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}.}
@@ -151,10 +161,17 @@
 % ----------------------------------------------------------------------------
 % math.tex
 
+\ifluatex
+    \usepackage{lualatex-math}
+\fi
+
 \usepackage{mleftright}
 \mleftright{}
 
 \usepackage{bracealign}
+
+\usepackage{fixdif}
+\letdif{\grad}{nabla}
 
 \newcommand{\opn}[1]{\operatorname{#1}}
 
@@ -180,6 +197,10 @@
 \DeclareMathOperator*{\maximize}{maximize}
 \DeclareMathOperator*{\minimize}{minimize}
 
+\DeclareDocumentCommand{\qq}{ s m }{
+    \IfBooleanTF{#1}{}{\quad} \text{#2} \quad
+}
+
 \DeclareDocumentCommand{\ol}{ m }{
     {\mspace{1mu}\overline{\mspace{-1mu} #1 \mspace{-1mu}}\mspace{1mu}}
 }
@@ -191,64 +212,6 @@
 \def\endcases{\endarray\hskip-\arraycolsep\right.}
 
 \renewcases{dcases}{\quad}{$\m@th\displaystyle##$\hfil}{$\m@th\displaystyle##$\hfil}{\lbrace\;}{.}
-
-\DeclareDocumentCommand{\abs}{ s m }{
-    \IfBooleanTF{#1}{
-        \lvert #2 \rvert
-    }{
-        \left\lvert #2 \right\rvert
-    }
-}
-\DeclareDocumentCommand{\norm}{ s m }{
-    \IfBooleanTF{#1}{
-        \lVert #2 \rVert
-    }{
-        \left\lVert #2 \right\rVert
-    }
-}
-
-\DeclareDocumentCommand{\qq}{ s m }{
-    \IfBooleanTF{#1}{}{\quad} \text{#2} \quad
-}
-
-\usepackage{fixdif}
-\letdif{\grad}{nabla}
-
-\DeclareDocumentCommand\flatfrac{ m m }{ #1 / #2 }
-
-\DeclareDocumentCommand\dv{ s o m g }{
-    \IfBooleanTF{#1}{ \let\fractype\flatfrac }{ \let\fractype\frac }
-    \IfNoValueTF{#4}{
-        \fractype{
-            \d \IfNoValueTF{#2}{}{^{#2}}
-        }{
-            \d #3\IfNoValueTF{#2}{}{^{#2}}
-        }
-    }{
-        \fractype{
-            \d \IfNoValueTF{#2}{}{^{#2}} #3
-        }{
-            \d #4\IfNoValueTF{#2}{}{^{#2}}
-        }
-    }
-}
-
-\DeclareDocumentCommand\pdv{ s o m g }{
-    \IfBooleanTF{#1}{ \let\fractype\flatfrac }{ \let\fractype\frac }
-    \IfNoValueTF{#4}{
-        \fractype{
-            \partial \IfNoValueTF{#2}{}{^{#2}}
-        }{
-            \partial #3\IfNoValueTF{#2}{}{^{#2}}
-        }
-    }{
-        \fractype{
-            \partial \IfNoValueTF{#2}{}{^{#2}} #3
-        }{
-            \partial #4\IfNoValueTF{#2}{}{^{#2}}
-        }
-    }
-}
 
 % ----------------------------------------------------------------------------
 % lists.tex
@@ -279,47 +242,13 @@
 \usepackage{setspace}
 \setstretch{1.2}
 
-% No first-paragraph indentation for quotations and abstracts
 \appto\quotation{\noindent\ignorespaces}
 
-\usepackage{caption}
+\renewcommand*{\@seccntformat}[1]{\csname the#1\endcsname.\quad}
 
-\usepackage{tabularray}
-\UseTblrLibrary{booktabs}
-
-\usepackage[maxlevel=4]{csquotes}
-
-\usepackage[authordate, backend=biber]{biblatex-chicago}
-
-\usepackage{microtype}
-
-\usepackage{ellipsis}
-
-\usepackage{url}
-\g@addto@macro{\UrlBreaks}{\UrlOrds}
-
-\usepackage{silence}
-\WarningFilter{microtype}{Unable to apply patch `footnote'}
-
-\usepackage[]{hyperref}
-\hypersetup{
-    allcolors = .,
-    breaklinks = true,
-    colorlinks = true,
-    hypertexnames = false,
-    bookmarksnumbered = true,
+\AtEndPreamble{
+    \renewcommand\Hy@numberline[1]{#1. }
 }
-\urlstyle{rm}
-
-\renewcommand*{\@seccntformat}[1]{%
-    \csname the#1\endcsname.\quad
-}
-\renewcommand\Hy@numberline[1]{#1. }
-
-\let\oldFootnote\footnote
-\newcommand\nextToken\relax
-\renewcommand\footnote[1]{\oldFootnote{#1}\futurelet\nextToken\isFootnote}
-\newcommand\isFootnote{\ifx\footnote\nextToken\textsuperscript{,}\fi}
 
 \NewDocumentCommand{\TwoPartSection}{o m m}{%
     \IfNoValueTF{#1}
@@ -332,26 +261,99 @@
     {\subsection[#1]{#2\\\textmd{\textit{\large #3}}}}%
 }
 
-% ----------------------------------------------------------------------------
-% beamer.tex
+\newcommand{\appfmt@seccntformat}[1]{\csname appfmt@#1\endcsname}
+\newcommand{\appfmt@section}{Appendix~\thesection.\quad}
+\newcommand{\appfmt@subsection}{\thesubsection.\quad}
+\newcommand{\appfmt@subsubsection}{\thesubsubsection.\quad}
+\newcommand{\appfmt@numberline}[1]{%
+    \ifnum\pdf@strcmp{#1}{\thesection}=0 A\fi #1. }
+
+\AddToHook{cmd/appendix/after}{%
+    \renewcommand{\thesection}{\arabic{section}}%
+    \renewcommand{\thesubsection}{A\thesection.\arabic{subsection}}%
+    \let\@seccntformat\appfmt@seccntformat
+    \let\Hy@numberline\appfmt@numberline
+    \zcsetup{countertype={section=appendix, subsection=section, subsubsection=section}}%
+}
+
+\usepackage{microtype}
+
+\usepackage[maxlevel=4]{csquotes}
+
+\usepackage{ellipsis}
+
+\AtEndPreamble{
+    \let\oldFootnote\footnote
+    \newcommand\nextToken\relax
+    \renewcommand\footnote[1]{\oldFootnote{#1}\futurelet\nextToken\isFootnote}
+    \newcommand\isFootnote{\ifx\footnote\nextToken\textsuperscript{,}\fi}
+}
+
+\usepackage{url}
+\g@addto@macro{\UrlBreaks}{\UrlOrds}
+
+\urlstyle{rm}
+
+\usepackage{caption}
+
+\usepackage{tabularray}
+\UseTblrLibrary{booktabs}
+
+\usepackage[authordate, backend=biber]{biblatex-chicago}
+
+\usepackage{silence}
+\WarningFilter{microtype}{Unable to apply patch `footnote'}
+
+\usepackage[]{hyperref}
+\hypersetup{
+    allcolors = .,
+    breaklinks = true,
+    colorlinks = true,
+    hypertexnames = false,
+    bookmarksnumbered = true,
+}
 
 \@ifclassloaded{beamer}{
     \usetheme{moloch}
-
     \molochcolors{theme=paper}
+
     \molochcolors{light/title separator=CardinalRed}
+
     \hypersetup{allcolors = .}
 
-    \setlength{\parskip}{1em plus 0.2em minus 0.2em}
+    \molochset{block=fill}
+
+    \newlength{\BeamerParskip}
+    \setlength{\BeamerParskip}{1em plus 0.2em minus 0.2em} % default is 0pt
+    \setlength{\parskip}{\BeamerParskip}
+
+    \def\beamer@setcolparskip{\setlength{\parskip}{\BeamerParskip}}
+    \define@key{beamer@col}{c}[true]{\def\beamer@colmode{c}\def\beamer@colalign{c}%
+        \def\beamer@colheadskip{\beamer@setcolparskip}}
+    \define@key{beamer@col}{t}[true]{\def\beamer@colmode{t}\def\beamer@colalign{t}%
+        \def\beamer@colheadskip{\beamer@setcolparskip}}
+    \define@key{beamer@col}{T}[true]{\def\beamer@colmode{T}\def\beamer@colalign{t}%
+        \def\beamer@colheadskip{\vskip-1ex\beamer@setcolparskip\vskip-\parskip\nointerlineskip}}
+    \define@key{beamer@col}{b}[true]{\def\beamer@colmode{b}\def\beamer@colalign{b}%
+        \def\beamer@colheadskip{\beamer@setcolparskip}}
+
     \newcommand{\reduceSpacingIfZeroDepth}{\ifnum\@itemdepth=0 \vspace{-1em}\fi}
     \AddToHook{env/itemize/before}{\reduceSpacingIfZeroDepth}
     \AddToHook{env/enumerate/before}{\reduceSpacingIfZeroDepth}
 
-    \molochset{titleformat frame=smallcaps}
     \setbeamertemplate{page number in head/foot}[totalframenumber]
 
     \ExecuteBibliographyOptions{maxcitenames=2}
+
     \setbeamertemplate{bibliography item}[text]
+
+    \DeclareDelimFormat{finalnamedelim}{%
+        \ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}%
+        \addspace\&\space}
+    \DeclareDelimFormat[bib,biblist]{finalnamedelim}{%
+        \ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}%
+        \addspace\bibstring{and}\space}
+
 }{}
 
 % ----------------------------------------------------------------------------
