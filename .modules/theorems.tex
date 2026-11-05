@@ -2,38 +2,17 @@
 % Theorem styles
 
 % The `nl` style sets the body in italics and breaks the line after the header
-\newtheoremstyle{nl}% name
-{}% space above
-{}% space below
-{\itshape}% body font
-{}% indent
-{\bfseries}% head font
-{}% head punctuation
-{\newline}% after head space
-{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}.}% head spec
+\newtheoremstyle{nl}{}{}{\itshape}{}{\bfseries}{}{\newline}{%
+    \thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}.}
 
 % The `it` style is the conventional style that sets the body in italics and in
 % the same line as the header.
-\newtheoremstyle{it}% name
-{}% space above
-{}% space below
-{\itshape}% body font
-{}% indent
-{\bfseries}% head font
-{}% head punctuation
-{0.5em}% after head space
-{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}.}% head spec
+\newtheoremstyle{it}{}{}{\itshape}{}{\bfseries}{}{0.5em}{%
+    \thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}.}
 
 % The `rm` style sets the body in roman and in the same line as the header
-\newtheoremstyle{rm}% name
-{}% space above
-{}% space below
-{\rmfamily}% body font
-{}% indent
-{\bfseries}% head font
-{}% head punctuation
-{0.5em}% after head space
-{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}.}% head spec
+\newtheoremstyle{rm}{}{}{\rmfamily}{}{\bfseries}{}{0.5em}{%
+    \thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}.}
 
 % To customize the theorem styles, set the following options before loading
 % this file:

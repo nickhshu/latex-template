@@ -1,16 +1,81 @@
-% Page layout
+% -----------------------------------------------------------------------------
+% Page layout and paragraph formatting
+
+% A4 paper with vertical margins slightly smaller than default (0.7)
 \@ifclassloaded{article}{
     \usepackage[a4paper, vscale=0.75]{geometry}
-    % Slightly smaller vertical margins than the `geometry` default (0.7)
 }
 
-% Line spacing
+% Line spacing slightly smaller than one-half spacing (1.25)
 \usepackage{setspace}
 \setstretch{1.2}
-% Slightly smaller than one-half spacing (1.25).
 
-% No first-paragraph indentation for quotations and abstracts
+% No first-paragraph indentation for quotations and abstracts (which uses the
+% `quotation` environment)
 \appto\quotation{\noindent\ignorespaces}
+
+% -----------------------------------------------------------------------------
+% Sections
+
+% Add a dot after section numbers
+\renewcommand*{\@seccntformat}[1]{\csname the#1\endcsname.\quad}
+% See <https://texfaq.org/FAQ-seccntfmt>.
+
+% Also update `hyperref` bookmarks
+\AtEndPreamble{
+    % Postpone until `hyperref` is loaded at the end of the preamble
+    \renewcommand\Hy@numberline[1]{#1. }
+}
+% From <https://tex.stackexchange.com/a/557745>.
+
+% Section with subtitles
+\NewDocumentCommand{\TwoPartSection}{o m m}{%
+    \IfNoValueTF{#1}
+    {\section[#2]{#2\\\textmd{\textit{\large #3}}}}%
+    {\section[#1]{#2\\\textmd{\textit{\large #3}}}}%
+}
+\NewDocumentCommand{\TwoPartSubsection}{o m m}{%
+    \IfNoValueTF{#1}
+    {\subsection[#2]{#2\\\textmd{\textit{\large #3}}}}%
+    {\subsection[#1]{#2\\\textmd{\textit{\large #3}}}}%
+}
+
+% -----------------------------------------------------------------------------
+% Text formatting
+
+% Micro-typographic refinements
+\usepackage{microtype}
+
+% Smart quotation marks
+\usepackage[maxlevel=4]{csquotes}
+% Load before `biblatex-chicago'
+
+% Fix spacing issues for ellipses
+\usepackage{ellipsis}
+% See the Companion, 3rd ed., vol. 1, p. 148.
+
+% Commas between consecutive footnotes
+\AtEndPreamble{
+    % Postpone until `hyperref` is loaded at the end of the preamble
+    \let\oldFootnote\footnote
+    \newcommand\nextToken\relax
+    \renewcommand\footnote[1]{\oldFootnote{#1}\futurelet\nextToken\isFootnote}
+    \newcommand\isFootnote{\ifx\footnote\nextToken\textsuperscript{,}\fi}
+}
+% From <https://tex.stackexchange.com/a/62091>.
+
+% -----------------------------------------------------------------------------
+% URLs
+
+% Allow line breaks after select characters in URLs
+\usepackage{url}
+\g@addto@macro{\UrlBreaks}{\UrlOrds}
+
+% Set links in roman
+\urlstyle{rm}
+
+% -----------------------------------------------------------------------------
+% Floats
 
 % Better caption formatting
 \usepackage{caption}
@@ -20,23 +85,11 @@
 \usepackage{tabularray}
 \UseTblrLibrary{booktabs}
 
-% Smart quotation marks
-% Load before `biblatex-chicago'
-\usepackage[maxlevel=4]{csquotes}
+% -----------------------------------------------------------------------------
+% Everything else
 
 % Bibliography
 \usepackage[authordate, backend=biber]{biblatex-chicago}
-
-% Micro-typographic refinements
-\usepackage{microtype}
-
-% Fix spacing issues for ellipses
-\usepackage{ellipsis}
-% See the Companion, 3rd ed., vol. 1, p. 148.
-
-% Allow line breaks after select characters in URLs
-\usepackage{url}
-\g@addto@macro{\UrlBreaks}{\UrlOrds}
 
 % Silence warnings
 \usepackage{silence}
@@ -53,33 +106,4 @@
     colorlinks = true,
     hypertexnames = false, % or `perpage` will lead to duplicate PDF anchors
     bookmarksnumbered = true,
-}
-
-% Set links in roman
-\urlstyle{rm}
-
-% Add a dot after section numbers (see <https://texfaq.org/FAQ-seccntfmt>)
-\renewcommand*{\@seccntformat}[1]{%
-    \csname the#1\endcsname.\quad
-}
-% Also update `hyperref` bookmarks (from <https://tex.stackexchange.com/a/557745>)
-\renewcommand\Hy@numberline[1]{#1. }
-
-% Commas between consecutive footnotes
-\let\oldFootnote\footnote
-\newcommand\nextToken\relax
-\renewcommand\footnote[1]{\oldFootnote{#1}\futurelet\nextToken\isFootnote}
-\newcommand\isFootnote{\ifx\footnote\nextToken\textsuperscript{,}\fi}
-% From <https://tex.stackexchange.com/a/62091>. Put after `hyperref`.
-
-% Section with subtitles
-\NewDocumentCommand{\TwoPartSection}{o m m}{%
-    \IfNoValueTF{#1}
-    {\section[#2]{#2\\\textmd{\textit{\large #3}}}}%
-    {\section[#1]{#2\\\textmd{\textit{\large #3}}}}%
-}
-\NewDocumentCommand{\TwoPartSubsection}{o m m}{%
-    \IfNoValueTF{#1}
-    {\subsection[#2]{#2\\\textmd{\textit{\large #3}}}}%
-    {\subsection[#1]{#2\\\textmd{\textit{\large #3}}}}%
 }
