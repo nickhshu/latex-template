@@ -118,6 +118,7 @@
         "setcolparskip",
         "subimport",
         "subproof",
+        "subsubsections",
         "succeq",
         "succsim",
         "synctex",

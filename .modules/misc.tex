@@ -41,6 +41,33 @@
 }
 
 % -----------------------------------------------------------------------------
+% Appendices
+
+% Appendix sections will appear as
+% - "Appendix 1. Title" in text,
+% - "A1. Title" in PDF bookmarks, and
+% - "Appendix 1" when cited with `\cref`.
+
+% Appendix subsections (and subsubsections) will appear as
+% - "A1.1. Title" in text and PDF bookmarks and
+% - "Section A1.1" when cited with `\cref`.
+
+\newcommand{\appfmt@seccntformat}[1]{\csname appfmt@#1\endcsname}
+\newcommand{\appfmt@section}{Appendix~\thesection.\quad}
+\newcommand{\appfmt@subsection}{\thesubsection.\quad}
+\newcommand{\appfmt@subsubsection}{\thesubsubsection.\quad}
+\newcommand{\appfmt@numberline}[1]{%
+    \ifnum\pdf@strcmp{#1}{\thesection}=0 A\fi #1. }
+
+\AddToHook{cmd/appendix/after}{%
+    \renewcommand{\thesection}{\arabic{section}}%
+    \renewcommand{\thesubsection}{A\thesection.\arabic{subsection}}%
+    \let\@seccntformat\appfmt@seccntformat
+    \let\Hy@numberline\appfmt@numberline
+    \zcsetup{countertype={section=appendix, subsection=section, subsubsection=section}}%
+}
+
+% -----------------------------------------------------------------------------
 % Text formatting
 
 % Micro-typographic refinements
