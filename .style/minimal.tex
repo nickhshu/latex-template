@@ -313,6 +313,9 @@
     bookmarksnumbered = true,
 }
 
+% ----------------------------------------------------------------------------
+% beamer.tex
+
 \@ifclassloaded{beamer}{
     \usetheme{moloch}
     \molochcolors{theme=paper}
@@ -322,24 +325,6 @@
     \hypersetup{allcolors = .}
 
     \molochset{block=fill}
-
-    \newlength{\BeamerParskip}
-    \setlength{\BeamerParskip}{1em plus 0.2em minus 0.2em} % default is 0pt
-    \setlength{\parskip}{\BeamerParskip}
-
-    \def\beamer@setcolparskip{\setlength{\parskip}{\BeamerParskip}}
-    \define@key{beamer@col}{c}[true]{\def\beamer@colmode{c}\def\beamer@colalign{c}%
-        \def\beamer@colheadskip{\beamer@setcolparskip}}
-    \define@key{beamer@col}{t}[true]{\def\beamer@colmode{t}\def\beamer@colalign{t}%
-        \def\beamer@colheadskip{\beamer@setcolparskip}}
-    \define@key{beamer@col}{T}[true]{\def\beamer@colmode{T}\def\beamer@colalign{t}%
-        \def\beamer@colheadskip{\vskip-1ex\beamer@setcolparskip\vskip-\parskip\nointerlineskip}}
-    \define@key{beamer@col}{b}[true]{\def\beamer@colmode{b}\def\beamer@colalign{b}%
-        \def\beamer@colheadskip{\beamer@setcolparskip}}
-
-    \newcommand{\reduceSpacingIfZeroDepth}{\ifnum\@itemdepth=0 \vspace{-1em}\fi}
-    \AddToHook{env/itemize/before}{\reduceSpacingIfZeroDepth}
-    \AddToHook{env/enumerate/before}{\reduceSpacingIfZeroDepth}
 
     \setbeamertemplate{page number in head/foot}[totalframenumber]
 
@@ -353,10 +338,102 @@
     \DeclareDelimFormat[bib,biblist]{finalnamedelim}{%
         \ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}%
         \addspace\bibstring{and}\space}
+}{}
 
+% ----------------------------------------------------------------------------
+% beamer-spacing.tex
+
+\@ifclassloaded{beamer}{
+    \newlength{\BeamerParskip}
+    \setlength{\BeamerParskip}{1em plus 0.4em minus 0.4em}
+
+    \setlength{\parskip}{\BeamerParskip}
+
+    \def\beamer@setcolparskip{\setlength{\parskip}{\BeamerParskip}}
+    \define@key{beamer@col}{c}[true]{\def\beamer@colmode{c}\def\beamer@colalign{c}%
+        \def\beamer@colheadskip{\beamer@setcolparskip}}
+    \define@key{beamer@col}{t}[true]{\def\beamer@colmode{t}\def\beamer@colalign{t}%
+        \def\beamer@colheadskip{\beamer@setcolparskip}}
+    \define@key{beamer@col}{T}[true]{\def\beamer@colmode{T}\def\beamer@colalign{t}%
+        \def\beamer@colheadskip{\vskip-1ex\beamer@setcolparskip\vskip-\parskip\nointerlineskip}}
+    \define@key{beamer@col}{b}[true]{\def\beamer@colmode{b}\def\beamer@colalign{b}%
+        \def\beamer@colheadskip{\beamer@setcolparskip}}
+
+    \newcommand{\BeamerBoxSkip}{%
+        \ifdim\prevdepth>-1000pt
+            \@tempdima=\dimexpr\baselineskip-\fontcharht\font`H-\prevdepth\relax
+            \ifdim\@tempdima<\lineskiplimit
+                \@tempdima=\lineskip
+            \fi
+            \vskip\@tempdima
+        \fi
+    }
+
+    \newif\ifBeamerAtTop
+    \newcommand{\BeamerCheckTop}{%
+        \BeamerAtTopfalse
+        \ifnum\lastnodetype=-1
+            \BeamerAtToptrue
+        \else\ifnum\lastnodetype=1
+                \setbox\z@=\lastbox
+                \ifnum\lastnodetype=-1 \ifdim\ht\z@=\z@ \ifdim\dp\z@=\z@
+                            \BeamerAtToptrue
+                        \fi\fi\fi
+                \nointerlineskip\box\z@
+            \fi\fi
+    }
+
+    \newcommand{\BeamerBoxBefore}{%
+        \par
+        \BeamerCheckTop
+        \ifBeamerAtTop\else
+            \BeamerBoxSkip
+            \vskip\parskip
+        \fi
+        \nointerlineskip
+    }
+    \newcommand{\BeamerBoxAfter}{\prevdepth=0pt}
+    \AddToHook{env/columns/before}{\BeamerBoxBefore}
+    \AddToHook{env/columns/after}{\BeamerBoxAfter}
+    \AddToHook{env/overprint/before}{\BeamerBoxBefore}
+    \AddToHook{env/overprint/after}{\BeamerBoxAfter}
+
+    \AddToHook{env/overprint/begin}{%
+        \def\@minipagerestore{\setlength{\parskip}{\BeamerParskip}}%
+    }
+
+    \addtobeamertemplate{block begin}{
+        \BeamerCheckTop
+        \ifBeamerAtTop
+            \vskip-\medskipamount
+        \else
+            \BeamerBoxSkip
+            \vskip\glueexpr\parskip-\medskipamount\relax
+        \fi
+        \nointerlineskip
+    }{}
+    \addtobeamertemplate{block end}{}{\unskip}
+
+    \NewDocumentEnvironment{beamerfigure}{}{%
+        \par
+        \BeamerCheckTop
+        \ifBeamerAtTop
+            \vskip-\parskip
+        \else
+            \BeamerBoxSkip
+        \fi
+        \nointerlineskip
+        \centering
+    }{\par}
+
+    \newcommand{\reduceSpacingIfZeroDepth}{\ifnum\@itemdepth=0 \vspace{-\parskip}\fi}
+    \AddToHook{env/itemize/before}{\reduceSpacingIfZeroDepth}
+    \AddToHook{env/enumerate/before}{\reduceSpacingIfZeroDepth}
 }{}
 
 % ----------------------------------------------------------------------------
 % project.tex
+
+% ----------------------------------------------------------------------------
 
 \makeatother
