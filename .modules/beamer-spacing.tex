@@ -1,0 +1,133 @@
+% This file adjusts spacing between vertical elements in `beamer` presentations
+% (e.g., paragraphs, figures, `block`s).
+
+% Abort when loaded in a non-Beamer document.
+\@ifclassloaded{beamer}{}{
+    \PackageError{.modules/beamer-spacing.tex}{Loaded in a non-Beamer document}
+}
+
+% This will be the default spacing between vertical elements. It is larger than
+% Beamer's default spacing between paragraphs.
+\newlength{\BeamerParskip}
+\setlength{\BeamerParskip}{1em plus 0.4em minus 0.4em}
+
+% -----------------------------------------------------------------------------
+% Paragraphs
+
+% Set `\parskip`
+\setlength{\parskip}{\BeamerParskip}
+
+% Special handling is needed for paragraphs inside `columns`
+\def\beamer@setcolparskip{\setlength{\parskip}{\BeamerParskip}}
+\define@key{beamer@col}{c}[true]{\def\beamer@colmode{c}\def\beamer@colalign{c}%
+    \def\beamer@colheadskip{\beamer@setcolparskip}}
+\define@key{beamer@col}{t}[true]{\def\beamer@colmode{t}\def\beamer@colalign{t}%
+    \def\beamer@colheadskip{\beamer@setcolparskip}}
+\define@key{beamer@col}{T}[true]{\def\beamer@colmode{T}\def\beamer@colalign{t}%
+    \def\beamer@colheadskip{\vskip-1ex\beamer@setcolparskip\vskip-\parskip\nointerlineskip}}
+\define@key{beamer@col}{b}[true]{\def\beamer@colmode{b}\def\beamer@colalign{b}%
+    \def\beamer@colheadskip{\beamer@setcolparskip}}
+
+% -----------------------------------------------------------------------------
+% Some helper commands
+
+% Adjust spacing above a box (e.g., `block` or figure) so that its top sits
+% where the capitals of a following text line would be. As with TeX's own
+% interline glue, fall back to `\lineskip` when the previous item is too deep
+% (e.g., `columns`, whose baseline runs through the middle).
+\newcommand{\BeamerBoxSkip}{%
+    \ifdim\prevdepth>-1000pt
+        \@tempdima=\dimexpr\baselineskip-\fontcharht\font`H-\prevdepth\relax
+        \ifdim\@tempdima<\lineskiplimit
+            \@tempdima=\lineskip
+        \fi
+        \vskip\@tempdima
+    \fi
+}
+
+% This command checks whether we are at the top of a box, which is true if
+% either nothing is above yet, or only the empty first line that Beamer starts
+% every column with (its `\leavevmode`). Must be used in vertical mode.
+\newif\ifBeamerAtTop
+\newcommand{\BeamerCheckTop}{%
+    \BeamerAtTopfalse
+    \ifnum\lastnodetype=-1
+        \BeamerAtToptrue
+    \else\ifnum\lastnodetype=1 % last item is a line: look at it
+            \setbox\z@=\lastbox
+            \ifnum\lastnodetype=-1 \ifdim\ht\z@=\z@ \ifdim\dp\z@=\z@
+                        \BeamerAtToptrue
+                    \fi\fi\fi
+            \nointerlineskip\box\z@ % put it back
+        \fi\fi
+}
+
+% -----------------------------------------------------------------------------
+% Patch `columns` and `overprint`
+
+% Beamer adds `columns` and `overprint` as a single box rather than a
+% paragraph, so they get no `\parskip` above them, and their baseline is not at
+% the bottom (for `columns`, it runs through the middle). Space them like a
+% `block`: the same space above, and their bottom edge counts as a baseline for
+% whatever follows.
+\newcommand{\BeamerBoxBefore}{%
+    \par
+    \BeamerCheckTop
+    \ifBeamerAtTop\else
+        \BeamerBoxSkip
+        \vskip\parskip
+    \fi
+    \nointerlineskip
+}
+\newcommand{\BeamerBoxAfter}{\prevdepth=0pt}
+\AddToHook{env/columns/before}{\BeamerBoxBefore}
+\AddToHook{env/columns/after}{\BeamerBoxAfter}
+\AddToHook{env/overprint/before}{\BeamerBoxBefore}
+\AddToHook{env/overprint/after}{\BeamerBoxAfter}
+
+% Each part of an `overprint` is a `minipage`, which resets `\parskip` to 0.
+% Set it back by patching `\@minipagerestore`, which `minipage` calls right
+% after that reset.
+\AddToHook{env/overprint/begin}{%
+    \def\@minipagerestore{\setlength{\parskip}{\BeamerParskip}}%
+}
+
+% -----------------------------------------------------------------------------
+% Handle other environments
+
+% Patch the `block` environment
+\addtobeamertemplate{block begin}{
+    \BeamerCheckTop
+    \ifBeamerAtTop
+        \vskip-\medskipamount
+    \else
+        \BeamerBoxSkip
+        \vskip\glueexpr\parskip-\medskipamount\relax
+    \fi
+    \nointerlineskip
+}{}
+\addtobeamertemplate{block end}{}{\unskip}
+% This does not cover `alertblock` and `exampleblock`, but I do not use them.
+
+% Put all figures inside this `beamerfigure` environment for proper spacing
+\NewDocumentEnvironment{beamerfigure}{}{%
+    \par
+    \BeamerCheckTop
+    \ifBeamerAtTop
+        \vskip-\parskip
+    \else
+        \BeamerBoxSkip
+    \fi
+    \nointerlineskip
+    \centering
+}{\par}
+
+% -----------------------------------------------------------------------------
+% Lists
+
+% Reduce spacing before lists so that it looks like part of the preceding
+% paragraph. We do this by removing the `\parskip` that LaTeX adds above a top-
+% level list
+\newcommand{\reduceSpacingIfZeroDepth}{\ifnum\@itemdepth=0 \vspace{-\parskip}\fi}
+\AddToHook{env/itemize/before}{\reduceSpacingIfZeroDepth}
+\AddToHook{env/enumerate/before}{\reduceSpacingIfZeroDepth}
