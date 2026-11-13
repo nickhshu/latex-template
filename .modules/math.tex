@@ -44,6 +44,12 @@
 \DeclareMathOperator*{\maximize}{maximize}
 \DeclareMathOperator*{\minimize}{minimize}
 
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}
+% Here `\abs` does not resize automatically but `\abs*` does. The `physics`
+% package also defines `\abs` and `\norm`, with the star working in the
+% opposite way.
+
 % Command `\qq` from the `physics` package
 \DeclareDocumentCommand{\qq}{ s m }{
     \IfBooleanTF{#1}{}{\quad} \text{#2} \quad
