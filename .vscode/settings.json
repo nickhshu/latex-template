@@ -102,6 +102,7 @@
         "latexmk",
         "latexmkrc",
         "libexec",
+        "manualtheorem",
         "mathit",
         "mathrm",
         "mathtools",

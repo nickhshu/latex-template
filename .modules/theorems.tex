@@ -57,11 +57,27 @@
 \newTheoremWithOwnCounter{example}{Example}
 \newTheoremWithOwnCounter{exercise}{Exercise}
 
+% -----------------------------------------------------------------------------
+% Special theorem environments
+
 % The `exampleQed` environment adds a triangle QED symbol to the `example`
 \newenvironment{exampleQed}{%
     \renewcommand{\qedsymbol}{\( \triangleleft \)}%
     \pushQED{\qed}\example
 }{\popQED\endexample}
+
+% The `manualtheorem` environment allows for manually specifying the theorem
+% number
+\newenvironment{manualtheorem}[1]{
+    \vspace{\topsep}
+    \noindent
+    \textbf{#1.}\hspace{0.5em}
+    \begingroup
+    \itshape
+}{%
+    \endgroup
+    \vspace{\topsep}
+}
 
 % -----------------------------------------------------------------------------
 % Proof environments
